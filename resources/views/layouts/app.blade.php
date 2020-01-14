@@ -20,7 +20,7 @@
         <link href="{{ asset('black') }}/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
         <link href="{{ asset('black') }}/css/theme.css" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
-        <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js" defer></script>
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()
@@ -71,7 +71,7 @@
 
         <script>
             $(document).ready(function() {
-              
+
                 $('.js-example-basic-multiple').select2();
                 $().ready(function() {
                     $sidebar = $('.sidebar');
