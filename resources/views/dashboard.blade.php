@@ -13,7 +13,7 @@
                             <thead class=" text-primary">
                                 <tr>
                                     <th>
-                                        Id
+                                        Ordre
                                     </th>
                                     <th>
                                         Producte
@@ -25,10 +25,10 @@
                                         Preu
                                     </th>
                                     <th>
-                                        date
+                                        Data
                                     </th>
                                     <th>
-                                        Finish
+                                        Entregat
                                     </th>
                                 </tr>
                             </thead>
@@ -39,10 +39,10 @@
                                       {{ $order->id }}
                                     </td>
                                     <td>
-                                      {{ $order->id }}
+                                      {{ $order->id}}
                                     </td>
                                     <td>
-                                      {{ $order->user_id }}
+                                      {{ $order->user->name }}
                                     </td>
                                     <td class="text-center">
                                       {{ $order->price }}
@@ -50,7 +50,7 @@
                                     <td >
                                       {{ $order->date }}
                                     </td>
-                                    <td >
+                                    <td>
                                       {{ $order->finished }}
                                     </td>
                                 </tr>
