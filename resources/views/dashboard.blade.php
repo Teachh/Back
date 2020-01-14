@@ -16,9 +16,6 @@
                                         Ordre
                                     </th>
                                     <th>
-                                        Producte
-                                    </th>
-                                    <th>
                                         Usuari
                                     </th>
                                     <th class="text-center">
@@ -37,9 +34,6 @@
                                 <tr>
                                     <td>
                                       {{ $order->id }}
-                                    </td>
-                                    <td>
-                                      {{ $order->id}}
                                     </td>
                                     <td>
                                       {{ $order->user->name }}
