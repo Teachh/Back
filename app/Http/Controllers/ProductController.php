@@ -17,6 +17,11 @@ class ProductController extends Controller
         return Product::all();
     }
 
+    public function indexDash(){
+      $productos = Product::all();
+      return view('apartados.products', compact('productos'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

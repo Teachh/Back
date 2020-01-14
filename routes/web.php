@@ -37,3 +37,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
 });
 
+// grupo nuestro
+Route::group(['middleware' => 'auth'], function () {
+  Route::get('productos', 'ProductController@indexDash')->name('apartados.products');
+});
