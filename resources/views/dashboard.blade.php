@@ -27,11 +27,18 @@
                                     <th>
                                         Entregat
                                     </th>
+                                    <th>
+                                        Opcions
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($orders as $order)
+                                @if(($order->finished==0))
+                                <tr class="bg-danger">
+                                @else
                                 <tr>
+                                @endif
                                     <td>
                                       {{ $order->id }}
                                     </td>
@@ -47,6 +54,32 @@
                                     <td>
                                       {{ $order->finished }}
                                     </td>
+                                    @if($order->finished==0)
+
+                                    <td>
+                                        <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm">
+                                            <i class="tim-icons icon-zoom-split"></i>
+                                        </button>
+                                        <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
+                                            <span class="tim-icons icon-trash-simple"></span>
+                                        </button>
+                                        <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
+                                            <span class="tim-icons icon-simple-remove"></span>
+                                        </button>
+                                    </td>
+
+                                    @else
+                                    <td>
+                                    <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm">
+                                            <i class="tim-icons icon-zoom-split"></i>
+                                        </button>
+                                        <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
+                                            <span class="tim-icons icon-trash-simple"></span>
+                                        </button>
+                                    </td>
+
+                                    
+                                    @endif
                                 </tr>
                                 @endforeach
                             </tbody>
