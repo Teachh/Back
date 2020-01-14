@@ -87,4 +87,12 @@ class ProductController extends Controller
     {
         //
     }
+    public function deleteDash($id)
+    {
+        $p = new Product;
+        $o = $p -> findOrFail($id);
+        $o->delete();
+
+        return redirect('/productos');
+    }
 }

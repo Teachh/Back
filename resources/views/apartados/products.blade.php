@@ -27,9 +27,13 @@
                 <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm">
                     <i class="tim-icons icon-settings"></i>
                 </button>
-                <button type="button" rel="tooltip" class="btn btn-danger btn-link btn-icon btn-sm">
-                    <i class="tim-icons icon-simple-remove"></i>
-                </button>
+                <form action="{{action('ProductController@deleteDash', $prod->id)}}" method="POST" style="display:inline">
+                    {{ method_field('PUT') }}
+                    {{ csrf_field() }}
+                    <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
+                        <span class="tim-icons icon-simple-remove"></span>
+                    </button>
+                </form>
             </td>
         </tr>
       @endforeach

@@ -1,3 +1,12 @@
+.select2-selection{
+  background-color: transparent !important;
+}
+.select2-selection__choice {
+  background-color: transparent !important;
+}
+.select2-results__options{
+  background-color: #27283D !important;
+}
 .tim-row {
   margin-bottom: 20px;
 }
