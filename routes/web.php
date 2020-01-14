@@ -40,4 +40,7 @@ Route::group(['middleware' => 'auth'], function () {
 // grupo nuestro
 Route::group(['middleware' => 'auth'], function () {
   Route::get('productos', 'ProductController@indexDash')->name('apartados.products');
+  Route::get('productos/crear', function () {
+    return view('apartados.products-create');
+})->name('products.create');
 });

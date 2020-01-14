@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+  <a href="{{ route('products.create') }}">
+    <button type="button" class="btn btn-primary">Añadir producto</button>
+  </a>
   <table class="table">
     <thead>
         <tr>
