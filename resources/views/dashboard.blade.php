@@ -2,12 +2,12 @@
 
 @section('content')
     <div class="row">
-        <div class="col-12">
+        <div class="col-12 order-2">
             <div class="card card-chart">
                 <div class="card-header ">
                     <div class="row">
                         <div class="col-sm-6 text-left">
-                            <h5 class="card-category">Total Shipments</h5>
+                            <h5 class="card-category">test</h5>
                             <h2 class="card-title">Performance</h2>
                         </div>
                         <div class="col-sm-6">
@@ -45,8 +45,8 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-lg-4">
+    <div class="row order-3">
+        <div class="col-lg-4 order-2">
             <div class="card card-chart">
                 <div class="card-header">
                     <h5 class="card-category">Total Shipments</h5>
@@ -59,7 +59,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 order-1">
             <div class="card card-chart">
                 <div class="card-header">
                     <h5 class="card-category">Daily Sales</h5>
@@ -72,7 +72,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 order-3">
             <div class="card card-chart">
                 <div class="card-header">
                     <h5 class="card-category">Completed Tasks</h5>
@@ -87,7 +87,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-6 col-md-12">
+        <div class="col-lg-12 col-md-12 order-4">
             <div class="card card-tasks">
                 <div class="card-header ">
                     <h6 class="title d-inline">Tasks(5)</h6>
@@ -239,7 +239,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-6 col-md-12">
+        <div class="col-lg-12 col-md-12 order-1">
             <div class="card ">
                 <div class="card-header">
                     <h4 class="card-title">Simple Table</h4>
