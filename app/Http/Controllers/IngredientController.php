@@ -18,7 +18,7 @@ class IngredientController extends Controller
     }
 
     public function indexDash(){
-      $ingredients = Ingredient::all();
+      $ingredients = Ingredient::paginate(20);
       return view('apartados.ingredients', compact('ingredients'));
     }
 
@@ -31,7 +31,12 @@ class IngredientController extends Controller
     {
         //
     }
-
+    public function createDash(Request $request){
+      $ingrediente = new Ingredient();
+      $ingrediente->name = request('ingrediente');
+      $ingrediente->save();
+      return redirect('/ingredientes');
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -87,10 +92,20 @@ class IngredientController extends Controller
     {
         //
     }
+
+    public function deleteDash($id)
+    {
+        $p = new Ingredient;
+        $o = $p -> findOrFail($id);
+        $o->delete();
+
+        return redirect('/ingredientes');
+    }
+
     public function searchDash(Request $request){
       $q = $request->input('q');
 
-      $ingredients = Ingredient::where('name', 'LIKE', '%' . $q . '%')->get();
+      $ingredients = Ingredient::where('name', 'LIKE', '%' . $q . '%')->paginate(20);
 
       return view('apartados.ingredients', compact('ingredients'));
     }

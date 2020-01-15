@@ -48,9 +48,15 @@ Route::group(['middleware' => 'auth'], function () {
   Route::put('/productos/delete/{id}','ProductController@deleteDash');
   Route::get('/productos/edit/{id}','ProductController@getEditDash');
   Route::put('/productos/edit/{id}','ProductController@putEditDash');
+  Route::get('productos/search', 'ProductController@searchDash');
   // ingredientes
   Route::get('ingredientes', 'IngredientController@indexDash')->name('apartados.ingredients');
   Route::get('ingredientes/search', 'IngredientController@searchDash');
+  Route::post('/ingredientes/crear','IngredientController@createDash');
+  Route::put('/ingredientes/delete/{id}','IngredientController@deleteDash');
+  Route::get('ingredientes/crear', function () {
+    return view('apartados.ingredients-create');
+  })->name('ingredients.create');
   // pedidos
   Route::get('/pedidos/{id}','OrderController@showDash');
 
