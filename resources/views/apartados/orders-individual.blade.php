@@ -4,7 +4,7 @@
 <!--   <a href="{{ route('products.create') }}">
     <button type="button" class="btn btn-primary">Añadir producto</button>
   </a> -->
-  <div id="orderperf" class="container mb-5 text-right">
+  <div class="container mb-5 text-right">
   <div class="row ">
     <div class="col-md-5 details mt-4 text-center align-self-center">
         <h1 class="mb-0">NUM PEDIDO: {{ $order->id }}</h1><br>
@@ -51,4 +51,17 @@
     @endforeach
     </tbody>
 </table>
+  <div class="container mb-5 text-right">
+  <div class="row ">
+    <div class="col-md-12 col-lg-2 details mt-4 text-center mr-0 mr-xs-5" >
+            <button type="submit" class="btn btn-primary">Entregat</button>
+    </div>
+    <div class=" col-md-12 col-lg-2 details mt-4 text-center">
+            <button type="submit" class="btn btn-primary">Eliminar</button>
+    </div>
+    <div class="col-md-12 col-sm-7 ml-sm-2 ml-md-0 col-lg-4 details mt-4">
+        <h1>TOTAL: </h1>
+    </div>
+  </div>
+</div>
 @endsection
