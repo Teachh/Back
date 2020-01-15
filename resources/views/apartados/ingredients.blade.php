@@ -33,9 +33,9 @@
             <td class="text-center">{{ $ingr->id }}</td>
             <td>{{ $ingr->name }}</td>
             <td class="td-actions text-right">
-                <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm">
-                    <i class="tim-icons icon-settings"></i>
-                </button>
+                <a href="{{ url('/ingredientes/edit/'. $ingr->id ) }}">
+                  <button type="button" class="btn btn-success btn-link btn-icon btn-sm"><i class="tim-icons icon-settings"></i></button>
+                </a>
                 <form action="{{action('IngredientController@deleteDash', $ingr->id)}}" method="POST" style="display:inline">
                     {{ method_field('PUT') }}
                     {{ csrf_field() }}
