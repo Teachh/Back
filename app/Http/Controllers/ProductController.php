@@ -75,6 +75,31 @@ class ProductController extends Controller
     {
         //
     }
+
+    public function getEditDash($id)
+    {
+		$producto = Product::findOrFail($id);
+        return view('apartados.products-edit',compact('producto'));
+    }
+
+    public function putEditDash(Request $request, $id)
+    {
+        $p = new Product;
+        $o = $p -> findOrFail($id);
+        $o->name = $request->input('plato');
+        $o->description = $request->input('descripcion');
+        $o->price = $request->input('precio');
+        $o->stock = $request->input('stock');
+        $o->image = $request->input('imagen');
+        $producto->category_id = request('categoria');
+        $producto->save();
+        $producto->ingredients()->sync(request('ingredientes'));
+
+        $producto = Product::findOrFail($id);
+
+        return redirect('/productos');
+    }
+
     /**
      * Update the specified resource in storage.
      *

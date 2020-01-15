@@ -24,9 +24,9 @@
             <td>{{ $prod->price }}&euro;</td>
             <td class="text-right">{{ $prod->stock }}</td>
             <td class="td-actions text-right">
-                <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm">
-                    <i class="tim-icons icon-settings"></i>
-                </button>
+                <a href="{{ url('/productos/edit/'. $prod->id ) }}">
+                  <button type="button" class="btn btn-success btn-link btn-icon btn-sm"><i class="tim-icons icon-settings"></i></button>
+                </a>
                 <form action="{{action('ProductController@deleteDash', $prod->id)}}" method="POST" style="display:inline">
                     {{ method_field('PUT') }}
                     {{ csrf_field() }}

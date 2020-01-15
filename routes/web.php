@@ -46,6 +46,8 @@ Route::group(['middleware' => 'auth'], function () {
     return view('apartados.products-create');
   })->name('products.create');
   Route::put('/productos/delete/{id}','ProductController@deleteDash');
+  Route::get('/productos/edit/{id}','ProductController@getEditDash');
+  Route::put('/productos/edit/{id}','ProductController@putEditDash');
   // ingredientes
   Route::get('ingredientes', 'IngredientController@indexDash')->name('apartados.ingredients');
 });
