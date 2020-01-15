@@ -13,10 +13,7 @@
                             <thead class=" text-primary">
                                 <tr>
                                     <th>
-                                        Id
-                                    </th>
-                                    <th>
-                                        Producte
+                                        Ordre
                                     </th>
                                     <th>
                                         Usuari
@@ -25,24 +22,28 @@
                                         Preu
                                     </th>
                                     <th>
-                                        date
+                                        Data
                                     </th>
                                     <th>
-                                        Finish
+                                        Entregat
+                                    </th>
+                                    <th>
+                                        Opcions
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($orders as $order)
-                                <tr>
+                                @if(($order->finished==0))
+                                <tr class="bg-order-red">
+                                @else
+                                <tr class="bg-order-green">
+                                @endif
                                     <td>
                                       {{ $order->id }}
                                     </td>
                                     <td>
-                                      {{ $order->id }}
-                                    </td>
-                                    <td>
-                                      {{ $order->user_id }}
+                                      {{ $order->user->name }}
                                     </td>
                                     <td class="text-center">
                                       {{ $order->price }}
@@ -50,9 +51,35 @@
                                     <td >
                                       {{ $order->date }}
                                     </td>
-                                    <td >
+                                    <td>
                                       {{ $order->finished }}
                                     </td>
+                                    @if($order->finished==0)
+
+                                    <td>
+                                        <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm">
+                                            <i class="tim-icons icon-zoom-split"></i>
+                                        </button>
+                                        <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
+                                            <span class="tim-icons icon-trash-simple"></span>
+                                        </button>
+                                        <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
+                                            <span class="tim-icons icon-simple-remove"></span>
+                                        </button>
+                                    </td>
+
+                                    @else
+                                    <td>
+                                    <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm">
+                                            <i class="tim-icons icon-zoom-split"></i>
+                                        </button>
+                                        <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
+                                            <span class="tim-icons icon-trash-simple"></span>
+                                        </button>
+                                    </td>
+
+                                    
+                                    @endif
                                 </tr>
                                 @endforeach
                             </tbody>

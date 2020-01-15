@@ -13,7 +13,7 @@ class CreateAllergenProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('allergen_products', function (Blueprint $table) {
+        Schema::create('allergen_product', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('allergen_id');
             $table->bigInteger('product_id');
@@ -27,6 +27,6 @@ class CreateAllergenProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('allergen_products');
+        Schema::dropIfExists('allergen_product');
     }
 }

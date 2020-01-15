@@ -556,6 +556,13 @@ mark,
   color: #6c757d;
 }
 
+.bg-order-red{
+  background-color: #d6333345;
+}
+.bg-order-green{
+  background-color: #3dd63345;
+}
+
 code {
   font-size: 87.5%;
   color: #f3a4b5;
