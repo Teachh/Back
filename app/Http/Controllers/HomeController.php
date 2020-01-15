@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Order;
 use App\User;
 use Illuminate\Support\Facades\DB;
@@ -26,6 +27,6 @@ class HomeController extends Controller
     {
         $orders = Order::all();
 
-        return view('dashboard',compact('orders'));
+        return view('dashboard', compact('orders'));
     }
 }
