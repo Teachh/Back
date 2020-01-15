@@ -18,7 +18,7 @@ class IngredientController extends Controller
     }
 
     public function indexDash(){
-      $ingredients = Ingredient::all();
+      $ingredients = Ingredient::paginate(20);
       return view('apartados.ingredients', compact('ingredients'));
     }
 
@@ -90,7 +90,7 @@ class IngredientController extends Controller
     public function searchDash(Request $request){
       $q = $request->input('q');
 
-      $ingredients = Ingredient::where('name', 'LIKE', '%' . $q . '%')->get();
+      $ingredients = Ingredient::where('name', 'LIKE', '%' . $q . '%')->paginate(20);
 
       return view('apartados.ingredients', compact('ingredients'));
     }

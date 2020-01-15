@@ -11,7 +11,7 @@
         <form method="POST">
           @csrf
           {{method_field('PUT')}}
-          
+
             <div class="form-group">
                 <label for="plato">Nombre del plato</label>
                 <input name="plato" type="text" class="form-control" aria-describedby="emailHelp" value="{{$producto->name}}">

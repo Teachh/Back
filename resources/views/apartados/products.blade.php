@@ -1,6 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
+  <div class="mb-3">
+  <h3>Buscador</h3>
+  <form action="/productos/search" method="GET">
+    <div class="row">
+      <div class="col-12 col-md-10">
+        <input class="form-control" type="text" name="q" required/>
+      </div>
+      <div class="col-12 col-md-2" style="margin-top:-5px">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+      </div>
+    </div>
+
+  </form>
+</div>
   <a href="{{ route('products.create') }}">
     <button type="button" class="btn btn-primary">Añadir producto</button>
   </a>

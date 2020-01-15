@@ -48,4 +48,6 @@
         @endforeach
     </tbody>
 </table>
+
+{{ $ingredients->links() }}
 @endsection
