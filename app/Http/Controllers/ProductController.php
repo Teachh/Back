@@ -68,9 +68,9 @@ class ProductController extends Controller
     public function searchDash(Request $request){
       $q = $request->input('q');
 
-      $ingredients = Product::where('name', 'LIKE', '%' . $q . '%')->get();
+      $productos = Product::where('name', 'LIKE', '%' . $q . '%')->get();
 
-      return view('apartados.ingredients', compact('ingredients'));
+      return view('apartados.products', compact('productos'));
     }
 
     /**

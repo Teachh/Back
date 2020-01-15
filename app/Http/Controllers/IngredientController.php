@@ -31,7 +31,12 @@ class IngredientController extends Controller
     {
         //
     }
-
+    public function createDash(Request $request){
+      $ingrediente = new Ingredient();
+      $ingrediente->name = request('ingrediente');
+      $ingrediente->save();
+      return redirect('/ingredientes');
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -87,6 +92,16 @@ class IngredientController extends Controller
     {
         //
     }
+
+    public function deleteDash($id)
+    {
+        $p = new Ingredient;
+        $o = $p -> findOrFail($id);
+        $o->delete();
+
+        return redirect('/ingredientes');
+    }
+
     public function searchDash(Request $request){
       $q = $request->input('q');
 
