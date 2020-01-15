@@ -16,27 +16,28 @@
         </tr>
     </thead>
     <tbody>
-      @foreach ($orders as $order)
         <tr>
+            
+            @foreach($order->products as $prod)
             <td class="text-center">{{ $order->id }}</td>
-            <td>{{ $order->user->name }}</td>
-            <td>{{ $order->price }}</td>
+            <td>{{ $prod->name }}</td>
+            <td>{{ $prod->pivot->Quantity }}</td>
             <td>{{ $order->price }}&euro;</td>
             <td class="text-right">{{ $order->date }}</td>
             <td class="td-actions text-right">
                 <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm">
                     <i class="tim-icons icon-settings"></i>
                 </button>
-                <form action="{{action('ProductController@deleteDash', $prod->id)}}" method="POST" style="display:inline">
+<!--                 <form action="{{action('ProductController@deleteDash', $order->id)}}" method="POST" style="display:inline">
                     {{ method_field('PUT') }}
                     {{ csrf_field() }}
                     <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
                         <span class="tim-icons icon-simple-remove"></span>
                     </button>
-                </form>
+                </form> -->
             </td>
         </tr>
-      @endforeach
+    @endforeach
     </tbody>
 </table>
 @endsection

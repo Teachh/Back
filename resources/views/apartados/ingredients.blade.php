@@ -16,7 +16,7 @@
 
   </form>
 </div>
-<a href="{{ route('products.create') }}">
+<a href="{{ route('ingredients.create') }}">
     <button type="button" class="btn btn-primary">Añadir Ingredientes</button>
 </a>
 <table class="table">
@@ -33,10 +33,10 @@
             <td class="text-center">{{ $ingr->id }}</td>
             <td>{{ $ingr->name }}</td>
             <td class="td-actions text-right">
-                <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm">
-                    <i class="tim-icons icon-settings"></i>
-                </button>
-                <form action="{{action('ProductController@deleteDash', $ingr->id)}}" method="POST" style="display:inline">
+                <a href="{{ url('/ingredientes/edit/'. $ingr->id ) }}">
+                  <button type="button" class="btn btn-success btn-link btn-icon btn-sm"><i class="tim-icons icon-settings"></i></button>
+                </a>
+                <form action="{{action('IngredientController@deleteDash', $ingr->id)}}" method="POST" style="display:inline">
                     {{ method_field('PUT') }}
                     {{ csrf_field() }}
                     <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">

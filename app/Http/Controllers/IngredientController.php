@@ -31,7 +31,12 @@ class IngredientController extends Controller
     {
         //
     }
-
+    public function createDash(Request $request){
+      $ingrediente = new Ingredient();
+      $ingrediente->name = request('ingrediente');
+      $ingrediente->save();
+      return redirect('/ingredientes');
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -65,6 +70,24 @@ class IngredientController extends Controller
         //
     }
 
+    public function getEditDash($id)
+    {
+        $ingrediente = Ingredient::findOrFail($id);
+        return view('apartados.ingredients-edit',compact('ingrediente',));
+    }
+
+    public function putEditDash(Request $request, $id)
+    {
+        $i = new Ingredient;
+        $o = $i -> findOrFail($id);
+        $o->name = $request->input('ingrediente');
+        $o->save();
+
+        $o = Ingredient::findOrFail($id);
+
+        return redirect('/ingredientes');
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -87,6 +110,16 @@ class IngredientController extends Controller
     {
         //
     }
+
+    public function deleteDash($id)
+    {
+        $p = new Ingredient;
+        $o = $p -> findOrFail($id);
+        $o->delete();
+
+        return redirect('/ingredientes');
+    }
+
     public function searchDash(Request $request){
       $q = $request->input('q');
 
