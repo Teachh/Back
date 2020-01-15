@@ -31,7 +31,18 @@ class ProductController extends Controller
     {
         //
     }
-
+    public function createDash(Request $request){
+      $producto = new Product();
+      $producto->name = request('plato');
+      $producto->description = request('descripcion');
+      $producto->price = request('precio');
+      $producto->stock = request('stock');
+      $producto->image = request('imagen');
+      $producto->category_id = request('categoria');
+      $producto->save();
+      $producto->ingredients()->sync(request('ingredientes'));
+      return redirect('/productos');
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -64,7 +75,6 @@ class ProductController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
