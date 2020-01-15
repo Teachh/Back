@@ -49,7 +49,12 @@ class OrderController extends Controller
     {
       return Order::where('id', $id)->get();
     }
-
+    // DYlan aqui esta
+    public function showDash($id)
+    {
+      $order = Order::findOrFail($id);
+      return $order;
+    }
     /**
      * Show the form for editing the specified resource.
      *

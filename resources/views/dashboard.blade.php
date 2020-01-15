@@ -52,7 +52,7 @@
                                       {{ $order->date }}
                                     </td>
                                     <td>
-                                        @if(($order->finished==0))  
+                                        @if(($order->finished==0))
                                             No
                                         @else
                                             Si
@@ -61,9 +61,11 @@
                                     @if($order->finished==0)
 
                                     <td >
+                                      <a href="{{ url('/pedidos/'.$order->id)}}">
                                         <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm">
                                             <i class="tim-icons icon-zoom-split"></i>
                                         </button>
+                                      </a>
                                         <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
                                             <span class="tim-icons icon-trash-simple"></span>
                                         </button>
@@ -74,15 +76,17 @@
 
                                     @else
                                     <td>
-                                    <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm">
+                                      <a href="{{ url('/pedidos/'.$order->id)}}">
+                                        <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm">
                                             <i class="tim-icons icon-zoom-split"></i>
                                         </button>
+                                      </a>
                                         <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
                                             <span class="tim-icons icon-trash-simple"></span>
                                         </button>
                                     </td>
 
-                                    
+
                                     @endif
                                 </tr>
                                 @endforeach
