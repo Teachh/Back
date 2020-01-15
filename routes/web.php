@@ -50,4 +50,9 @@ Route::group(['middleware' => 'auth'], function () {
   Route::put('/productos/edit/{id}','ProductController@putEditDash');
   // ingredientes
   Route::get('ingredientes', 'IngredientController@indexDash')->name('apartados.ingredients');
+  Route::get('ingredientes/search', 'IngredientController@searchDash');
+  // pedidos
+  Route::get('/pedidos/{id}','OrderController@showDash');
+
+
 });

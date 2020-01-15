@@ -87,4 +87,12 @@ class IngredientController extends Controller
     {
         //
     }
+    public function searchDash(Request $request){
+      $q = $request->input('q');
+
+      $ingredients = Ingredient::where('name', 'LIKE', '%' . $q . '%')->get();
+
+      return view('apartados.ingredients', compact('ingredients'));
+    }
+
 }
