@@ -35,9 +35,9 @@
                             <tbody>
                                 @foreach ($orders as $order)
                                 @if(($order->finished==0))
-                                <tr class="bg-danger">
+                                <tr class="bg-order-red">
                                 @else
-                                <tr>
+                                <tr class="bg-order-green">
                                 @endif
                                     <td>
                                       {{ $order->id }}
