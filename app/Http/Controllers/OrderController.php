@@ -53,7 +53,7 @@ class OrderController extends Controller
     public function showDash($id)
     {
       $order = Order::findOrFail($id);
-      return $order;
+      return view('apartados.orders-individual',compact('order'));
     }
     /**
      * Show the form for editing the specified resource.
