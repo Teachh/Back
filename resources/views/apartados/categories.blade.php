@@ -4,7 +4,7 @@
 
 <div class="mb-3">
   <h3>Buscador</h3>
-  <form action="/ingredientes/search" method="GET">
+  <form action="/categories/search" method="GET">
     <div class="row">
       <div class="col-12 col-md-10">
         <input class="form-control" type="text" name="q" required/>
@@ -16,8 +16,8 @@
 
   </form>
 </div>
-<a href="{{ route('ingredients.create') }}">
-    <button type="button" class="btn btn-primary">Añadir Ingredientes</button>
+<a href="{{ route('categorias.create') }}">
+    <button type="button" class="btn btn-primary">Añadir Categorias</button>
 </a>
 <table class="table">
     <thead>
@@ -28,15 +28,15 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($ingredients as $ingr)
+        @foreach ($categories as $categ)
         <tr>
-            <td class="text-center">{{ $ingr->id }}</td>
-            <td>{{ $ingr->name }}</td>
+            <td class="text-center">{{ $categ->id }}</td>
+            <td>{{ $categ->name }}</td>
             <td class="td-actions text-right">
-                <a href="{{ url('/ingredientes/edit/'. $ingr->id ) }}">
+                <a href="{{ url('/categorias/edit/'. $categ->id ) }}">
                   <button type="button" class="btn btn-success btn-link btn-icon btn-sm"><i class="tim-icons icon-settings"></i></button>
                 </a>
-                <form action="{{action('IngredientController@deleteDash', $ingr->id)}}" method="POST" style="display:inline">
+                <form action="{{action('CategoryController@deleteDash', $categ->id)}}" method="POST" style="display:inline">
                     {{ method_field('PUT') }}
                     {{ csrf_field() }}
                     <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
@@ -49,5 +49,5 @@
     </tbody>
 </table>
 
-{{ $ingredients->links() }}
+{{ $categories->links() }}
 @endsection

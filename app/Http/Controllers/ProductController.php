@@ -17,9 +17,10 @@ class ProductController extends Controller
         return Product::all();
     }
 
-    public function indexDash(){
-      $productos = Product::all();
-      return view('apartados.products', compact('productos'));
+    public function indexDash()
+    {
+        $productos = Product::all();
+        return view('apartados.products', compact('productos'));
     }
 
     /**
@@ -31,17 +32,33 @@ class ProductController extends Controller
     {
         //
     }
-    public function createDash(Request $request){
-      $producto = new Product();
-      $producto->name = request('plato');
-      $producto->description = request('descripcion');
-      $producto->price = request('precio');
-      $producto->stock = request('stock');
-      $producto->image = request('imagen');
-      $producto->category_id = request('categoria');
-      $producto->save();
-      $producto->ingredients()->sync(request('ingredientes'));
-      return redirect('/productos');
+    public function createDash(Request $request)
+    {
+        $this->validate($request, [
+            'plato' => ['required', 'string'],
+            'descripcion' => ['required'],
+            'precio' => ['required', 'alpha_num'],
+            'stock' => ['required', 'integer'],
+            'imagen' => ['required', 'image'],
+            'categoria' => ['required'],
+            'ingredientes' => ['required']
+        ]);
+
+        $image = $request->file('imagen');
+        $original_path = public_path() . '/assets/img/plates';
+        $filename = time() . $image->getClientOriginalName();
+        $image->move($original_path, $filename);
+
+        $producto = new Product();
+        $producto->name = request('plato');
+        $producto->description = request('descripcion');
+        $producto->price = request('precio');
+        $producto->stock = request('stock');
+        $producto->image = $filename;
+        $producto->category_id = request('categoria');
+        $producto->save();
+        $producto->ingredients()->sync(request('ingredientes'));
+        return redirect('/productos');
     }
     /**
      * Store a newly created resource in storage.
@@ -62,15 +79,16 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-      return Product::where('id', $id)->get();
+        return Product::where('id', $id)->get();
     }
 
-    public function searchDash(Request $request){
-      $q = $request->input('q');
+    public function searchDash(Request $request)
+    {
+        $q = $request->input('q');
 
-      $productos = Product::where('name', 'LIKE', '%' . $q . '%')->get();
+        $productos = Product::where('name', 'LIKE', '%' . $q . '%')->get();
 
-      return view('apartados.products', compact('productos'));
+        return view('apartados.products', compact('productos'));
     }
 
     /**
@@ -88,21 +106,36 @@ class ProductController extends Controller
     {
         $producto = Product::findOrFail($id);
         $ingredients_array = [];
-        foreach ($producto->ingredients as $ingredient){
+        foreach ($producto->ingredients as $ingredient) {
             $ingredients_array[] = $ingredient->id;
         }
-        return view('apartados.products-edit',compact('producto', 'ingredients_array'));
+        return view('apartados.products-edit', compact('producto', 'ingredients_array'));
     }
 
     public function putEditDash(Request $request, $id)
     {
+        $this->validate($request, [
+            'plato' => ['required', 'string'],
+            'descripcion' => ['required'],
+            'precio' => ['required', 'alpha_num'],
+            'stock' => ['required', 'integer'],
+            'categoria' => ['required'],
+            'ingredientes' => ['required']
+        ]);
+
         $p = new Product;
-        $o = $p -> findOrFail($id);
+        $o = $p->findOrFail($id);
         $o->name = $request->input('plato');
         $o->description = $request->input('descripcion');
         $o->price = $request->input('precio');
         $o->stock = $request->input('stock');
-        $o->image = $request->input('imagen');
+        if ($request->file('imagen')) {
+            $image = $request->file('imagen');
+            $original_path = public_path() . '/assets/img/plates';
+            $filename = time() . $image->getClientOriginalName();
+            $image->move($original_path, $filename);
+            $o->image = $filename;
+        }
         $o->category_id = request('categoria');
         $o->save();
         $o->ingredients()->sync(request('ingredientes'));
@@ -137,7 +170,7 @@ class ProductController extends Controller
     public function deleteDash($id)
     {
         $p = new Product;
-        $o = $p -> findOrFail($id);
+        $o = $p->findOrFail($id);
         $o->delete();
 
         return redirect('/productos');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Message;
+use App\User;
 
 class MessageController extends Controller
 {
@@ -15,6 +16,11 @@ class MessageController extends Controller
     public function index()
     {
         return Message::all();
+    }
+
+    public function indexDash(){
+      $mensajes = Message::all();
+      return view('apartados.messages', compact('mensajes'));
     }
 
     /**
@@ -50,6 +56,17 @@ class MessageController extends Controller
       return Message::where('id', $id)->get();
     }
 
+
+    public function searchDash(Request $request)
+    {
+        $q = $request->input('q');
+        $mensajes = Message::where(function($query) use($q){
+          $query->where('title', 'LIKE', '%' . $q . '%')
+                ->orWhere('body', 'LIKE', '%' . $q . '%');
+        })->get();
+
+        return view('apartados.messages', compact('mensajes'));
+    }
     /**
      * Show the form for editing the specified resource.
      *
@@ -82,5 +99,13 @@ class MessageController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function deleteDash($id)
+    {
+        $p = new Message;
+        $o = $p->findOrFail($id);
+        $o->delete();
+
+        return redirect('/mensajes');
     }
 }

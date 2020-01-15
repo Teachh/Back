@@ -70,6 +70,24 @@ class IngredientController extends Controller
         //
     }
 
+    public function getEditDash($id)
+    {
+        $ingrediente = Ingredient::findOrFail($id);
+        return view('apartados.ingredients-edit',compact('ingrediente'));
+    }
+
+    public function putEditDash(Request $request, $id)
+    {
+        $i = new Ingredient;
+        $o = $i -> findOrFail($id);
+        $o->name = $request->input('ingrediente');
+        $o->save();
+
+        $o = Ingredient::findOrFail($id);
+
+        return redirect('/ingredientes');
+    }
+
     /**
      * Update the specified resource in storage.
      *

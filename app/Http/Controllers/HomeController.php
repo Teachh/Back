@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Order;
 use App\User;
 use Illuminate\Support\Facades\DB;
