@@ -64,6 +64,42 @@
                     </div>
                 </form>
             </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title">{{ __('Avatar') }}</h5>
+                </div>
+                <form method="post" action="{{ route('profile.image') }}" autocomplete="off" enctype="multipart/form-data">
+                    <div class="card-body">
+                        @csrf
+                        @method('put')
+
+                        @include('alerts.success', ['key' => 'password_status'])
+
+                        <div class="form-group{{ $errors->has('avatar') ? ' has-danger' : '' }}">
+                            <label>{{ __('Current Avatar') }}</label>
+                            <div class="profile-image-container">
+                                <img src="{{ asset('black') }}/img/{{ Auth::user()->avatar }}" alt="">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="avatar">Avatar</label>
+                            <input name="avatar" type="file" class="form-control @error('avatar') is-invalid @enderror">
+            
+                            @error('avatar')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-fill btn-primary">{{ __('Change avatar') }}</button>
+                    </div>
+                </form>
+            </div>
+
         </div>
         <div class="col-md-4">
             <div class="card card-user">
@@ -75,7 +111,7 @@
                             <div class="block block-three"></div>
                             <div class="block block-four"></div>
                             <a href="#">
-                                <img class="avatar" src="{{ asset('black') }}/img/emilyz.jpg" alt="">
+                                <img class="avatar" src="{{ asset('black') }}/img/{{ Auth::user()->avatar }}" alt="">
                                 <h5 class="title">{{ auth()->user()->name }}</h5>
                             </a>
                             <p class="description">
