@@ -88,15 +88,9 @@ class ProductController extends Controller
     {
         $q = $request->input('q');
 
-<<<<<<< HEAD
-        $ingredients = Product::where('name', 'LIKE', '%' . $q . '%')->get();
+        $productos = Product::where('name', 'LIKE', '%' . $q . '%')->get();
 
-        return view('apartados.ingredients', compact('ingredients'));
-=======
-      $productos = Product::where('name', 'LIKE', '%' . $q . '%')->get();
-
-      return view('apartados.products', compact('productos'));
->>>>>>> 1f9c34ccd41fca2b9911b68112821a52beecc18c
+        return view('apartados.products', compact('productos'));
     }
 
     /**
@@ -113,15 +107,11 @@ class ProductController extends Controller
     public function getEditDash($id)
     {
         $producto = Product::findOrFail($id);
-<<<<<<< HEAD
-        return view('apartados.products-edit', compact('producto'));
-=======
         $ingredients_array = [];
-        foreach ($producto->ingredients as $ingredient){
+        foreach ($producto->ingredients as $ingredient) {
             $ingredients_array[] = $ingredient->id;
         }
-        return view('apartados.products-edit',compact('producto', 'ingredients_array'));
->>>>>>> 1f9c34ccd41fca2b9911b68112821a52beecc18c
+        return view('apartados.products-edit', compact('producto', 'ingredients_array'));
     }
 
     public function putEditDash(Request $request, $id)
