@@ -17,6 +17,11 @@ class IngredientController extends Controller
         return Ingredient::all();
     }
 
+    public function indexDash(){
+      $ingredients = Ingredient::all();
+      return view('apartados.ingredients', compact('ingredients'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

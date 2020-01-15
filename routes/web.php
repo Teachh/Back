@@ -39,9 +39,13 @@ Route::group(['middleware' => 'auth'], function () {
 
 // grupo nuestro
 Route::group(['middleware' => 'auth'], function () {
+  // productos
   Route::get('productos', 'ProductController@indexDash')->name('apartados.products');
+  Route::post('/productos/crear','ProductController@createDash');
   Route::get('productos/crear', function () {
     return view('apartados.products-create');
   })->name('products.create');
-  Route::put('/catalog/delete/{id}','ProductController@deleteDash');
+  Route::put('/productos/delete/{id}','ProductController@deleteDash');
+  // ingredientes
+  Route::get('ingredientes', 'IngredientController@indexDash')->name('apartados.ingredients');
 });

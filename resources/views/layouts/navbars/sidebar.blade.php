@@ -41,6 +41,12 @@
                   <p>{{ __('Productos') }}</p>
               </a>
           </li>
+          <li>
+              <a href="{{ route('apartados.ingredients') }}">
+                  <i class="tim-icons icon-components"></i>
+                  <p>{{ __('Ingredientes') }}</p>
+              </a>
+          </li>
           <!--- A PARTIR DE LO DE ARRIVA --->
             <li>
                 <a href="{{ route('pages.icons') }}">
