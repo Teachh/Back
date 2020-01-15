@@ -72,4 +72,14 @@ Route::group(['middleware' => 'auth'], function () {
     return view('apartados.ingredients-create');
   })->name('ingredients.create');
 
+  //categorias
+  Route::get('categorias', 'CategoryController@indexDash')->name('apartados.categories');
+  Route::get('categorias/search', 'CategoryController@searchDash');
+  Route::post('/categorias/crear','CategoryController@createDash');
+  Route::get('/categorias/edit/{id}','CategoryController@getEditDash');
+  Route::put('/categorias/edit/{id}','CategoryController@putEditDash');
+  Route::put('/categorias/delete/{id}','CategoryController@deleteDash');
+  Route::get('categorias/crear', function () {
+	return view('apartados.categories-create');
+  })->name('categorias.create');
 });

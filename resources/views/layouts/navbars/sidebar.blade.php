@@ -48,6 +48,12 @@
               </a>
           </li>
           <li>
+              <a href="{{ route('apartados.categories') }}">
+                  <i class="tim-icons icon-planet"></i>
+                  <p>{{ __('Categorias') }}</p>
+              </a>
+          </li>
+          <li>
               <a href="{{ route('apartados.messages') }}">
                   <i class="tim-icons icon-email-85"></i>
                   <p>{{ __('Mensajes') }}</p>
