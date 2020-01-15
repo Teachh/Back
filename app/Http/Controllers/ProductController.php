@@ -34,8 +34,6 @@ class ProductController extends Controller
     }
     public function createDash(Request $request)
     {
-
-
         $this->validate($request, [
             'plato' => ['required', 'string'],
             'descripcion' => ['required'],
@@ -116,13 +114,28 @@ class ProductController extends Controller
 
     public function putEditDash(Request $request, $id)
     {
+        $this->validate($request, [
+            'plato' => ['required', 'string'],
+            'descripcion' => ['required'],
+            'precio' => ['required', 'alpha_num'],
+            'stock' => ['required', 'integer'],
+            'categoria' => ['required'],
+            'ingredientes' => ['required']
+        ]);
+
         $p = new Product;
         $o = $p->findOrFail($id);
         $o->name = $request->input('plato');
         $o->description = $request->input('descripcion');
         $o->price = $request->input('precio');
         $o->stock = $request->input('stock');
-        $o->image = $request->input('imagen');
+        if ($request->file('imagen')) {
+            $image = $request->file('imagen');
+            $original_path = public_path() . '/assets/img/plates';
+            $filename = time() . $image->getClientOriginalName();
+            $image->move($original_path, $filename);
+            $o->image = $filename;
+        }
         $o->category_id = request('categoria');
         $o->save();
         $o->ingredients()->sync(request('ingredientes'));
