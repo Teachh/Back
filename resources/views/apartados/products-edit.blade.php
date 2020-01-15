@@ -36,7 +36,7 @@
               <label for="categoria">Categorias</label>
               <select class="js-example-basic-single form-control" name="categoria">
                   @foreach (App\Category::all() as $cat)
-                    <option value="{{$cat->id}}">{{$cat->name}}</option>
+                    <option {{ $producto->category_id == $cat->id ? 'selected' : '' }} value="{{$cat->id}}">{{$cat->name}}</option>
                   @endforeach
               </select>
             </div>
@@ -44,7 +44,7 @@
               <label for="categoria">Ingredients</label>
                 <select class="js-example-basic-multiple form-control" name="ingredientes[]" multiple="multiple">
                     @foreach (App\Ingredient::all() as $ingr)
-                      <option value="{{$ingr->id}}">{{$ingr->name}}</option>
+                      <option value="{{$ingr->id}}" {{ in_array($ingr->id, $ingredients_array) ? 'selected' : '' }}>{{$ingr->name}}</option>
                     @endforeach
                 </select>
             </div>

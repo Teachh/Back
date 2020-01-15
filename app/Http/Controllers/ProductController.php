@@ -86,8 +86,12 @@ class ProductController extends Controller
 
     public function getEditDash($id)
     {
-		$producto = Product::findOrFail($id);
-        return view('apartados.products-edit',compact('producto'));
+        $producto = Product::findOrFail($id);
+        $ingredients_array = [];
+        foreach ($producto->ingredients as $ingredient){
+            $ingredients_array[] = $ingredient->id;
+        }
+        return view('apartados.products-edit',compact('producto', 'ingredients_array'));
     }
 
     public function putEditDash(Request $request, $id)
@@ -99,11 +103,11 @@ class ProductController extends Controller
         $o->price = $request->input('precio');
         $o->stock = $request->input('stock');
         $o->image = $request->input('imagen');
-        $producto->category_id = request('categoria');
-        $producto->save();
-        $producto->ingredients()->sync(request('ingredientes'));
+        $o->category_id = request('categoria');
+        $o->save();
+        $o->ingredients()->sync(request('ingredientes'));
 
-        $producto = Product::findOrFail($id);
+        $o = Product::findOrFail($id);
 
         return redirect('/productos');
     }
