@@ -64,12 +64,6 @@ Route::group(['middleware' => 'auth'], function () {
   // Mensajes
   Route::get('mensajes', 'MessageController@indexDash')->name('apartados.messages');
   Route::get('mensajes/search', 'MessageController@searchDash');
-  Route::post('/mensajes/crear','MessageController@createDash');
-  Route::get('/mensajes/edit/{id}','MessageController@getEditDash');
-  Route::put('/mensajes/edit/{id}','MessageController@putEditDash');
   Route::put('/mensajes/delete/{id}','MessageController@deleteDash');
-  Route::get('mensajes/crear', function () {
-    return view('apartados.ingredients-create');
-  })->name('ingredients.create');
 
 });

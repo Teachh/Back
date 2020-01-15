@@ -3,7 +3,7 @@
 @section('content')
 <div class="mb-3">
     <h3>Buscador</h3>
-    <form action="/productos/search" method="GET">
+    <form action="/mensajes/search" method="GET">
         <div class="row">
             <div class="col-12 col-md-10">
                 <input class="form-control" type="text" name="q" required />
@@ -29,12 +29,12 @@
         @foreach ($mensajes as $msj)
         <tr>
             <td class="text-center">{{ $msj->id }}</td>
-            <td>{{ $msj->name }}</td>
-            <td>{{ $msj->description }}</td>
-            <td>{{ $msj->price }}&euro;</td>
-            <td class="text-right">{{ $msj->stock }}</td>
+            <td>{{ $msj->title }}</td>
+            <td>{{ $msj->body }}</td>
+            <td>{{ $msj->date }}</td>
+            <td class="text-right">{{ $msj->user_id }}</td>
             <td class="td-actions text-right">
-                <form action="{{action('ProductController@deleteDash', $prod->id)}}" method="POST" style="display:inline">
+                <form action="{{action('MessageController@deleteDash', $msj->id)}}" method="POST" style="display:inline">
                     {{ method_field('PUT') }}
                     {{ csrf_field() }}
                     <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
