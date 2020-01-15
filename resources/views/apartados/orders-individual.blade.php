@@ -4,37 +4,48 @@
 <!--   <a href="{{ route('products.create') }}">
     <button type="button" class="btn btn-primary">Añadir producto</button>
   </a> -->
+  <div id="orderperf" class="container mb-5 text-right">
+  <div class="row ">
+    <div class="col-md-5 details mt-4 text-center align-self-center">
+        <h1 class="mb-0">NUM PEDIDO: {{ $order->id }}</h1><br>
+
+    </div>
+    <div class="col-md-4 details mt-2 align-self-center ">
+      <blockquote class="mb-0">
+        <h5 class="mb-0">{{ $order->user->name }}</h5>
+        <small><cite title="Source Title">#ID Usuario:{{ $order->user->id }}<i class="icon-map-marker"></i></cite></small>
+      </blockquote>
+      <p>
+        {{ $order->user->email }}<br>
+      </p>
+    </div>
+    <div class="col-md-3 img">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvzOpl3-kqfNbPcA_u_qEZcSuvu5Je4Ce_FkTMMjxhB-J1wWin-Q"  alt="" class="img-rounded">
+    </div>
+  </div>
+</div>
+<br>
   <table class="table">
-    <thead>
+    <thead class="text-center">
         <tr>
-            <th class="text-center">#</th>
-            <th>USUARI</th>
-            <th>PREU</th>
-            <th>Precio</th>
-            <th class="text-right">Stock</th>
-            <th class="text-right">Acciones</th>
+            <th>ID PROD</th>
+            <th>PRODUCTO</th>
+            <th>CANTIDAD</th>
+            <th>PRECIO</th>
+            <th>OPCIONES</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody class="text-center">
         <tr>
-            
             @foreach($order->products as $prod)
-            <td class="text-center">{{ $order->id }}</td>
+            <td >{{ $prod->id }}</td>
             <td>{{ $prod->name }}</td>
             <td>{{ $prod->pivot->Quantity }}</td>
-            <td>{{ $order->price }}&euro;</td>
-            <td class="text-right">{{ $order->date }}</td>
-            <td class="td-actions text-right">
+            <td>{{ $prod->price }}&euro;</td>
+            <td class="td-actions text-center">
                 <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm">
                     <i class="tim-icons icon-settings"></i>
                 </button>
-<!--                 <form action="{{action('ProductController@deleteDash', $order->id)}}" method="POST" style="display:inline">
-                    {{ method_field('PUT') }}
-                    {{ csrf_field() }}
-                    <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
-                        <span class="tim-icons icon-simple-remove"></span>
-                    </button>
-                </form> -->
             </td>
         </tr>
     @endforeach
