@@ -17,6 +17,11 @@ class MessageController extends Controller
         return Message::all();
     }
 
+    public function indexDash(){
+      $mensajes = Message::all();
+      return view('apartados.messages', compact('mensajes'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

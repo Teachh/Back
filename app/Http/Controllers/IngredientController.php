@@ -73,7 +73,7 @@ class IngredientController extends Controller
     public function getEditDash($id)
     {
         $ingrediente = Ingredient::findOrFail($id);
-        return view('apartados.ingredients-edit',compact('ingrediente',));
+        return view('apartados.ingredients-edit',compact('ingrediente'));
     }
 
     public function putEditDash(Request $request, $id)
