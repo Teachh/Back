@@ -25,8 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $orders = Order::all();
-
-        return view('dashboard', compact('orders'));
+        $orders = Order::orderBy('date','asc')->orderBy('id')->limit(10)->get();
+        return view('dashboard',compact('orders'));
     }
 }
