@@ -15,10 +15,10 @@ class CategoryController extends Controller
     public function index()
     {
         return Category::all();
-
     }
 
-    public function indexDash(){
+    public function indexDash()
+    {
         $categories = Category::paginate(20);
         return view('apartados.categories', compact('categories'));
     }
@@ -33,7 +33,12 @@ class CategoryController extends Controller
         //
     }
 
-    public function createDash(Request $request){
+    public function createDash(Request $request)
+    {
+        $this->validate($request, [
+            'categoria' => ['required']
+        ]);
+
         $categoria = new Category();
         $categoria->name = request('categoria');
         $categoria->save();
@@ -76,13 +81,17 @@ class CategoryController extends Controller
     public function getEditDash($id)
     {
         $categoria = Category::findOrFail($id);
-        return view('apartados.categories-edit',compact('categoria'));
+        return view('apartados.categories-edit', compact('categoria'));
     }
 
     public function putEditDash(Request $request, $id)
     {
+        $this->validate($request, [
+            'categoria' => ['required']
+        ]);
+
         $i = new Category;
-        $o = $i -> findOrFail($id);
+        $o = $i->findOrFail($id);
         $o->name = $request->input('categoria');
         $o->save();
 
@@ -117,18 +126,18 @@ class CategoryController extends Controller
     public function deleteDash($id)
     {
         $p = new Category;
-        $o = $p -> findOrFail($id);
+        $o = $p->findOrFail($id);
         $o->delete();
 
         return redirect('/categorias');
     }
 
-    public function searchDash(Request $request){
-      $q = $request->input('q');
+    public function searchDash(Request $request)
+    {
+        $q = $request->input('q');
 
-      $categories = Category::where('name', 'LIKE', '%' . $q . '%')->paginate(20);
+        $categories = Category::where('name', 'LIKE', '%' . $q . '%')->paginate(20);
 
-      return view('apartados.categories', compact('categories'));
+        return view('apartados.categories', compact('categories'));
     }
-
 }

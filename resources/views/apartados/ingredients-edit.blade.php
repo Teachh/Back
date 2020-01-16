@@ -13,7 +13,13 @@
           {{method_field('PUT')}}
             <div class="form-group">
                 <label for="ingrediente">Nombre del ingrediente</label>
-                <input name="ingrediente" type="text" class="form-control" aria-describedby="emailHelp" value="{{$ingrediente->name}}">
+                <input name="ingrediente" type="text" class="form-control @error('plato') is-invalid @enderror" aria-describedby="emailHelp" value="{{$ingrediente->name}}">
+
+                @error('ingredient')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
