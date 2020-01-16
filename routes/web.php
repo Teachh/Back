@@ -43,39 +43,41 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => 'auth'], function () {
   // productos
   Route::get('productos', 'ProductController@indexDash')->name('apartados.products');
-  Route::post('/productos/crear', 'ProductController@createDash');
+  Route::post('productos/crear', 'ProductController@createDash');
   Route::get('productos/crear', function () {
     return view('apartados.products-create');
   })->name('products.create');
-  Route::put('/productos/delete/{id}', 'ProductController@deleteDash');
-  Route::get('/productos/edit/{id}', 'ProductController@getEditDash');
-  Route::put('/productos/edit/{id}', 'ProductController@putEditDash');
+  Route::put('productos/delete/{id}', 'ProductController@deleteDash');
+  Route::get('productos/edit/{id}', 'ProductController@getEditDash');
+  Route::put('productos/edit/{id}', 'ProductController@putEditDash');
   Route::get('productos/search', 'ProductController@searchDash');
   // ingredientes
   Route::get('ingredientes', 'IngredientController@indexDash')->name('apartados.ingredients');
   Route::get('ingredientes/search', 'IngredientController@searchDash');
-  Route::post('/ingredientes/crear', 'IngredientController@createDash');
-  Route::get('/ingredientes/edit/{id}', 'IngredientController@getEditDash');
-  Route::put('/ingredientes/edit/{id}', 'IngredientController@putEditDash');
-  Route::put('/ingredientes/delete/{id}', 'IngredientController@deleteDash');
+  Route::post('ingredientes/crear', 'IngredientController@createDash');
+  Route::get('ingredientes/edit/{id}', 'IngredientController@getEditDash');
+  Route::put('ingredientes/edit/{id}', 'IngredientController@putEditDash');
+  Route::put('ingredientes/delete/{id}', 'IngredientController@deleteDash');
   Route::get('ingredientes/crear', function () {
     return view('apartados.ingredients-create');
   })->name('ingredients.create');
   // pedidos
-  Route::get('/pedidos/{id}', 'OrderController@showDash');
-  Route::put('/pedidos/delete/{id}', 'OrderController@deleteDash');
+  Route::get('pedidos/search', 'OrderController@searchDash');
+  Route::get('pedidos/{id}', 'OrderController@showDash');
+  Route::put('pedidos/delete/{id}', 'OrderController@deleteDash');
+  Route::get('pedidos', 'OrderController@indexDash')->name('apartados.orders');
   // Mensajes
   Route::get('mensajes', 'MessageController@indexDash')->name('apartados.messages');
   Route::get('mensajes/search', 'MessageController@searchDash');
-  Route::put('/mensajes/delete/{id}', 'MessageController@deleteDash');
+  Route::put('mensajes/delete/{id}', 'MessageController@deleteDash');
 
   //categorias
   Route::get('categorias', 'CategoryController@indexDash')->name('apartados.categories');
   Route::get('categorias/search', 'CategoryController@searchDash');
-  Route::post('/categorias/crear', 'CategoryController@createDash');
-  Route::get('/categorias/edit/{id}', 'CategoryController@getEditDash');
-  Route::put('/categorias/edit/{id}', 'CategoryController@putEditDash');
-  Route::put('/categorias/delete/{id}', 'CategoryController@deleteDash');
+  Route::post('categorias/crear', 'CategoryController@createDash');
+  Route::get('categorias/edit/{id}', 'CategoryController@getEditDash');
+  Route::put('categorias/edit/{id}', 'CategoryController@putEditDash');
+  Route::put('categorias/delete/{id}', 'CategoryController@deleteDash');
   Route::get('categorias/crear', function () {
     return view('apartados.categories-create');
   })->name('categorias.create');

@@ -17,6 +17,11 @@ class OrderController extends Controller
         return Order::all();
     }
 
+    public function indexDash()
+    {
+        $orders = Order::all();
+        return view('apartados.orders', compact('orders'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -70,6 +75,14 @@ class OrderController extends Controller
         //
     }
 
+
+    public function searchDash(Request $request)
+    {
+        $q = $request->input('q');
+
+        $orders = Order::where('id', 'LIKE', '%' . $q . '%')->get();
+        return view('apartados.orders', compact('orders'));
+    }
     /**
      * Update the specified resource in storage.
      *

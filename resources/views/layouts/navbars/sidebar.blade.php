@@ -60,6 +60,13 @@
               </a>
           </li>
 
+          <li>
+              <a href="{{ route('apartados.orders') }}">
+                  <i class="tim-icons icon-bag-16"></i>
+                  <p>{{ __('Pedidos') }}</p>
+              </a>
+          </li>
+
           <!--- A PARTIR DE LO DE ARRIVA --->
             <li>
                 <a href="{{ route('pages.icons') }}">

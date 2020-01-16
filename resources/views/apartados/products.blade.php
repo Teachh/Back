@@ -3,7 +3,7 @@
 @section('content')
   <div class="mb-3">
   <h3>Buscador</h3>
-  <form action="productos/search" method="GET">
+  <form action="{{ action('ProductController@searchDash') }}" method="GET">
     <div class="row">
       <div class="col-12 col-md-10">
         <input class="form-control" type="text" name="q" required/>
