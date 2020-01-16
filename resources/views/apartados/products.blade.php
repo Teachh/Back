@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
+@include('alerts.success')
+
   <div class="mb-3">
   <h3>Buscador</h3>
   <form action="{{ action('ProductController@searchDash') }}" method="GET">

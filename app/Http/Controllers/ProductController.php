@@ -59,7 +59,8 @@ class ProductController extends Controller
         $producto->category_id = request('categoria');
         $producto->save();
         $producto->ingredients()->sync(request('ingredientes'));
-        return redirect('/productos');
+
+        return redirect('/productos')->withStatus(__('Product successfully created.'));
     }
     /**
      * Store a newly created resource in storage.
@@ -131,6 +132,12 @@ class ProductController extends Controller
         $o->price = $request->input('precio');
         $o->stock = $request->input('stock');
         if ($request->file('imagen')) {
+            // delete product's image
+            $image = public_path() . '/assets/img/plates/' . $o->image;
+            if (File::exists($image)) {
+                File::delete($image);
+            }
+
             $image = $request->file('imagen');
             $original_path = public_path() . '/assets/img/plates';
             $filename = time() . $image->getClientOriginalName();
@@ -143,7 +150,7 @@ class ProductController extends Controller
 
         $o = Product::findOrFail($id);
 
-        return redirect('/productos');
+        return redirect('/productos')->withStatus(__('Product successfully updated.'));
     }
 
     /**
@@ -172,8 +179,15 @@ class ProductController extends Controller
     {
         $p = new Product;
         $o = $p->findOrFail($id);
+
+        // delete product's image
+        $image = public_path() . '/assets/img/plates/' . $o->image;
+        if (File::exists($image)) {
+            File::delete($image);
+        }
+
         $o->delete();
 
-        return redirect('/productos');
+        return redirect('/productos')->withStatus(__('Product successfully deleted.'));
     }
 }

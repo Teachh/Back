@@ -20,7 +20,7 @@ class UserController extends Controller
     }
     public function show($id)
     {
-      return User::where('id', $id)->get();
+        return User::where('id', $id)->get();
     }
     /**
      * Show the form for creating a new user
@@ -39,7 +39,7 @@ class UserController extends Controller
      * @param  \App\User  $model
      * @return \Illuminate\Http\RedirectResponse
      */
-     // NO SE PUEDEN CREAR USUARIOS
+    // NO SE PUEDEN CREAR USUARIOS
     // public function store(UserRequest $request, User $model)
     // {
     //     $model->create($request->merge(['password' => Hash::make($request->get('password'))])->all());
@@ -74,8 +74,10 @@ class UserController extends Controller
         $hasPassword = $request->get('password');
         $user->update(
             $request->merge(['password' => Hash::make($request->get('password'))])
-                ->except([$hasPassword ? '' : 'password']
-        ));
+                ->except(
+                    [$hasPassword ? '' : 'password']
+                )
+        );
 
         return redirect()->route('user.index')->withStatus(__('User successfully updated.'));
     }
@@ -90,6 +92,12 @@ class UserController extends Controller
     {
         if ($user->id == 1) {
             return abort(403);
+        }
+
+        // delete user's avatar
+        $image = public_path() . '/black/img/' . $user->avatar;
+        if (File::exists($image)) {
+            File::delete($image);
         }
 
         $user->delete();

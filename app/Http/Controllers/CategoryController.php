@@ -42,7 +42,7 @@ class CategoryController extends Controller
         $categoria = new Category();
         $categoria->name = request('categoria');
         $categoria->save();
-        return redirect('/categorias');
+        return redirect('/categorias')->withStatus(__('Category successfully deleted.'));
     }
 
     /**
@@ -97,7 +97,7 @@ class CategoryController extends Controller
 
         $o = Category::findOrFail($id);
 
-        return redirect('/categorias');
+        return redirect('/categorias')->withStatus(__('Category successfully deleted.'));
     }
 
     /**
@@ -129,7 +129,7 @@ class CategoryController extends Controller
         $o = $p->findOrFail($id);
         $o->delete();
 
-        return redirect('/categorias');
+        return redirect('/categorias')->withStatus(__('Category successfully deleted.'));
     }
 
     public function searchDash(Request $request)

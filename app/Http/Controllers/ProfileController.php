@@ -53,6 +53,13 @@ class ProfileController extends Controller
         ]);
 
         $user = Auth::user();
+
+        // delete user's avatar
+        $image = public_path() . '/black/img/' . $user->avatar;
+        if (File::exists($image)) {
+            File::delete($image);
+        }
+
         $image = $request->file('avatar');
         $original_path = public_path() . '/black/img';
         $filename = time() . $image->getClientOriginalName();
