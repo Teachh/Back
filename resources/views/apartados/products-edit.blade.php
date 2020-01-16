@@ -53,11 +53,12 @@
                 @enderror
             </div>
 
-            <div class="form-image-container">
-                @if ($producto->image)
+
+            @if ($producto->image)
+                <div class="form-image-container">
                     <img src="{{ asset('assets/img/plates/' . $producto->image) }}" alt="imatge producte"/>
-                @endif
-            </div>
+                </div>
+            @endif
 
             <div class="form-group">
                 <label for="imagen">Imagen</label>

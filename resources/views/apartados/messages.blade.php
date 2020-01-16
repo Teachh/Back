@@ -32,7 +32,7 @@
             <td>{{ $msj->title }}</td>
             <td>{{ $msj->body }}</td>
             <td>{{ $msj->date }}</td>
-            <td class="text-right">{{ $msj->user_id }}</td>
+            <td class="text-right">{{ $msj->user->name }}</td>
             <td class="td-actions text-right">
                 <form action="{{action('MessageController@deleteDash', $msj->id)}}" method="POST" style="display:inline">
                     {{ method_field('PUT') }}
