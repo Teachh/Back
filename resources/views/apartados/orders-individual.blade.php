@@ -89,7 +89,11 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tornar</button>
-        <button type="button" class="btn btn-primary">Eliminar</button>
+        <form action="{{action('OrderController@deleteDash', $order->id)}}" method="POST" style="display:inline">
+            {{ method_field('PUT') }}
+            {{ csrf_field() }}
+            <button type="submit" class="btn btn-primary">Eliminar</button>
+        </form>
       </div>
     </div>
   </div>

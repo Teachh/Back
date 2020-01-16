@@ -98,4 +98,13 @@ class OrderController extends Controller
 
       return response()->json($order, 200);
     }
+
+        public function deleteDash($id)
+    {
+        $orders = Order::all();
+        $order = Order::findOrFail($id);
+        $order->delete();
+
+        return view('dashboard',compact('orders'));
+    }
 }
