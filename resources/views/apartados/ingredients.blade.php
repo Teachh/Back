@@ -33,12 +33,12 @@
             <td>{{ $ingr->name }}</td>
             <td class="td-actions text-right">
                 <a href="{{ url('/ingredientes/edit/'. $ingr->id ) }}">
-                  <button type="button" class="btn btn-success btn-link btn-icon btn-sm"><i class="tim-icons icon-settings"></i></button>
+                  <button type="button" class="btn btn-success btn-link btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title="Editar Ingredient"><i class="tim-icons icon-settings"></i></button>
                 </a>
                 <form action="{{action('IngredientController@deleteDash', $ingr->id)}}" method="POST" style="display:inline">
                     {{ method_field('PUT') }}
                     {{ csrf_field() }}
-                    <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
+                    <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline" data-toggle="tooltip" data-placement="top" title="Eliminar Ingredient">
                         <span class="tim-icons icon-simple-remove"></span>
                     </button>
                 </form>
