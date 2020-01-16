@@ -63,6 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
   })->name('ingredients.create');
   // pedidos
   Route::get('/pedidos/{id}', 'OrderController@showDash');
+  Route::put('/pedidos/delete/{id}', 'OrderController@deleteDash');
   // Mensajes
   Route::get('mensajes', 'MessageController@indexDash')->name('apartados.messages');
   Route::get('mensajes/search', 'MessageController@searchDash');
@@ -78,4 +79,6 @@ Route::group(['middleware' => 'auth'], function () {
   Route::get('categorias/crear', function () {
     return view('apartados.categories-create');
   })->name('categorias.create');
+
+
 });
