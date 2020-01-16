@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div class="mb-3">
   <h3>Buscador</h3>
   <form action="ingredientes/search" method="GET">

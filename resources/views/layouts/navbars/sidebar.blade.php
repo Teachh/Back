@@ -23,13 +23,13 @@
                       <li>
                           <a href="{{ route('profile.edit')  }}">
                               <i class="tim-icons icon-single-02"></i>
-                              <p>{{ __('User Profile') }}</p>
+                              <p>{{ __('Mi perfil') }}</p>
                           </a>
                       </li>
                       <li>
                           <a href="{{ route('user.index')  }}">
                               <i class="tim-icons icon-bullet-list-67"></i>
-                              <p>{{ __('User Management') }}</p>
+                              <p>{{ __('Gestión de mi perfil') }}</p>
                           </a>
                       </li>
                   </ul>
@@ -89,18 +89,6 @@
                 <a href="{{ route('pages.typography') }}">
                     <i class="tim-icons icon-align-center"></i>
                     <p>{{ __('Typography') }}</p>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('pages.rtl') }}">
-                    <i class="tim-icons icon-world"></i>
-                    <p>{{ __('RTL Support') }}</p>
-                </a>
-            </li>
-            <li class=" {{ $pageSlug ?? '' == 'upgrade' ? 'active' : '' }}">
-                <a href="{{ route('pages.upgrade') }}">
-                    <i class="tim-icons icon-spaceship"></i>
-                    <p>{{ __('Upgrade to PRO') }}</p>
                 </a>
             </li>
         </ul>
