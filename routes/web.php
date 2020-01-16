@@ -81,6 +81,15 @@ Route::group(['middleware' => 'auth'], function () {
   Route::get('categorias/crear', function () {
     return view('apartados.categories-create');
   })->name('categorias.create');
-
+  //alergenos
+  Route::get('alergenos', 'AllergenController@indexDash')->name('apartados.alergens');
+  Route::get('alergenos/search', 'AllergenController@searchDash');
+  Route::post('alergenos/crear', 'AllergenController@createDash');
+  Route::get('alergenos/edit/{id}', 'AllergenController@getEditDash');
+  Route::put('alergenos/edit/{id}', 'AllergenController@putEditDash');
+  Route::put('alergenos/delete/{id}', 'AllergenController@deleteDash');
+  Route::get('alergenos/crear', function () {
+    return view('apartados.allergens-create');
+  })->name('alergenos.create');
 
 });

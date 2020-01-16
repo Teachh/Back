@@ -67,6 +67,13 @@
               </a>
           </li>
 
+          <li>
+              <a href="{{ route('apartados.alergens') }}">
+                  <i class="tim-icons icon-sound-wave"></i>
+                  <p>{{ __('Alérgenos') }}</p>
+              </a>
+          </li>
+
           <!--- A PARTIR DE LO DE ARRIVA --->
             <li>
                 <a href="{{ route('pages.icons') }}">

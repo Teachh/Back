@@ -16,6 +16,11 @@ class AllergenController extends Controller
     {
         return Allergen::all();
     }
+    public function indexDash()
+    {
+        $alergenos = Allergen::all();
+        return view('apartados.allergens', compact('alergenos'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -83,4 +88,54 @@ class AllergenController extends Controller
     {
         //
     }
+    public function searchDash(Request $request)
+    {
+        $q = $request->input('q');
+
+        $alergenos = Allergen::where('name', 'LIKE', '%' . $q . '%')->get();
+
+        return view('apartados.allergens', compact('alergenos'));
+    }
+    public function createDash(Request $request)
+    {
+        $this->validate($request, [
+            'allergen' => ['required']
+        ]);
+
+        $alergeno = new Allergen();
+        $alergeno->name = request('allergen');
+        $alergeno->save();
+        return redirect('/alergenos');
+    }
+    public function getEditDash($id)
+    {
+        $alergeno = Allergen::findOrFail($id);
+        return view('apartados.allergens-edit', compact('alergeno'));
+    }
+
+    public function putEditDash(Request $request, $id)
+    {
+        $this->validate($request, [
+            'alergeno' => ['required']
+        ]);
+
+        $i = new Allergen;
+        $o = $i->findOrFail($id);
+        $o->name = $request->input('alergeno');
+        $o->save();
+
+        $o = Allergen::findOrFail($id);
+
+        return redirect('alergenos');
+    }
+
+    public function deleteDash($id)
+    {
+        $p = new Allergen;
+        $o = $p->findOrFail($id);
+        $o->delete();
+
+        return redirect('/alergenos');
+    }
+
 }
