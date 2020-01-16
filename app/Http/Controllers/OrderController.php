@@ -53,7 +53,11 @@ class OrderController extends Controller
     public function showDash($id)
     {
       $order = Order::findOrFail($id);
-      return view('apartados.orders-individual',compact('order'));
+      $price=0;
+      foreach ($order->products as $prod) {
+          $price+=$prod->pivot->Quantity * $prod->price;
+      }
+      return view('apartados.orders-individual',compact('order','price'));
     }
     /**
      * Show the form for editing the specified resource.
