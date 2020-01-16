@@ -216,14 +216,14 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <p class="title">{{ $nota->title}}</p>
+                                        <p class="title">{{ $nota->user->name}}</p>
                                         <p class="text-muted">{{ $nota->subject}}</p>
                                     </td>
                                     <td class="td-actions text-right">
-                                        <button type="button" rel="tooltip" class="btn btn-link">
+                                        <button type="button" rel="tooltip" class="btn btn-link" data-toggle="modal" data-target="#{{ str_replace(' ', '', $nota->title) }}view">
                                             <i class="tim-icons icon-zoom-split"></i>
                                         </button>
-                                        <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
+                                        <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task" data-toggle="modal" data-target="#{{ str_replace(' ', '', $nota->title) }}edit">
                                             <i class="tim-icons icon-pencil"></i>
                                         </button>
                                     </td>
@@ -236,6 +236,85 @@
             </div>
         </div>
     </div>
+
+@foreach($notes as $nota)
+  <!-- Modal -->
+  <div class="modal fade" id="{{ str_replace(' ', '', $nota->title) }}view" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmacio d'eliminació</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Estas segur que vols eliminar aquesta comanda?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tornar</button>
+          <form action="{{action('OrderController@deleteDash', $nota->id)}}" method="POST" style="display:inline">
+              {{ method_field('PUT') }}
+              {{ csrf_field() }}
+              <button type="submit" class="btn btn-primary">Acabat</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <!-- Modal -->
+  <div class="modal fade" id="{{ str_replace(' ', '', $nota->title) }}edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmacio d'eliminació</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Estas segur que vols eliminar aquesta comanda?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tornar</button>
+          <form action="{{action('OrderController@deleteDash', $nota->id)}}" method="POST" style="display:inline">
+              {{ method_field('PUT') }}
+              {{ csrf_field() }}
+              <button type="submit" class="btn btn-primary">Eliminar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+      <!-- Modal -->
+  <div class="modal fade" id="{{ str_replace(' ', '', $nota->title) }}delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Confirmacio d'eliminació</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Estas segur que vols eliminar aquesta comanda?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tornar</button>
+          <form action="{{action('OrderController@deleteDash', $nota->id)}}" method="POST" style="display:inline">
+              {{ method_field('PUT') }}
+              {{ csrf_field() }}
+              <button type="submit" class="btn btn-primary">Eliminar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+@endforeach
 @endsection
 
 @push('js')
