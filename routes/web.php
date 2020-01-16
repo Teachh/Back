@@ -19,6 +19,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
+Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'LanguageController@switchLang']);
 
 Route::group(['middleware' => 'auth'], function () {
   Route::get('icons', ['as' => 'pages.icons', 'uses' => 'PageController@icons']);
@@ -65,16 +66,16 @@ Route::group(['middleware' => 'auth'], function () {
   // Mensajes
   Route::get('mensajes', 'MessageController@indexDash')->name('apartados.messages');
   Route::get('mensajes/search', 'MessageController@searchDash');
-  Route::put('/mensajes/delete/{id}','MessageController@deleteDash');
+  Route::put('/mensajes/delete/{id}', 'MessageController@deleteDash');
 
   //categorias
   Route::get('categorias', 'CategoryController@indexDash')->name('apartados.categories');
   Route::get('categorias/search', 'CategoryController@searchDash');
-  Route::post('/categorias/crear','CategoryController@createDash');
-  Route::get('/categorias/edit/{id}','CategoryController@getEditDash');
-  Route::put('/categorias/edit/{id}','CategoryController@putEditDash');
-  Route::put('/categorias/delete/{id}','CategoryController@deleteDash');
+  Route::post('/categorias/crear', 'CategoryController@createDash');
+  Route::get('/categorias/edit/{id}', 'CategoryController@getEditDash');
+  Route::put('/categorias/edit/{id}', 'CategoryController@putEditDash');
+  Route::put('/categorias/delete/{id}', 'CategoryController@deleteDash');
   Route::get('categorias/crear', function () {
-	return view('apartados.categories-create');
+    return view('apartados.categories-create');
   })->name('categorias.create');
 });
