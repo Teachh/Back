@@ -10,7 +10,7 @@
         <input class="form-control" type="text" name="q" required/>
       </div>
       <div class="col-12 col-md-2" style="margin-top:-5px">
-        <button type="submit" class="btn btn-primary">Buscar</button>
+        <button type="submit" class="btn btn-primary mt-3 mt-sm-0">Buscar</button>
       </div>
     </div>
 

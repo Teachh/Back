@@ -4,7 +4,7 @@
 <!--   <a href="{{ route('products.create') }}">
     <button type="button" class="btn btn-primary">Añadir producto</button>
   </a> -->
-  <div class="container mb-5 text-right">
+  <div class="container mb-3 mb-sm-5 text-right">
   <div class="row ">
     <div class="col-md-5 details mt-4 text-center align-self-center">
         <h1 class="mb-0">NUM PEDIDO: {{ $order->id }}</h1><br>
@@ -18,13 +18,13 @@
 
     </div>
     <div class="col-md-4 details mt-2 align-self-center ">
-      <blockquote class="mb-0">
+      <blockquote class="mb-0 mr-4 mr-sm-0">
         <h5 class="mb-0">{{ $order->user->name }}</h5>
         <small><cite title="Source Title">{{ $order->user->email }}<i class="icon-map-marker"></i></cite></small>
       </blockquote>
     </div>
-    <div class="col-md-3 img">
-      <img src="{{ asset('black') }}/img/{{ $order->user->avatar }}"  alt="" class="img-rounded">
+    <div class="col-md-3 img w-100 h-100">
+      <img src="{{ asset('black') }}/img/{{ $order->user->avatar }}"  alt="" class="img-rounded mr-4 mr-sm-0 mt-3 mt-sm-0" style="width: 245px; height: 230px;">
     </div>
   </div>
 </div>
@@ -67,11 +67,8 @@
     <div class=" col-md-12 col-lg-2 details mt-4 text-center">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Eliminar</button>
     </div>
-    <div class="col-md-12 col-xs-5 col-sm-7 ml-sm-2 ml-md-0 col-lg-4 details mt-4">
-        <h1 id="preutotal">TOTAL:  {{ $price }} &euro;</h1>
-        <script>
-            
-        </script>
+    <div class="col-md-12 col-xs-5 col-sm-7 ml-sm-2 ml-md-0 col-lg-4 details mt-4 ">
+        <h1 class="text-center" id="preutotal">TOTAL:  {{ $price }} &euro;</h1>
     </div>
   </div>
 </div>
