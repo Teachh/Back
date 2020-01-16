@@ -18,6 +18,20 @@
         <div class="collapse navbar-collapse" id="navigation">
             <ul class="navbar-nav ml-auto">
                 <li class="dropdown nav-item">
+                    <a href="" class="dropdown-toggle nav-link" data-toggle="dropdown" aria-expanded="false">
+                        <i class="tim-icons icon-world"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
+                        @foreach (config('app.locales') as $lang => $language)
+                            @if ($lang != App::getLocale())
+                                <li class="nav-link">
+                                    <a href="{{ route('lang.switch', $lang) }}" class="nav-item dropdown-item">{{ $language }}</a>
+                                </li>
+                            @endif
+                        @endforeach
+                    </ul>
+                </li>
+                <li class="dropdown nav-item">
                     <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
                         <div class="photo">
                             <img src="{{ asset('black') }}/img/{{ Auth::user()->avatar }}" alt="{{ __('Profile Photo') }}">
