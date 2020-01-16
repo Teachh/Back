@@ -32,7 +32,7 @@
             <td>{{ $msj->title }}</td>
             <td>{{ $msj->body }}</td>
             <td>{{ $msj->date }}</td>
-            <td class="text-right">{{ $msj->user_id }}</td>
+            <td class="text-right">{{ $msj->user->name }}</td>
             <td class="td-actions text-right">
                     <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline" data-toggle="modal" data-placement="top" title="Eliminar Ingredient" data-target="#{{ str_replace(' ', '', $msj->title) }}">
                         <span class="tim-icons icon-simple-remove"></span>
