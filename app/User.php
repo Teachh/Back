@@ -5,6 +5,9 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Task;
+use App\Message;
+use App\Order;
 
 class User extends Authenticatable
 {
@@ -43,5 +46,9 @@ class User extends Authenticatable
 
     public function messages(){
       return $this->hasMany(Message::class);
+    }
+
+    public function tasks(){
+      return $this->hasMany(Task::class);
     }
 }
