@@ -12,7 +12,7 @@
           @csrf
           {{method_field('PUT')}}
             <div class="form-group">
-                <label for="alergeno">Nombre del alérgeno</label>
+                <label for="alergeno">{{__('web.nom-ale')}}</label>
                 <input name="alergeno" type="text" class="form-control @error('alergeno') is-invalid @enderror" aria-describedby="emailHelp" value="{{$alergeno->name}}">
                 @error('alergeno')
                     <span class="invalid-feedback" role="alert">
@@ -20,7 +20,7 @@
                     </span>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">{{__('web.editar')}}</button>
         </form>
     </div>
 </div>
