@@ -1,8 +1,8 @@
 <div class="sidebar">
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="#" class="simple-text logo-mini">{{ __('BD') }}</a>
-            <a href="#" class="simple-text logo-normal">{{ __('Black Dashboard') }}</a>
+            <a href="/" class="simple-text logo-mini">{{ __('BD') }}</a>
+            <a href="/" class="simple-text logo-normal">{{ __('Black Dashboard') }}</a>
         </div>
         <ul class="nav">
           <li>
@@ -71,6 +71,13 @@
               <a href="{{ route('apartados.alergens') }}">
                   <i class="tim-icons icon-sound-wave"></i>
                   <p>{{ __('Alérgenos') }}</p>
+              </a>
+          </li>
+
+          <li>
+              <a href="{{ route('apartados.noticias') }}">
+                  <i class="tim-icons icon-pin"></i>
+                  <p>{{ __('Noticias') }}</p>
               </a>
           </li>
 

@@ -91,5 +91,14 @@ Route::group(['middleware' => 'auth'], function () {
   Route::get('alergenos/crear', function () {
     return view('apartados.allergens-create');
   })->name('alergenos.create');
-
+  //noticias
+  Route::get('noticias', 'NoticiaController@indexDash')->name('apartados.noticias');
+  Route::get('noticias/search', 'NoticiaController@searchDash');
+  Route::post('noticias/crear', 'NoticiaController@createDash');
+  Route::get('noticias/edit/{id}', 'NoticiaController@getEditDash');
+  Route::put('noticias/edit/{id}', 'NoticiaController@putEditDash');
+  Route::put('noticias/delete/{id}', 'NoticiaController@deleteDash');
+  Route::get('noticias/crear', function () {
+    return view('apartados.noticias-create');
+  })->name('noticias.create');
 });
