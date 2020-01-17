@@ -216,7 +216,7 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <p class="title">{{ $nota->user->name}}</p>
+                                        <p class="title">{{$nota->title}} [{{ $nota->user->name}}]</p>
                                         <p class="text-muted">{{ $nota->subject}}</p>
                                     </td>
                                     <td class="td-actions text-right">
@@ -225,6 +225,9 @@
                                         </button>
                                         <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task" data-toggle="modal" data-target="#{{ str_replace(' ', '', $nota->title) }}edit">
                                             <i class="tim-icons icon-pencil"></i>
+                                        </button>
+                                        <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task" data-toggle="modal" data-target="#{{ str_replace(' ', '', $nota->title) }}delete">
+                                            <i class="tim-icons icon-simple-remove"></i>
                                         </button>
                                     </td>
                                 </tr>
@@ -239,7 +242,7 @@
 
 @foreach($notes as $nota)
   <!-- Modal -->
-  <div class="modal fade" id="{{ str_replace(' ', '', $nota->title) }}view" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="{{ str_replace(' ', '', $nota->title) }}delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -249,7 +252,7 @@
           </button>
         </div>
         <div class="modal-body">
-          Estas segur que vols eliminar aquesta comanda?
+          Estas segur que vols eliminar aquesta Nota/Tasca?
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Tornar</button>
@@ -291,7 +294,7 @@
 
 
       <!-- Modal -->
-  <div class="modal fade" id="{{ str_replace(' ', '', $nota->title) }}delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="{{ str_replace(' ', '', $nota->title) }}view" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
