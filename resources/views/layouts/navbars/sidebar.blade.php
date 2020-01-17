@@ -74,6 +74,13 @@
               </a>
           </li>
 
+          <li>
+              <a href="{{ route('apartados.noticias') }}">
+                  <i class="tim-icons icon-pin"></i>
+                  <p>{{ __('Noticias') }}</p>
+              </a>
+          </li>
+
           <!--- A PARTIR DE LO DE ARRIVA --->
             <li>
                 <a href="{{ route('pages.icons') }}">
