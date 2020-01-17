@@ -80,38 +80,6 @@
                   <p>{{ __('Noticias') }}</p>
               </a>
           </li>
-
-          <!--- A PARTIR DE LO DE ARRIVA --->
-            <li>
-                <a href="{{ route('pages.icons') }}">
-                    <i class="tim-icons icon-atom"></i>
-                    <p>{{ __('Icons') }}</p>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('pages.maps') }}">
-                    <i class="tim-icons icon-pin"></i>
-                    <p>{{ __('Maps') }}</p>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('pages.notifications') }}">
-                    <i class="tim-icons icon-bell-55"></i>
-                    <p>{{ __('Notifications') }}</p>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('pages.tables') }}">
-                    <i class="tim-icons icon-puzzle-10"></i>
-                    <p>{{ __('Table List') }}</p>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('pages.typography') }}">
-                    <i class="tim-icons icon-align-center"></i>
-                    <p>{{ __('Typography') }}</p>
-                </a>
-            </li>
         </ul>
     </div>
 </div>
