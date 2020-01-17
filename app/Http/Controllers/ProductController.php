@@ -122,6 +122,8 @@ class ProductController extends Controller
             'precio' => ['required', 'alpha_num'],
             'stock' => ['required', 'integer'],
             'categoria' => ['required'],
+            'dateini' => ['required'],
+            'dateend' => ['required'],
             'ingredientes' => ['required']
         ]);
 
@@ -131,6 +133,8 @@ class ProductController extends Controller
         $o->description = $request->input('descripcion');
         $o->price = $request->input('precio');
         $o->stock = $request->input('stock');
+        $o->dateini = $request->input('dateini');
+        $o->dateend = $request->input('dateend');
         if ($request->file('imagen')) {
             // delete product's image
             $image = public_path() . '/assets/img/plates/' . $o->image;

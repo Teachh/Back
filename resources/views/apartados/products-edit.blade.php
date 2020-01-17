@@ -13,7 +13,7 @@
           {{method_field('PUT')}}
 
             <div class="form-group">
-                <label for="plato">Nombre del plato</label>
+                <label for="plato">{{__('web.nom-pla')}}</label>
                 <input name="plato" type="text" class="form-control @error('plato') is-invalid @enderror" aria-describedby="emailHelp" value="{{$producto->name}}">
 
                 @error('plato')
@@ -23,7 +23,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="descripcion">Descripción del plato</label>
+                <label for="descripcion">{{__('web.des-pla')}}</label>
                 <input name="descripcion" type="text" class="form-control @error('descripcion') is-invalid @enderror" value="{{$producto->description}}">
 
                 @error('descripcion')
@@ -33,7 +33,27 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="precio">Precio</label>
+                <label for="dateini">Fecha inciación</label>
+                <input name="dateini" type="date" class="form-control @error('descripcion') is-invalid @enderror" value="{{$producto->dateini}}">
+
+                @error('dateini')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="dateend">Fecha finalización</label>
+                <input name="dateend" type="date" class="form-control @error('descripcion') is-invalid @enderror" value="{{$producto->dateend}}">
+
+                @error('dateend')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="precio">{{__('web.precio')}}</label>
                 <input name="precio" type="number" class="form-control @error('precio') is-invalid @enderror" value="{{$producto->price}}">
 
                 @error('precio')
@@ -61,7 +81,7 @@
             @endif
 
             <div class="form-group">
-                <label for="imagen">Imagen</label>
+                <label for="imagen">{{__('web.imagen')}}</label>
                 <input name="imagen" type="file" class="form-control @error('imagen') is-invalid @enderror">
 
                 @error('imagen')
@@ -72,7 +92,7 @@
             </div>
 
             <div class="form-group">
-              <label for="categoria">Categorias</label>
+              <label for="categoria">{{__('web.catego')}}</label>
               <select class="js-example-basic-single form-control @error('categoria') is-invalid @enderror" name="categoria">
                   @foreach (App\Category::all() as $cat)
                     <option {{ $producto->category_id == $cat->id ? 'selected' : '' }} value="{{$cat->id}}">{{$cat->name}}</option>
@@ -86,7 +106,7 @@
               @enderror
             </div>
             <div class="form-group">
-              <label for="ingredientes">Ingredients</label>
+              <label for="ingredientes">{{__('web.ingre')}}</label>
                 <select class="js-example-basic-multiple form-control @error('ingredientes') is-invalid @enderror" name="ingredientes[]" multiple="multiple">
                     @foreach (App\Ingredient::all() as $ingr)
                       <option value="{{$ingr->id}}" {{ in_array($ingr->id, $ingredients_array) ? 'selected' : '' }}>{{$ingr->name}}</option>
@@ -99,7 +119,7 @@
                     </span>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">{{__('web.editar')}}</button>
         </form>
     </div>
 </div>

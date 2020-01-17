@@ -19,10 +19,10 @@
     <thead>
         <tr>
             <th class="text-center">#</th>
-            <th>Título</th>
-            <th>Mensaje</th>
-            <th>Fecha</th>
-            <th class="text-right">Usuario</th>
+            <th>{{__('web.titulo')}}</th>
+            <th>{{__('web.mensaje')}}</th>
+            <th>{{__('web.fecha')}}</th>
+            <th class="text-right">{{__('web.usuario')}}</th>
         </tr>
     </thead>
     <tbody>
@@ -49,20 +49,20 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Confirmacio d'eliminació</h5>
+          <h5 class="modal-title" id="exampleModalLabel">{{__('web.conf-eli')}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          Estas segur que vols eliminar aquesta comanda?
+          {{__('web.sure')}}
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tornar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('web.atras')}}</button>
           <form action="{{action('MessageController@deleteDash', $msj->id)}}" method="POST" style="display:inline">
               {{ method_field('PUT') }}
               {{ csrf_field() }}
-              <button type="submit" class="btn btn-primary">Eliminar</button>
+              <button type="submit" class="btn btn-primary">{{__('web.elim')}}</button>
           </form>
         </div>
       </div>
