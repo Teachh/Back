@@ -19,22 +19,22 @@
     <thead>
       <tr>
           <th>
-              Ordre
+            {{__('web.pedido')}}
           </th >
           <th>
-              Usuari
+            {{__('web.usuario')}}
           </th>
           <th>
-              Preu
+          {{__('web.precio')}}
           </th>
           <th>
-              Data
+          {{__('web.fecha')}}
           </th>
           <th>
-              Entregat
+          {{__('web.entregado')}}
           </th>
           <th>
-              Opcions
+          {{__('web.opciones')}}
           </th>
       </tr>
     </thead>
@@ -105,20 +105,20 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Confirmacio d'eliminació</h5>
+          <h5 class="modal-title" id="exampleModalLabel"> {{__('web.conf-eli')}} </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          Estas segur que vols eliminar aquesta comanda?
+          {{__('web.sure')}}
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tornar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('web.atras')}}</button>
           <form action="{{action('IngredientController@deleteDash', $ord->id)}}" method="POST" style="display:inline">
               {{ method_field('PUT') }}
               {{ csrf_field() }}
-              <button type="submit" class="btn btn-primary">Eliminar</button>
+              <button type="submit" class="btn btn-primary">{{__('web.elim')}}</button>
           </form>
         </div>
       </div>

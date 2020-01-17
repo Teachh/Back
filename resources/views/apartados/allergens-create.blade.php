@@ -11,7 +11,7 @@
         <form method="post">
           @csrf
             <div class="form-group">
-                <label for="ingredient">Nombre del alérgeno</label>
+                <label for="ingredient">{{__('web.nom-ale')}}</label>
                 <input name="allergen" type="text" class="form-control @error('allergen') is-invalid @enderror" aria-describedby="emailHelp">
 
                 @error('allergen')
@@ -20,7 +20,7 @@
                     </span>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">{{__('web.crear')}}</button>
         </form>
     </div>
 </div>

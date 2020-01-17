@@ -7,7 +7,7 @@
   <div class="container mb-3 mb-sm-5 text-right">
   <div class="row ">
     <div class="col-md-5 details mt-4 text-center align-self-center">
-        <h1 class="mb-0">NUM PEDIDO: {{ $order->id }}</h1><br>
+        <h1 class="mb-0">{{__('web.num-ped')}}{{ $order->id }}</h1><br>
         <h1>ENTREGAT:
             @if(($order->finished==0))
                 No
@@ -32,11 +32,11 @@
   <table class="table">
     <thead class="text-center">
         <tr>
-            <th>ID PROD</th>
-            <th>PRODUCTO</th>
-            <th>CANTIDAD</th>
-            <th>PRECIO</th>
-            <th>ELIMINAR</th>
+          <th>{{__('web.idpro')}}</th>
+          <th>{{__('web.prod')}}</th>
+          <th>{{__('web.cant')}}</th>
+          <th>{{__('web.precio')}}</th>
+          <th>{{__('web.opt')}}</th>
         </tr>
     </thead>
     <tbody class="text-center">
@@ -59,16 +59,16 @@
   <div class="row ">
     <div class="col-md-12 col-lg-2 details mt-4 text-center mr-0 mr-xs-5" >
             @if(($order->finished==0))
-                <button type="button" class="btn btn-primary">Entregar</button>
+                <button type="button" class="btn btn-primary">{{__('web.entre')}}</button>
             @else
-                <button type="button" class="btn btn-primary">Cancelar</button>
+                <button type="button" class="btn btn-primary">{{__('web.cancel')}}</button>
             @endif
     </div>
     <div class=" col-md-12 col-lg-2 details mt-4 text-center">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Eliminar</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">{{__('web.elim')}}</button>
     </div>
     <div class="col-md-12 col-xs-5 col-sm-7 ml-sm-2 ml-md-0 col-lg-4 details mt-4 ">
-        <h1 class="text-center" id="preutotal">TOTAL:  {{ $price }} &euro;</h1>
+        <h1 class="text-center" id="preutotal">{{__('web.total')}}{{ $price }} &euro;</h1>
     </div>
   </div>
 </div>
@@ -79,20 +79,20 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Confirmacio d'eliminació</h5>
+        <h5 class="modal-title" id="exampleModalLabel"> {{__('web.conf-eli')}} </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Estas segur que vols eliminar aquesta comanda?
+        {{__('web.sure')}}
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tornar</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('web.atras')}}</button>
         <form action="{{action('OrderController@deleteDash', $order->id)}}" method="POST" style="display:inline">
             {{ method_field('PUT') }}
             {{ csrf_field() }}
-            <button type="submit" class="btn btn-primary">Eliminar</button>
+            <button type="submit" class="btn btn-primary">{{__('web.elim')}}</button>
         </form>
       </div>
     </div>

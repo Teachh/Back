@@ -5,7 +5,7 @@
         <div class="col-lg-12 col-md-12 order-1">
             <div class="card ">
                 <div class="card-header">
-                    <h4 class="card-title">Simple Table</h4>
+                    <h4 class="card-title">{{__('web.tabla-pedidos')}}</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -13,22 +13,22 @@
                             <thead class=" text-primary text-center">
                                 <tr>
                                     <th>
-                                        Ordre
+                                    {{__('web.pedido')}}
                                     </th >
                                     <th>
-                                        Usuari
+                                    {{__('web.usuario')}}
                                     </th>
                                     <th>
-                                        Preu
+                                    {{__('web.precio')}}
                                     </th>
                                     <th>
-                                        Data
+                                    {{__('web.fecha')}}
                                     </th>
                                     <th>
-                                        Entregat
+                                    {{__('web.entregado')}}
                                     </th>
                                     <th>
-                                        Opcions
+                                    {{__('web.opciones')}}
                                     </th>
                                 </tr>
                             </thead>
@@ -103,8 +103,8 @@
                 <div class="card-header ">
                     <div class="row">
                         <div class="col-sm-6 text-left">
-                            <h5 class="card-category">test</h5>
-                            <h2 class="card-title">Performance</h2>
+                            <!--<h5 class="card-category">test</h5>-->
+                            <h2 class="card-title">{{__('web.tabla-mensual')}}</h2>
                         </div>
                         <div class="col-sm-6">
                             <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
@@ -145,7 +145,7 @@
         <div class="col-lg-4 order-2">
             <div class="card card-chart">
                 <div class="card-header">
-                    <h5 class="card-category">Total Shipments</h5>
+                    <h5 class="card-category">{{__('web.venta-sem')}}</h5>
                     <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> 763,215</h3>
                 </div>
                 <div class="card-body">
@@ -158,7 +158,7 @@
         <div class="col-lg-4 order-1">
             <div class="card card-chart">
                 <div class="card-header">
-                    <h5 class="card-category">Daily Sales</h5>
+                    <h5 class="card-category">{{__('web.prod-est')}}</h5>
                     <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> 3,500€</h3>
                 </div>
                 <div class="card-body">
@@ -171,7 +171,7 @@
         <div class="col-lg-4 order-3">
             <div class="card card-chart">
                 <div class="card-header">
-                    <h5 class="card-category">Completed Tasks</h5>
+                    <h5 class="card-category">{{__('web.ing-usd')}}</h5>
                     <h3 class="card-title"><i class="tim-icons icon-send text-success"></i> 12,100K</h3>
                 </div>
                 <div class="card-body">
@@ -186,8 +186,8 @@
         <div class="col-lg-12 col-md-12 order-4">
             <div class="card card-tasks">
                 <div class="card-header ">
-                    <h6 class="title d-inline">Tasks(5)</h6>
-                    <p class="card-category d-inline">today</p>
+                    <h6 class="title d-inline">{{__('web.notas')}}</h6>
+                    <!--<p class="card-category d-inline">today</p>-->
                     <div class="dropdown">
                         <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
                             <i class="tim-icons icon-settings-gear-63"></i>
@@ -243,20 +243,20 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Confirmacio d'eliminació</h5>
+          <h5 class="modal-title" id="exampleModalLabel">{{__('web.conf-eli')}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          Estas segur que vols eliminar aquesta comanda?
+        {{__('web.sure')}}
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tornar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('web.atras')}}</button>
           <form action="{{action('OrderController@deleteDash', $nota->id)}}" method="POST" style="display:inline">
               {{ method_field('PUT') }}
               {{ csrf_field() }}
-              <button type="submit" class="btn btn-primary">Acabat</button>
+              <button type="submit" class="btn btn-primary">{{__('web.acabado')}}</button>
           </form>
         </div>
       </div>
@@ -269,20 +269,20 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Confirmacio d'eliminació</h5>
+          <h5 class="modal-title" id="exampleModalLabel">{{__('web.conf-eli')}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          Estas segur que vols eliminar aquesta comanda?
+          {{__('web.sure')}}
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tornar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('web.atras')}}</button>
           <form action="{{action('OrderController@deleteDash', $nota->id)}}" method="POST" style="display:inline">
               {{ method_field('PUT') }}
               {{ csrf_field() }}
-              <button type="submit" class="btn btn-primary">Eliminar</button>
+              <button type="submit" class="btn btn-primary">{{__('web.elim')}}</button>
           </form>
         </div>
       </div>
@@ -295,20 +295,20 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Confirmacio d'eliminació</h5>
+          <h5 class="modal-title" id="exampleModalLabel">{{__('web.conf-eli')}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          Estas segur que vols eliminar aquesta comanda?
+        {{__('web.sure')}}
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tornar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('web.atras')}}</button>
           <form action="{{action('OrderController@deleteDash', $nota->id)}}" method="POST" style="display:inline">
               {{ method_field('PUT') }}
               {{ csrf_field() }}
-              <button type="submit" class="btn btn-primary">Eliminar</button>
+              <button type="submit" class="btn btn-primary">{{__('web.elim')}}</button>
           </form>
         </div>
       </div>
