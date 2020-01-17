@@ -26,6 +26,7 @@
             <th>{{__('web.descrip')}}</th>
             <th>{{__('web.precio')}}</th>
             <th class="text-right">Stock</th>
+            <th class="text-center">Fecha activo</th>
             <th class="text-right">{{__('web.accio')}}</th>
         </tr>
     </thead>
@@ -37,6 +38,8 @@
             <td>{{ $prod->description }}</td>
             <td>{{ $prod->price }}&euro;</td>
             <td class="text-right">{{ $prod->stock }}</td>
+            <td class="text-center">{{ $prod->dateini }} - {{ $prod->dateend }}</td>
+
             <td class="td-actions text-right">
                 <a href="{{ url('/productos/edit/'. $prod->id ) }}">
                   <button type="button" class="btn btn-success btn-link btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title="Editar Producte"><i class="tim-icons icon-settings"></i></button>

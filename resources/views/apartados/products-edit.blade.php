@@ -33,6 +33,26 @@
                 @enderror
             </div>
             <div class="form-group">
+                <label for="dateini">Fecha inciación</label>
+                <input name="dateini" type="date" class="form-control @error('descripcion') is-invalid @enderror" value="{{$producto->dateini}}">
+
+                @error('dateini')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="dateend">Fecha finalización</label>
+                <input name="dateend" type="date" class="form-control @error('descripcion') is-invalid @enderror" value="{{$producto->dateend}}">
+
+                @error('dateend')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+            <div class="form-group">
                 <label for="precio">{{__('web.precio')}}</label>
                 <input name="precio" type="number" class="form-control @error('precio') is-invalid @enderror" value="{{$producto->price}}">
 
