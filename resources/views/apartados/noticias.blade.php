@@ -9,23 +9,23 @@
         <input class="form-control" type="text" name="q" required/>
       </div>
       <div class="col-12 col-md-2" style="margin-top:-5px">
-        <button type="submit" class="btn btn-primary mt-3 mt-sm-0">Buscar</button>
+        <button type="submit" class="btn btn-primary mt-3 mt-sm-0">{{__('web.buscar')}}</button>
       </div>
     </div>
 
   </form>
 </div>
   <a href="{{ route('noticias.create') }}">
-    <button type="button" class="btn btn-primary">Añadir noticia</button>
+    <button type="button" class="btn btn-primary">{{__('web.añadirNot')}}</button>
   </a>
   <table class="table">
     <thead>
         <tr>
             <th class="text-center">#</th>
-            <th>Título</th>
-            <th class="text-center">Contenido</th>
-            <th class="text-center">Imagen</th>
-            <th class="text-right">Opcions</th>
+            <th>{{__('web.titulo')}}</th>
+            <th class="text-center">{{__('web.content')}}</th>
+            <th class="text-center">{{__('web.imagen')}}</th>
+            <th class="text-right">{{__('web.opt')}}</th>
         </tr>
     </thead>
     <tbody>
@@ -55,20 +55,20 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Confirmacio d'eliminació</h5>
+          <h5 class="modal-title" id="exampleModalLabel">{{__('web.conf-eli')}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          Estas segur que vols eliminar aquesta comanda?
+          {{__('web.sure')}}
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tornar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('web.back')}}</button>
           <form action="{{action('NoticiaController@deleteDash', $not->id)}}" method="POST" style="display:inline">
               {{ method_field('PUT') }}
               {{ csrf_field() }}
-              <button type="submit" class="btn btn-primary">Eliminar</button>
+              <button type="submit" class="btn btn-primary">{{__('web.elim')}}</button>
           </form>
         </div>
       </div>

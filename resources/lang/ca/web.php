@@ -67,5 +67,10 @@ return [
     'sure'=>'Estàs  segur que vols eliminar la comanda?',
     'atras'=>'Cancel·lar',
     'acabado'=>'Acabat',
-    
+    //NOTICIAS
+    'añadirNot'=>'Afegir noticia',
+    'content'=>'Contingut',
+    'back'=>'Tornar',
+    'notTitulo'=>'Títol de la noticia',
+    'notContent'=>'Contingut de la notica',
 ];
