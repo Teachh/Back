@@ -33,7 +33,7 @@
         <tr>
             <td class="text-center">{{ $not->id }}</td>
             <td>{{ $not->title }}</td>
-            <td>{{ $not->content }}</td>
+            <td>{{ (strlen($not->content) > 100)? substr($not->content,0,100).'...': $not->content}}</td>
             <td class="text-center">
               <img class=""src="{{ asset('assets/img/plates/' . $not->image) }}" alt="{{$not->image}}" width="150rem" height="75rem">
             </td>
