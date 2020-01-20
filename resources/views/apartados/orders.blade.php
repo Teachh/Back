@@ -3,6 +3,9 @@
 @section('content')
 <div class="mb-3">
   <h3>{{ __('web.buscador') }}</h3>
+        
+  @include('alerts.success')
+
   <form action="{{action('OrderController@searchDash')}}" method="GET">
     <div class="row">
       <div class="col-12 col-md-10">
@@ -68,26 +71,26 @@
 
               <td >
                 <a href="{{ url('/pedidos/'.$order->id)}}">
-                  <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm">
+                  <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title="{{ __('web.show-order') }}">
                       <i class="tim-icons icon-zoom-split"></i>
                   </button>
                 </a>
-                  <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
+                  <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title="{{ __('web.delete-order') }}" style="display:inline">
                       <span class="tim-icons icon-trash-simple"></span>
                   </button>
-                  <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
-                      <span class="tim-icons icon-simple-remove"></span>
+                  <button type="submit" class="btn btn-success btn-link btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title="{{ __('web.order-delivered') }}" style="display:inline">
+                      <span class="tim-icons icon-check-2"></span>
                   </button>
               </td>
 
               @else
               <td>
                 <a href="{{ url('/pedidos/'.$order->id)}}">
-                  <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm">
+                  <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title="{{ __('web.show-order') }}">
                       <i class="tim-icons icon-zoom-split"></i>
                   </button>
                 </a>
-                  <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
+                  <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title="{{ __('web.delete-order') }}" style="display:inline">
                       <span class="tim-icons icon-trash-simple"></span>
                   </button>
               </td>

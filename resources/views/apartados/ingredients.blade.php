@@ -3,6 +3,9 @@
 @section('content')
 <div class="mb-3">
   <h3>{{ __('web.buscador') }}</h3>
+        
+  @include('alerts.success')
+
   <form action="{{action('IngredientController@searchDash')}}" method="GET">
     <div class="row">
       <div class="col-12 col-md-10">

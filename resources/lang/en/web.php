@@ -36,6 +36,10 @@ return [
     'creation-date' => 'Creation date',
     'user-management' => 'User management',
     'add-user' => 'Add user',
+    'user-updated' => 'User successfully updated!',
+    'user-deleted' => 'User successfully deleted!',
+    'password-updated' => 'Password successfully updated!',
+    'avatar-updated' => 'Avatar successfully updated!',
     //Productes
     'products' => 'Products',
     'buscar' => 'Search',
@@ -48,6 +52,9 @@ return [
     'end-date' => 'End date',
     'edit-product' => 'Edit product',
     'delete-product' => 'Delete product',
+    'product-created' => 'Product successfully created!',
+    'product-updated' => 'Product successfully updated!',
+    'product-deleted' => 'Product successfully deleted!',
     //Prod-*create/*edit
     'nom-pla' => 'Name of the dish',
     'des-pla' => 'Description of the dish',
@@ -67,16 +74,24 @@ return [
     'elim' => 'Delete',
     'total' => 'Total: ',
     'orders' => 'Orders',
+    'order-deleted' => 'Order successfully deleted!',
+    'show-order' => 'Order detail',
+    'delete-order' => 'Delete order',
+    'order-delivered' => 'Mark as delivered',
     //Missatges
     'titulo' => 'Title',
     'mensaje' => 'Message',
     'messages' => 'Messages',
     'delete-message' => 'Delete message',
+    'message-deleted' => 'Message successfully deleted!',
     //Categorias
     'categories' => 'Categories',
     'añadirCat' => 'Add categories',
     'edit-category' => 'Edit category',
     'delete-category' => 'Delete category',
+    'category-created' => 'Category successfully created!',
+    'category-updated' => 'Category successfully updated!',
+    'category-deleted' => 'Category successfully deleted!',
     //Categorias-*Create/*edit
     'nombreCAT' => 'Category name',
     //Ingredintes
@@ -85,10 +100,18 @@ return [
     'aña-ing' => 'Add ingredients',
     'edit-ingredient' => 'Edit ingredient',
     'delete-ingredient' => 'Delete ingredient',
+    'ingredient-created' => 'Ingredient successfully created!',
+    'ingredient-updated' => 'Ingredient successfully updated!',
+    'ingredient-deleted' => 'Ingredient successfully deleted!',
     //Alergenos
     'nom-ale' => 'Allergen name',
     'aña-ale' => 'Add Allergen',
     'allergens' => 'Allergens',
+    'edit-allergen' => 'Edit allergen',
+    'delete-allergen' => 'Delete allergen',
+    'allergen-created' => 'Allergen successfully created!',
+    'allergen-updated' => 'Allergen successfully updated!',
+    'allergen-deleted' => 'Allergen successfully deleted!',
     //MODAL
     'conf-eli' => 'Confirm deletion',
     'sure' => 'Are you sure you want to delete this command?',
@@ -103,4 +126,7 @@ return [
     'articles' => 'Articles',
     'edit-article' => 'Edit article',
     'delete-article' => 'Delete article',
+    'article-created' => 'Article created successfully!',
+    'article-updated' => 'Article updated successfully!',
+    'article-deleted' => 'Article deleted successfully!',
 ];

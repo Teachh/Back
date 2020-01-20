@@ -41,7 +41,7 @@ class IngredientController extends Controller
         $ingrediente = new Ingredient();
         $ingrediente->name = request('ingredient');
         $ingrediente->save();
-        return redirect('/ingredientes')->withStatus(__('Ingredient successfully deleted.'));
+        return redirect('/ingredientes')->withStatus(__('web.ingredient-created'));
     }
     /**
      * Store a newly created resource in storage.
@@ -95,7 +95,7 @@ class IngredientController extends Controller
 
         $o = Ingredient::findOrFail($id);
 
-        return redirect('/ingredientes')->withStatus(__('Ingredient successfully deleted.'));
+        return redirect('/ingredientes')->withStatus(__('web.ingredient-updated'));
     }
 
     /**
@@ -127,7 +127,7 @@ class IngredientController extends Controller
         $o = $p->findOrFail($id);
         $o->delete();
 
-        return redirect('/ingredientes')->withStatus(__('Ingredient successfully deleted.'));
+        return redirect('/ingredientes')->withStatus(__('web.ingredient-deleted'));
     }
 
     public function searchDash(Request $request)
