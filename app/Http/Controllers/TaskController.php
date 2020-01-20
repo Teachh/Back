@@ -27,6 +27,36 @@ class TaskController extends Controller
         //
     }
 
+    public function createDash(Request $request)
+    {
+        $this->validate($request, [
+            'plato' => ['required', 'string'],
+            'descripcion' => ['required'],
+            'precio' => ['required', 'alpha_num'],
+            'stock' => ['required', 'integer'],
+            'imagen' => ['required', 'image'],
+            'categoria' => ['required'],
+            'ingredientes' => ['required']
+        ]);
+
+        $image = $request->file('imagen');
+        $original_path = public_path() . '/assets/img/plates';
+        $filename = time() . $image->getClientOriginalName();
+        $image->move($original_path, $filename);
+
+        $producto = new Product();
+        $producto->name = request('plato');
+        $producto->description = request('descripcion');
+        $producto->price = request('precio');
+        $producto->stock = request('stock');
+        $producto->image = $filename;
+        $producto->category_id = request('categoria');
+        $producto->save();
+        $producto->ingredients()->sync(request('ingredientes'));
+
+        return redirect('/productos')->withStatus(__('web.product-created'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *
