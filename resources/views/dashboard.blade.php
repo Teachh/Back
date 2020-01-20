@@ -2,8 +2,8 @@
 
 @section('content')
   <script type="text/javascript">
+  // Meses pedidos
   var orders = @json($orders);
-
   function group_by_month(data) {
     var months = {
       '0':0,
@@ -32,7 +32,12 @@
     }
     return months;
  }
-var ordersGroup = group_by_month(orders);
+ var ordersGroup = group_by_month(orders);
+ // Productos mas pedidos
+  @foreach ($orders as $ord)
+    console.log(@json($ord->products));
+  @endforeach
+  console.log(productos);
   </script>
     <div class="row">
         <div class="col-lg-12 col-md-12 order-1">
@@ -149,21 +154,8 @@ var ordersGroup = group_by_month(orders);
             </div>
         </div>
     </div>
-    <div class="row order-3">
-        <div class="col-lg-4 order-2">
-            <div class="card card-chart">
-                <div class="card-header">
-                    <h5 class="card-category">{{__('web.venta-sem')}}</h5>
-                    <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> 763,215</h3>
-                </div>
-                <div class="card-body">
-                    <div class="chart-area">
-                        <canvas id="chartLinePurple"></canvas>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 order-1">
+    <div class="row order-2">
+        <div class="col-lg-6 order-1">
             <div class="card card-chart">
                 <div class="card-header">
                     <h5 class="card-category">{{__('web.prod-est')}}</h5>
@@ -176,7 +168,7 @@ var ordersGroup = group_by_month(orders);
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 order-3">
+        <div class="col-lg-6 order-3">
             <div class="card card-chart">
                 <div class="card-header">
                     <h5 class="card-category">{{__('web.ing-usd')}}</h5>
@@ -361,7 +353,7 @@ var ordersGroup = group_by_month(orders);
                     <div class="form-group">
                         <label>COS</label>
                             <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7" style="color:grey;"></textarea>
-                        <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>                    
+                        <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
                     </div>
                     <div class="form-group">
                         <input type="date" class="form-control" id="datetimepicker" name="date" placeholder="Mobile Number" required>
@@ -373,7 +365,7 @@ var ordersGroup = group_by_month(orders);
                                 <span class="check">Urgent</span>
                             </span>
                         </label>
-                    </div>   
+                    </div>
                 <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
             </form>
         </div>
