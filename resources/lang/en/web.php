@@ -1,6 +1,8 @@
 <?php
 return [
     //Dashboard
+    'home' => 'Home',
+    'yes' => 'Yes',
     'tabla-pedidos' => 'Order table',
     'pedido' => 'Command Id',
     'usuario' => 'User',
@@ -14,6 +16,8 @@ return [
     'ing-usd' => 'Most used ingredients',
     'notas' => 'Notes',
     //Perfil
+    'profile' => 'Profile',
+    'profile-photo' => 'Profile Photo',
     'nombre' => 'Name',
     'edit' => 'Edit profile',
     'email' => 'E-Mail',
@@ -25,12 +29,25 @@ return [
     'avatar' => 'Avatar',
     'ava-act' => 'Current avatar',
     'ava-cha' => 'Change avatar',
+    'logout' => 'Log out',
+    // Users
+    'users' => 'Users',
+    'user-info' => 'User information',
+    'creation-date' => 'Creation date',
+    'user-management' => 'User management',
+    'add-user' => 'Add user',
     //Productes
+    'products' => 'Products',
     'buscar' => 'Search',
     'prod-ana' => 'Add product',
     'descrip' => 'Description',
     'accio' => 'Actions',
     'buscador' => 'Search',
+    'active-date' => 'Active dates',
+    'start-date' => 'Start date',
+    'end-date' => 'End date',
+    'edit-product' => 'Edit product',
+    'delete-product' => 'Delete product',
     //Prod-*create/*edit
     'nom-pla' => 'Name of the dish',
     'des-pla' => 'Description of the dish',
@@ -49,19 +66,29 @@ return [
     'entre' => 'Deliver',
     'elim' => 'Delete',
     'total' => 'Total: ',
+    'orders' => 'Orders',
     //Missatges
     'titulo' => 'Title',
     'mensaje' => 'Message',
+    'messages' => 'Messages',
+    'delete-message' => 'Delete message',
     //Categorias
+    'categories' => 'Categories',
     'añadirCat' => 'Add categories',
+    'edit-category' => 'Edit category',
+    'delete-category' => 'Delete category',
     //Categorias-*Create/*edit
     'nombreCAT' => 'Category name',
     //Ingredintes
+    'ingredients' => 'Ingredients',
     'nom-ing' => 'Ingredient name',
     'aña-ing' => 'Add ingredients',
+    'edit-ingredient' => 'Edit ingredient',
+    'delete-ingredient' => 'Delete ingredient',
     //Alergenos
     'nom-ale' => 'Allergen name',
     'aña-ale' => 'Add Allergen',
+    'allergens' => 'Allergens',
     //MODAL
     'conf-eli' => 'Confirm deletion',
     'sure' => 'Are you sure you want to delete this command?',
@@ -73,4 +100,7 @@ return [
     'back' => 'Go back',
     'notTitulo' => 'Article\'s Title',
     'notContent' => 'Article\'s Content',
+    'articles' => 'Articles',
+    'edit-article' => 'Edit article',
+    'delete-article' => 'Delete article',
 ];

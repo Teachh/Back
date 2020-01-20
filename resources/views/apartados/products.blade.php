@@ -26,7 +26,7 @@
             <th>{{__('web.descrip')}}</th>
             <th>{{__('web.precio')}}</th>
             <th class="text-right">Stock</th>
-            <th class="text-center">Fecha activo</th>
+            <th class="text-center">{{ __('web.active-date') }}</th>
             <th class="text-right">{{__('web.accio')}}</th>
         </tr>
     </thead>
@@ -42,9 +42,9 @@
 
             <td class="td-actions text-right">
                 <a href="{{ url('/productos/edit/'. $prod->id ) }}">
-                  <button type="button" class="btn btn-success btn-link btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title="Editar Producte"><i class="tim-icons icon-settings"></i></button>
+                  <button type="button" class="btn btn-success btn-link btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title="{{ __('web.edit-product') }}"><i class="tim-icons icon-settings"></i></button>
                 </a>
-                    <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline" data-toggle="modal" data-placement="top" title="Eliminar Producte" data-target="#{{ $prod->name }}">
+                    <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline" data-toggle="modal" data-placement="top" title="{{ __('web.delete-product') }}" data-target="#{{ $prod->name }}">
                         <span class="tim-icons icon-simple-remove"></span>
                     </button>
             </td>
@@ -58,7 +58,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">{{__('web.conf.eli')}}</h5>
+          <h5 class="modal-title" id="exampleModalLabel">{{__('web.conf-eli')}}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
