@@ -35,6 +35,7 @@ class HomeController extends Controller
                 $price+=$prod->pivot->Quantity * $prod->price;
             }
             $order->update(['price' => $price]);
+            $price=0;
         }
         $orders = Order::orderBy('date','asc')->orderBy('id')->limit(10)->get();
         return view('dashboard',compact('orders','notes'));

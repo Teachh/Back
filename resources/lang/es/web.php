@@ -85,13 +85,13 @@ return [
     'delete-message' => 'Eliminar mensaje',
     'message-deleted' => 'Mensaje eliminado correctamente!',
     //Categorias
-    'categories' => 'Categorias',
+    'categories' => 'Categorías',
     'añadirCat' => 'Añadir categorías',
     'edit-category' => 'Editar categoria',
-    'delete-category' => 'Eliminar categoria',
-    'category-created' => 'Categoria creada correctamente!',
-    'category-updated' => 'Categoria actualizada correctamente!',
-    'category-deleted' => 'Categoria eliminada correctamente!',
+    'delete-category' => 'Eliminar categoría',
+    'category-created' => 'Categoría creada correctamente!',
+    'category-updated' => 'Categoría actualizada correctamente!',
+    'category-deleted' => 'Categoría eliminada correctamente!',
     //Categorias-Create/edit
     'nombreCAT' => 'Nombre de la categoría',
     //Ingredintes

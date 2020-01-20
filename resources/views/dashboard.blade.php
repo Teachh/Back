@@ -275,7 +275,7 @@
 
 
     <!-- Modal -->
-<div class="modal fade" id="{{ str_replace(' ', '', $nota->title) }}edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="{{ str_replace(' ', '', $nota->title) }}edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: -100px;">
     <div class="modal-dialog" role="document">
       <div class="modal-content text-center">
 
@@ -337,7 +337,7 @@
 @endforeach
 
 <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog mt-0 pt-0" role="document">
         <div class="modal-content text-center">
             <form class="w-85 text-center p-5">
                 @csrf
