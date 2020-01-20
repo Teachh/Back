@@ -340,6 +340,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content text-center">
             <form class="w-85 text-center p-5">
+                @csrf
                 <br style="clear:both">
                     <h3 style="margin-bottom: 25px; text-align: center; color:grey;">Crear Tasca</h3>
                     <div class="form-group">
