@@ -35,7 +35,7 @@
         <tr>
             <td class="text-center">{{ $prod->id }}</td>
             <td>{{ $prod->name }}</td>
-            <td>{{ $prod->description }}</td>
+            <td>{{ (strlen($prod->description) >= 20)? substr($prod->description,0,20).'...':$prod->description }}</td>
             <td>{{ $prod->price }}&euro;</td>
             <td class="text-right">{{ $prod->stock }}</td>
             <td class="text-center">{{ $prod->dateini }} - {{ $prod->dateend }}</td>
