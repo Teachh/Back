@@ -75,6 +75,9 @@ return [
     'total' => 'Total: ',
     'orders' => 'Comandes',
     'order-deleted' => 'Comanda creada correctament!',
+    'show-order' => 'Detall de la comanda',
+    'delete-order' => 'Eliminar comanda',
+    'order-delivered' => 'Marcar com a lliurat',
     //Missatges
     'titulo' => 'Títol',
     'mensaje' => 'Missatge',
@@ -104,6 +107,8 @@ return [
     'nom-ale' => 'Nom de l\'Al·lergen',
     'aña-ale' => 'Afegir Al·lergen',
     'allergens' => 'Al·lergens',
+    'edit-allergen' => 'Editar al·lergen',
+    'delete-allergen' => 'Eliminar al·lergen',
     'allergen-created' => 'Al·lergen creat correctament!',
     'allergen-updated' => 'Al·lergen actualitzat correctament!',
     'allergen-deleted' => 'Al·lergen eliminat correctament!',

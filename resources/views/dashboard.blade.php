@@ -100,14 +100,14 @@
 
                                     <td >
                                       <a href="{{ url('/pedidos/'.$order->id)}}">
-                                        <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm">
+                                        <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title="{{ __('web.show-order') }}">
                                             <i class="tim-icons icon-zoom-split"></i>
                                         </button>
                                       </a>
-                                        <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
+                                        <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline" data-toggle="tooltip" data-placement="top" title="{{ __('web.delete-order') }}">
                                             <span class="tim-icons icon-trash-simple"></span>
                                         </button>
-                                        <button type="submit" class="btn btn-success btn-link btn-icon btn-sm" style="display:inline">
+                                        <button type="submit" class="btn btn-success btn-link btn-icon btn-sm" style="display:inline" data-toggle="tooltip" data-placement="top" title="{{ __('web.order-delivered') }}">
                                             <span class="tim-icons icon-check-2"></span>
                                         </button>
                                     </td>
@@ -115,11 +115,11 @@
                                     @else
                                     <td>
                                       <a href="{{ url('/pedidos/'.$order->id)}}">
-                                        <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm">
+                                        <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title="{{ __('web.show-order') }}">
                                             <i class="tim-icons icon-zoom-split"></i>
                                         </button>
                                       </a>
-                                        <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
+                                        <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline" data-toggle="tooltip" data-placement="top" title="{{ __('web.delete-order') }}">
                                             <span class="tim-icons icon-trash-simple"></span>
                                         </button>
                                     </td>

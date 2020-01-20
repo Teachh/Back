@@ -75,6 +75,9 @@ return [
     'total' => 'Total: ',
     'orders' => 'Pedidos',
     'order-deleted' => 'Pedido eliminado correctamente!',
+    'show-order' => 'Detalle del pedido',
+    'delete-order' => 'Eliminar pedido',
+    'order-delivered' => 'Marcar como entregado',
     //Mensajes
     'titulo' => 'Titulo',
     'mensaje' => 'Mensaje',
@@ -104,6 +107,8 @@ return [
     'nom-ale' => 'Nombre del Alérgeno',
     'aña-ale' => 'Añadir Alérgeno',
     'allergens' => 'Alérgenos',
+    'edit-allergen' => 'Editar alérgeno',
+    'delete-allergen' => 'Eliminar alérgeno',
     'allergen-created' => 'Alérgeno creado correctamente!',
     'allergen-updated' => 'Alérgeno actualizado correctamente!',
     'allergen-deleted' => 'Alérgeno eliminado correctamente!',
