@@ -353,7 +353,7 @@
                     </div>
                     <div class="form-group">
                         <label>COS</label>
-                            <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7" style="color:grey;"></textarea>
+                            <textarea class="form-control" type="textarea" id="message" name="message" placeholder="Message" maxlength="140" rows="7" style="color:grey;"></textarea>
                         <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
                     </div>
                     <div class="form-group">
@@ -361,7 +361,7 @@
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="">
+                            <input class="form-check-input" id="tipusUrgencia" name="tipusUrgencia" type="checkbox" value="">
                             <span class="form-check-sign">
                                 <span class="check">Urgent</span>
                             </span>

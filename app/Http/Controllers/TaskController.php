@@ -39,22 +39,16 @@ class TaskController extends Controller
             'ingredientes' => ['required']
         ]);
 
-        $image = $request->file('imagen');
-        $original_path = public_path() . '/assets/img/plates';
-        $filename = time() . $image->getClientOriginalName();
-        $image->move($original_path, $filename);
+        $task = new Task();
+        $task->title = request('name');
+        $task->subject = request('email');
+        $task->body = request('message');
+        $task->initdate = request('date');
+        //$task->user_id = ;
+        //$task->tipusUrgencia = request('tipusUrgencia');
+        $task->save();
 
-        $producto = new Product();
-        $producto->name = request('plato');
-        $producto->description = request('descripcion');
-        $producto->price = request('precio');
-        $producto->stock = request('stock');
-        $producto->image = $filename;
-        $producto->category_id = request('categoria');
-        $producto->save();
-        $producto->ingredients()->sync(request('ingredientes'));
-
-        return redirect('/productos')->withStatus(__('web.product-created'));
+        return redirect('/home')->withStatus(__('#web.task-created#'));
     }
 
     /**
