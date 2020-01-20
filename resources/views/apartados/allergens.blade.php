@@ -55,7 +55,7 @@
           </button>
         </div>
         <div class="modal-body">
-          {{__'web.sure}}
+          {{ __('web.sure') }}
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('web.atras')}}</button>
