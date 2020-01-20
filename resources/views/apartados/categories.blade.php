@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="mb-3">
-  <h3>Buscador</h3>
+  <h3>{{ __('web.buscador') }}</h3>
   <form action="{{ action('CategoryController@searchDash')}}" method="GET">
     <div class="row">
       <div class="col-12 col-md-10">
@@ -17,13 +17,13 @@
   </form>
 </div>
 <a href="{{ route('categorias.create') }}">
-    <button type="button" class="btn btn-primary">{{__('web.añadirCAT')}}</button>
+    <button type="button" class="btn btn-primary">{{__('web.añadirCat')}}</button>
 </a>
 <table class="table">
     <thead>
         <tr>
             <th class="text-center">#</th>
-            <th>{{_('web.nombre')}}</th>
+            <th>{{ __('web.nombre') }}</th>
             <th class="text-right">{{__('web.accio')}}</th>
         </tr>
     </thead>
@@ -34,10 +34,10 @@
             <td>{{ $categ->name }}</td>
             <td class="td-actions text-right">
                 <a href="{{ url('/categorias/edit/'. $categ->id ) }}">
-                  <button type="button" class="btn btn-success btn-link btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title="Editar Categoria"><i class="tim-icons icon-settings"></i></button>
+                  <button type="button" class="btn btn-success btn-link btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title="{{ __('web.edit-category') }}"><i class="tim-icons icon-settings"></i></button>
                 </a>
 
-                    <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline" data-toggle="modal" data-placement="top" title="Eliminar Categoria" data-target="#{{ $categ->name }}">
+                    <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline" data-toggle="modal" data-placement="top" title="{{ __('web.delete-category') }}" data-target="#{{ $categ->name }}">
                         <span class="tim-icons icon-simple-remove"></span>
                     </button>
             </td>

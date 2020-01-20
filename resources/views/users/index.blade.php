@@ -7,10 +7,10 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">{{ __('Users') }}</h4>
+                            <h4 class="card-title">{{ __('web.users') }}</h4>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">{{ __('Add user') }}</a>
+                            <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">{{ __('web.add-user') }}</a>
                         </div>
                     </div>
                 </div>
@@ -20,9 +20,9 @@
                     <div class="">
                         <table class="table tablesorter " id="">
                             <thead class=" text-primary">
-                                <th scope="col">{{ __('Name') }}</th>
-                                <th scope="col">{{ __('Email') }}</th>
-                                <th scope="col">{{ __('Creation Date') }}</th>
+                                <th scope="col">{{ __('web.nombre') }}</th>
+                                <th scope="col">{{ __('web.email') }}</th>
+                                <th scope="col">{{ __('web.creation-date') }}</th>
                                 <th scope="col"></th>
                             </thead>
                             <tbody>
@@ -44,13 +44,13 @@
                                                                 @csrf
                                                                 @method('delete')
 
-                                                                <a class="dropdown-item" href="{{ route('user.edit', $user) }}">{{ __('Edit') }}</a>
+                                                                <a class="dropdown-item" href="{{ route('user.edit', $user) }}">{{ __('web.editar') }}</a>
                                                                 <button type="button" class="dropdown-item" onclick="confirm('{{ __("Are you sure you want to delete this user?") }}') ? this.parentElement.submit() : ''">
-                                                                            {{ __('Delete') }}
+                                                                            {{ __('web.elim') }}
                                                                 </button>
                                                             </form>
                                                         @else
-                                                            <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('Edit') }}</a>
+                                                            <a class="dropdown-item" href="{{ route('profile.edit') }}">{{ __('web.editar') }}</a>
                                                         @endif
                                                     </div>
                                                 </div>

@@ -33,7 +33,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="dateini">Fecha inciación</label>
+                <label for="dateini">{{ __('web.start-date') }}</label>
                 <input name="dateini" type="date" class="form-control @error('descripcion') is-invalid @enderror" value="{{$producto->dateini}}">
 
                 @error('dateini')
@@ -43,7 +43,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="dateend">Fecha finalización</label>
+                <label for="dateend">{{ __('web.end-date') }}</label>
                 <input name="dateend" type="date" class="form-control @error('descripcion') is-invalid @enderror" value="{{$producto->dateend}}">
 
                 @error('dateend')

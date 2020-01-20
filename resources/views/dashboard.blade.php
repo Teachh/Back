@@ -1,6 +1,39 @@
 @extends('layouts.app', ['pageSlug' => 'dashboard'])
 
 @section('content')
+  <script type="text/javascript">
+  var orders = @json($orders);
+
+  function group_by_month(data) {
+    var months = {
+      '0':0,
+      '1':0,
+      '2':0,
+      '3':0,
+      '4':0,
+      '5':0,
+      '6':0,
+      '7':0,
+      '8':0,
+      '9':0,
+      '10':0,
+      '11':0
+  }  ;
+    for (var i=0; i<data.length; i++) {
+       var obj = data[i];
+       var date = new Date(obj.date);
+       var month = date.getMonth();
+       if (months[month]) {
+           months[month].push(obj);  // already have a list- append to it
+       }
+       else {
+           months[month] = [obj]; // no list for this month yet - create a new one
+       }
+    }
+    return months;
+ }
+var ordersGroup = group_by_month(orders);
+  </script>
     <div class="row">
         <div class="col-lg-12 col-md-12 order-1">
             <div class="card ">
@@ -102,34 +135,9 @@
             <div class="card card-chart">
                 <div class="card-header ">
                     <div class="row">
-                        <div class="col-sm-6 text-left">
+                        <div class="col-sm-12 text-left">
                             <!--<h5 class="card-category">test</h5>-->
                             <h2 class="card-title">{{__('web.tabla-mensual')}}</h2>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
-                            <label class="btn btn-sm btn-primary btn-simple active" id="0">
-                                <input type="radio" name="options" checked>
-                                <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Accounts</span>
-                                <span class="d-block d-sm-none">
-                                    <i class="tim-icons icon-single-02"></i>
-                                </span>
-                            </label>
-                            <label class="btn btn-sm btn-primary btn-simple" id="1">
-                                <input type="radio" class="d-none d-sm-none" name="options">
-                                <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Purchases</span>
-                                <span class="d-block d-sm-none">
-                                    <i class="tim-icons icon-gift-2"></i>
-                                </span>
-                            </label>
-                            <label class="btn btn-sm btn-primary btn-simple" id="2">
-                                <input type="radio" class="d-none" name="options">
-                                <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Sessions</span>
-                                <span class="d-block d-sm-none">
-                                    <i class="tim-icons icon-tap-02"></i>
-                                </span>
-                            </label>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -189,6 +197,13 @@
                     <h6 class="title d-inline">{{__('web.notas')}}</h6>
                     <!--<p class="card-category d-inline">today</p>-->
                     <div class="dropdown">
+                        <!-- Aqui va la MODAL -->
+                        <button type="button" rel="tooltip" class="btn btn-link" data-toggle="modal" data-target="#create">
+                            <i class="tim-icons icon-simple-add"></i>
+                        </button>
+                        <!-- Modal
+
+                        -->
                         <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
                             <i class="tim-icons icon-settings-gear-63"></i>
                         </button>
@@ -330,6 +345,43 @@
     </div>
   </div>
 @endforeach
+
+<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content text-center">
+            <form class="w-85 text-center p-5">
+                <br style="clear:both">
+                    <h3 style="margin-bottom: 25px; text-align: center; color:grey;">Crear Tasca</h3>
+                    <div class="form-group">
+                        <label>TÍTOL</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>ASSUMPTE</label>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>COS</label>
+                            <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7" style="color:grey;"></textarea>
+                        <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>                    
+                    </div>
+                    <div class="form-group">
+                        <input type="date" class="form-control" id="datetimepicker" name="date" placeholder="Mobile Number" required>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <span class="form-check-sign">
+                                <span class="check">Urgent</span>
+                            </span>
+                        </label>
+                    </div>   
+                <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
+            </form>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript">
     $('#datetimepicker').data("DateTimePicker").FUNCTION()
 </script>

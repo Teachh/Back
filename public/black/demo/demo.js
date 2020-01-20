@@ -439,7 +439,7 @@ demo = {
       data: {
         labels: chart_labels,
         datasets: [{
-          label: "My First dataset",
+          label: "Orders rebudes",
           fill: true,
           backgroundColor: gradientStroke,
           borderColor: '#d346b1',
