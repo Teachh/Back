@@ -129,4 +129,16 @@ return [
     'article-created' => 'Notícia creada correctamente!',
     'article-updated' => 'Notícia actualizada correctamente!',
     'article-deleted' => 'Notícia eliminada correctamente!',
+    //Notas
+    'notaTitu' => 'Titulo de la nota',
+    'notaAssu' => 'Asunto',
+    'cos' => 'Cuerpo',
+    'miss' => 'Mensaje',
+    'error' => 'El mensaje no puede superar los 500 caracteres',
+    'urgent' => 'Urgente',
+    'añadirNot' => 'Añadir nota',
+    'content' => 'Contenido',
+    'back' => 'Volver',
+    'notTitulo' => 'Titulo de la noticia',
+    'notContent' => 'Contenido de la noticia',
 ];
