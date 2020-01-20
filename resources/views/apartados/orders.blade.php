@@ -78,8 +78,8 @@
                   <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
                       <span class="tim-icons icon-trash-simple"></span>
                   </button>
-                  <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
-                      <span class="tim-icons icon-simple-remove"></span>
+                  <button type="submit" class="btn btn-success btn-link btn-icon btn-sm" style="display:inline">
+                      <span class="tim-icons icon-check-2"></span>
                   </button>
               </td>
 
