@@ -36,6 +36,10 @@ return [
     'creation-date' => 'Data de creacion',
     'user-management' => 'Control de usuarios',
     'add-user' => 'Añadir usuario',
+    'user-updated' => 'Usuario actualizado correctamente!',
+    'user-deleted' => 'Usuario eliminado correctamente!',
+    'password-updated' => 'Password actualizado correctamente!',
+    'avatar-updated' => 'Avatar actualizado correctamente!',
     //Productos
     'products' => 'Productos',
     'buscar' => 'Buscar',
@@ -48,6 +52,9 @@ return [
     'end-date' => 'Fecha final',
     'edit-product' => 'Editar producto',
     'delete-product' => 'Eliminar producto',
+    'product-created' => 'Producto creado correctamente!',
+    'product-updated' => 'Producto actualizado correctamente!',
+    'product-deleted' => 'Producto eliminado correctamente!',
     //Prod-create/edit
     'nom-pla' => 'Nombre del plato',
     'des-pla' => 'Descripción del plato',
@@ -67,16 +74,21 @@ return [
     'elim' => 'Eliminar',
     'total' => 'Total: ',
     'orders' => 'Pedidos',
+    'order-deleted' => 'Pedido eliminado correctamente!',
     //Mensajes
     'titulo' => 'Titulo',
     'mensaje' => 'Mensaje',
     'messages' => 'Mensajes',
     'delete-message' => 'Eliminar mensaje',
+    'message-deleted' => 'Mensaje eliminado correctamente!',
     //Categorias
     'categories' => 'Categorias',
     'añadirCat' => 'Añadir categorías',
     'edit-category' => 'Editar categoria',
     'delete-category' => 'Eliminar categoria',
+    'category-created' => 'Categoria creada correctamente!',
+    'category-updated' => 'Categoria actualizada correctamente!',
+    'category-deleted' => 'Categoria eliminada correctamente!',
     //Categorias-Create/edit
     'nombreCAT' => 'Nombre de la categoría',
     //Ingredintes
@@ -85,10 +97,16 @@ return [
     'aña-ing' => 'Añadir ingredientes',
     'edit-ingredient' => 'Editar ingrediente',
     'delete-ingredient' => 'Eliminar ingrediente',
+    'ingredient-created' => 'Ingrediente creado correctamente!',
+    'ingredient-updated' => 'Ingrediente actualizado correctamente!',
+    'ingredient-deleted' => 'Ingrediente eliminado correctamente!',
     //Alergenos
     'nom-ale' => 'Nombre del Alérgeno',
     'aña-ale' => 'Añadir Alérgeno',
     'allergens' => 'Alérgenos',
+    'allergen-created' => 'Alérgeno creado correctamente!',
+    'allergen-updated' => 'Alérgeno actualizado correctamente!',
+    'allergen-deleted' => 'Alérgeno eliminado correctamente!',
     //MODAL
     'conf-eli' => 'Confirmación de eliminación',
     'sure' => 'Estas seguro que quieres eliminar la comanda?',
@@ -103,4 +121,7 @@ return [
     'articles' => 'Notícias',
     'edit-article' => 'Editar notícia',
     'delete-article' => 'Eliminar notícia',
+    'article-created' => 'Notícia creada correctamente!',
+    'article-updated' => 'Notícia actualizada correctamente!',
+    'article-deleted' => 'Notícia eliminada correctamente!',
 ];
