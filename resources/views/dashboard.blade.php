@@ -197,6 +197,13 @@ var ordersGroup = group_by_month(orders);
                     <h6 class="title d-inline">{{__('web.notas')}}</h6>
                     <!--<p class="card-category d-inline">today</p>-->
                     <div class="dropdown">
+                        <!-- Aqui va la MODAL -->
+                        <button type="button" rel="tooltip" class="btn btn-link" data-toggle="modal" data-target="#create">
+                            <i class="tim-icons icon-simple-add"></i>
+                        </button>
+                        <!-- Modal
+
+                        -->
                         <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
                             <i class="tim-icons icon-settings-gear-63"></i>
                         </button>
@@ -335,6 +342,43 @@ var ordersGroup = group_by_month(orders);
     </div>
   </div>
 @endforeach
+
+<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content text-center">
+            <form class="w-85 text-center p-5">
+                <br style="clear:both">
+                    <h3 style="margin-bottom: 25px; text-align: center; color:grey;">Crear Tasca</h3>
+                    <div class="form-group">
+                        <label>TÍTOL</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>ASSUMPTE</label>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>COS</label>
+                            <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7" style="color:grey;"></textarea>
+                        <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>                    
+                    </div>
+                    <div class="form-group">
+                        <input type="date" class="form-control" id="datetimepicker" name="date" placeholder="Mobile Number" required>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <span class="form-check-sign">
+                                <span class="check">Urgent</span>
+                            </span>
+                        </label>
+                    </div>   
+                <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
+            </form>
+        </div>
+    </div>
+</div>
+
 <script type="text/javascript">
     $('#datetimepicker').data("DateTimePicker").FUNCTION()
 </script>
