@@ -30,13 +30,10 @@ class TaskController extends Controller
     public function createDash(Request $request)
     {
         $this->validate($request, [
-            'plato' => ['required', 'string'],
-            'descripcion' => ['required'],
-            'precio' => ['required', 'alpha_num'],
-            'stock' => ['required', 'integer'],
-            'imagen' => ['required', 'image'],
-            'categoria' => ['required'],
-            'ingredientes' => ['required']
+            'name' => ['required', 'string'],
+            'email' => ['required','string'],
+            'message' => ['required', 'string'],
+            'date' => ['required', 'date']
         ]);
 
         $task = new Task();
