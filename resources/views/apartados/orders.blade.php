@@ -2,14 +2,17 @@
 
 @section('content')
 <div class="mb-3">
-  <h3>Buscador</h3>
+  <h3>{{ __('web.buscador') }}</h3>
+        
+  @include('alerts.success')
+
   <form action="{{action('OrderController@searchDash')}}" method="GET">
     <div class="row">
       <div class="col-12 col-md-10">
         <input class="form-control" type="number" name="q" required/>
       </div>
       <div class="col-12 col-md-2" style="margin-top:-5px">
-        <button type="submit" class="btn btn-primary mt-3 mt-sm-0">Buscar</button>
+        <button type="submit" class="btn btn-primary mt-3 mt-sm-0">{{ __('web.buscar') }}</button>
       </div>
     </div>
 
@@ -61,7 +64,7 @@
                   @if(($order->finished==0))
                       No
                   @else
-                      Si
+                      {{ __('web.yes') }}
                   @endif
               </td>
               @if($order->finished==0)
@@ -75,8 +78,8 @@
                   <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
                       <span class="tim-icons icon-trash-simple"></span>
                   </button>
-                  <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
-                      <span class="tim-icons icon-simple-remove"></span>
+                  <button type="submit" class="btn btn-success btn-link btn-icon btn-sm" style="display:inline">
+                      <span class="tim-icons icon-check-2"></span>
                   </button>
               </td>
 

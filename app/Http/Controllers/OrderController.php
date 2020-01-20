@@ -29,7 +29,6 @@ class OrderController extends Controller
      */
     public function create()
     {
-
     }
 
     /**
@@ -52,17 +51,17 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-      return Order::where('id', $id)->get();
+        return Order::where('id', $id)->get();
     }
     // DYlan aqui esta
     public function showDash($id)
     {
-      $order = Order::findOrFail($id);
-      $price=0;
-      foreach ($order->products as $prod) {
-          $price+=$prod->pivot->Quantity * $prod->price;
-      }
-      return view('apartados.orders-individual',compact('order','price'));
+        $order = Order::findOrFail($id);
+        $price = 0;
+        foreach ($order->products as $prod) {
+            $price += $prod->pivot->Quantity * $prod->price;
+        }
+        return view('apartados.orders-individual', compact('order', 'price'));
     }
     /**
      * Show the form for editing the specified resource.
@@ -92,10 +91,10 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-      $order = Order::find($id);
-      $order->update($request->all());
+        $order = Order::find($id);
+        $order->update($request->all());
 
-      return response()->json($order, 200);
+        return response()->json($order, 200);
     }
 
     /**
@@ -106,18 +105,18 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-      $order = Order::find($id);
-      $order->delete();
+        $order = Order::find($id);
+        $order->delete();
 
-      return response()->json($order, 200);
+        return response()->json($order, 200);
     }
 
-        public function deleteDash($id)
+    public function deleteDash($id)
     {
         $orders = Order::all();
         $order = Order::findOrFail($id);
         $order->delete();
 
-        return view('dashboard',compact('orders'));
+        return view('dashboard', compact('orders'))->withStatus(__('web.order-deleted'));
     }
 }

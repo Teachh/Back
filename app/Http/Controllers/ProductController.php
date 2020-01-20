@@ -60,7 +60,7 @@ class ProductController extends Controller
         $producto->save();
         $producto->ingredients()->sync(request('ingredientes'));
 
-        return redirect('/productos')->withStatus(__('Product successfully created.'));
+        return redirect('/productos')->withStatus(__('web.product-created'));
     }
     /**
      * Store a newly created resource in storage.
@@ -154,7 +154,7 @@ class ProductController extends Controller
 
         $o = Product::findOrFail($id);
 
-        return redirect('/productos')->withStatus(__('Product successfully updated.'));
+        return redirect('/productos')->withStatus(__('web.product-updated'));
     }
 
     /**
@@ -192,6 +192,6 @@ class ProductController extends Controller
 
         $o->delete();
 
-        return redirect('/productos')->withStatus(__('Product successfully deleted.'));
+        return redirect('/productos')->withStatus(__('web.product-deleted'));
     }
 }

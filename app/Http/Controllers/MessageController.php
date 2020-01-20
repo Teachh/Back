@@ -18,9 +18,10 @@ class MessageController extends Controller
         return Message::all();
     }
 
-    public function indexDash(){
-      $mensajes = Message::all();
-      return view('apartados.messages', compact('mensajes'));
+    public function indexDash()
+    {
+        $mensajes = Message::all();
+        return view('apartados.messages', compact('mensajes'));
     }
 
     /**
@@ -41,8 +42,8 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-      $message = Message::create($request->all());
-      return response()->json($message, 201);
+        $message = Message::create($request->all());
+        return response()->json($message, 201);
     }
 
     /**
@@ -53,15 +54,15 @@ class MessageController extends Controller
      */
     public function show($id)
     {
-      return Message::where('id', $id)->get();
+        return Message::where('id', $id)->get();
     }
 
 
     public function searchDash(Request $request)
     {
         $q = $request->input('q');
-        $mensajes = Message::where(function($query) use($q){
-          $query->where('title', 'LIKE', '%' . $q . '%')
+        $mensajes = Message::where(function ($query) use ($q) {
+            $query->where('title', 'LIKE', '%' . $q . '%')
                 ->orWhere('body', 'LIKE', '%' . $q . '%');
         })->get();
 
@@ -106,6 +107,6 @@ class MessageController extends Controller
         $o = $p->findOrFail($id);
         $o->delete();
 
-        return redirect('/mensajes');
+        return redirect('/mensajes')->withStatus(__('web.message-deleted'));
     }
 }

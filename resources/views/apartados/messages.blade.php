@@ -2,14 +2,17 @@
 
 @section('content')
 <div class="mb-3">
-    <h3>Buscador</h3>
+    <h3>{{ __('web.buscador') }}</h3>
+          
+    @include('alerts.success')
+
     <form action="{{action('MessageController@searchDash')}}" method="GET">
         <div class="row">
             <div class="col-12 col-md-10">
                 <input class="form-control" type="text" name="q" required />
             </div>
             <div class="col-12 col-md-2" style="margin-top:-5px">
-                <button type="submit" class="btn btn-primary mt-3 mt-sm-0">Buscar</button>
+                <button type="submit" class="btn btn-primary mt-3 mt-sm-0">{{ __('web.buscar') }}</button>
             </div>
         </div>
 
@@ -34,7 +37,7 @@
             <td>{{ $msj->date }}</td>
             <td class="text-right">{{ $msj->user->name }}</td>
             <td class="td-actions text-right">
-                    <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline" data-toggle="modal" data-placement="top" title="Eliminar Ingredient" data-target="#{{ str_replace(' ', '', $msj->title) }}">
+                    <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline" data-toggle="modal" data-placement="top" title="{{ __('web.delete-message') }}" data-target="#{{ str_replace(' ', '', $msj->title) }}">
                         <span class="tim-icons icon-simple-remove"></span>
                     </button>
             </td>

@@ -7,10 +7,10 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-8">
-                            <h4 class="card-title">{{ __('Users') }}</h4>
+                            <h4 class="card-title">{{ __('web.users') }}</h4>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">{{ __('Add user') }}</a>
+                            <a href="{{ route('user.create') }}" class="btn btn-sm btn-primary">{{ __('web.add-user') }}</a>
                         </div>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
                             <thead class=" text-primary">
                                 <th scope="col">{{ __('web.nombre') }}</th>
                                 <th scope="col">{{ __('web.email') }}</th>
-                                <th scope="col">{{ __('Creation Date') }}</th>
+                                <th scope="col">{{ __('web.creation-date') }}</th>
                                 <th scope="col"></th>
                             </thead>
                             <tbody>

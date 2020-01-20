@@ -2,7 +2,10 @@
 
 @section('content')
 <div class="mb-3">
-  <h3>Buscador</h3>
+  <h3>{{ __('web.buscador') }}</h3>
+        
+  @include('alerts.success')
+
   <form action="{{action('IngredientController@searchDash')}}" method="GET">
     <div class="row">
       <div class="col-12 col-md-10">
@@ -33,10 +36,10 @@
             <td>{{ $ingr->name }}</td>
             <td class="td-actions text-right">
                 <a href="{{ url('/ingredientes/edit/'. $ingr->id ) }}">
-                  <button type="button" class="btn btn-success btn-link btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title="Editar Ingredient"><i class="tim-icons icon-settings"></i></button>
+                  <button type="button" class="btn btn-success btn-link btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title="{{ __('web.edit-ingredient') }}"><i class="tim-icons icon-settings"></i></button>
                 </a>
 
-                    <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline" data-toggle="modal" data-placement="top" title="Eliminar Ingredient" data-target="#{{ $ingr->name }}">
+                    <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline" data-toggle="modal" data-placement="top" title="{{ __('web.delete-ingredient') }}" data-target="#{{ $ingr->name }}">
                         <span class="tim-icons icon-simple-remove"></span>
                     </button>
             </td>

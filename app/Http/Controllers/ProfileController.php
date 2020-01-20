@@ -30,7 +30,7 @@ class ProfileController extends Controller
     {
         auth()->user()->update($request->all());
 
-        return back()->withStatus(__('Profile successfully updated.'));
+        return back()->withStatus(__('web.user-updated'));
     }
 
     /**
@@ -43,7 +43,7 @@ class ProfileController extends Controller
     {
         auth()->user()->update(['password' => Hash::make($request->get('password'))]);
 
-        return back()->withPasswordStatus(__('Password successfully updated.'));
+        return back()->withPasswordStatus(__('web.password-updated'));
     }
 
     public function image(Request $request)
@@ -67,6 +67,6 @@ class ProfileController extends Controller
         $user->avatar = $filename;
         $user->save();
 
-        return back()->withStatus(__('Profile avatar successfully updated.'));
+        return back()->withStatus(__('web.avatar-updated'));
     }
 }
