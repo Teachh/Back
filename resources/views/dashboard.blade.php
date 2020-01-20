@@ -270,24 +270,33 @@
     <!-- Modal -->
   <div class="modal fade" id="{{ str_replace(' ', '', $nota->title) }}edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">{{__('web.conf-eli')}}</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          {{__('web.sure')}}
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('web.atras')}}</button>
-          <form action="{{action('OrderController@deleteDash', $nota->id)}}" method="POST" style="display:inline">
-              {{ method_field('PUT') }}
-              {{ csrf_field() }}
-              <button type="submit" class="btn btn-primary">{{__('web.elim')}}</button>
-          </form>
-        </div>
+      <div class="modal-content text-center">
+
+<form class="w-85 text-center p-5">
+<br style="clear:both">
+                    <h3 style="margin-bottom: 25px; text-align: center;">Contact Form</h3>
+                    <div class="form-group">
+                        <label>TÍTOL</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>ASSUMPTE</label>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>COS</label>
+                            <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7"></textarea>
+                        <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>                    
+                    </div>
+                    <div class="form-group">
+                        <input type="date" class="form-control" id="datetimepicker" name="date" placeholder="Mobile Number" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+                    </div>
+            
+        <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
+</form>
       </div>
     </div>
   </div>
@@ -318,6 +327,9 @@
     </div>
   </div>
 @endforeach
+<script type="text/javascript">
+    $('#datetimepicker').data("DateTimePicker").FUNCTION()
+</script>
 @endsection
 
 @push('js')

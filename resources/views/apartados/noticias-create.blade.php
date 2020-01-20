@@ -11,7 +11,7 @@
         <form method="post" enctype="multipart/form-data">
           @csrf
             <div class="form-group">
-                <label for="noticia">Título de la noticia</label>
+                <label for="noticia">{{__('web.notTitulo')}}</label>
                 <input name="noticia" type="text" class="form-control @error('noticia') is-invalid @enderror" aria-describedby="emailHelp">
 
                 @error('noticia')
@@ -21,7 +21,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="contenido">Contenido de la noticia</label>
+                <label for="contenido">{{__('web.notContent')}}</label>
                 <input name="contenido" type="text" class="form-control @error('contenido') is-invalid @enderror">
 
                 @error('contenido')
@@ -31,7 +31,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="imagen">Imagen</label>
+                <label for="imagen">{{__('web.imagen')}}</label>
                 <input name="imagen" type="file" class="form-control @error('imagen') is-invalid @enderror">
 
                 @error('imagen')
@@ -40,7 +40,7 @@
                     </span>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">{{__('web.crear')}}</button>
         </form>
     </div>
 </div>

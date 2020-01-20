@@ -12,7 +12,7 @@
           @csrf
           {{method_field('PUT')}}
             <div class="form-group">
-                <label for="noticia">Título de la noticia</label>
+                <label for="noticia">{{__('web.notTitulo')}}</label>
                 <input name="noticia" type="text" class="form-control @error('noticia') is-invalid @enderror" aria-describedby="emailHelp" value="{{$noticia->title}}">
 
                 @error('noticia')
@@ -22,7 +22,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="contenido">Contenido de la noticia</label>
+                <label for="contenido">{{__('web.notContent')}}</label>
                 <input name="contenido" rows="8" cols="80" type="text" class="form-control @error('contenido') is-invalid @enderror" value="{{$noticia->content}}">
 
                 @error('contenido')
@@ -32,7 +32,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="imagen">Imagen</label>
+                <label for="imagen">{{__('web.imagen')}}</label>
                 <input name="imagen" type="file" class="form-control @error('imagen') is-invalid @enderror">
 
                 @error('imagen')
@@ -41,7 +41,7 @@
                     </span>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">{{__('web.editar')}}</button>
         </form>
     </div>
 </div>
