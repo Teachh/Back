@@ -106,7 +106,7 @@ return [
     //Alergenos
     'nom-ale' => 'Nom de l\'Al·lergen',
     'aña-ale' => 'Afegir Al·lergen',
-    'allergens' => 'Al·lergens',
+    'allergens' => 'Al·lèrgens',
     'edit-allergen' => 'Editar al·lergen',
     'delete-allergen' => 'Eliminar al·lergen',
     'allergen-created' => 'Al·lergen creat correctament!',
@@ -118,11 +118,11 @@ return [
     'atras' => 'Cancel·lar',
     'acabado' => 'Acabat',
     //NOTICIAS
-    'añadirNot' => 'Afegir noticia',
+    'añadirNot' => 'Afegir notícia',
     'content' => 'Contingut',
     'back' => 'Tornar',
-    'notTitulo' => 'Títol de la noticia',
-    'notContent' => 'Contingut de la notica',
+    'notTitulo' => 'Títol de la notícia',
+    'notContent' => 'Contingut de la notíca',
     'articles' => 'Notícies',
     'edit-article' => 'Editar notícia',
     'delete-article' => 'Eliminar notícica',

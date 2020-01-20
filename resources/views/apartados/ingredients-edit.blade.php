@@ -12,8 +12,8 @@
           @csrf
           {{method_field('PUT')}}
             <div class="form-group">
-                <label for="ingrediente">{{__('web.nom-ing')}}</label>
-                <input name="ingrediente" type="text" class="form-control @error('plato') is-invalid @enderror" aria-describedby="emailHelp" value="{{$ingrediente->name}}">
+                <label for="ingredient">{{__('web.nom-ing')}}</label>
+                <input name="ingredient" type="text" class="form-control @error('plato') is-invalid @enderror" aria-describedby="emailHelp" value="{{$ingrediente->name}}">
 
                 @error('ingredient')
                     <span class="invalid-feedback" role="alert">
