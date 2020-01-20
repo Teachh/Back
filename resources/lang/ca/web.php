@@ -73,4 +73,11 @@ return [
     'back'=>'Tornar',
     'notTitulo'=>'Títol de la noticia',
     'notContent'=>'Contingut de la notica',
+    //Notas
+    'notaTitu'=>'Títol de la nota',
+    'notaAssu'=>'Assumpte',
+    'cos'=>'Cos',
+    'miss'=>'Missatge',
+    'error'=>'El missatge no pot superar els 500 caracters',
+    'urgent'=>'Urgent',
 ];

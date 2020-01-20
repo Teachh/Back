@@ -274,28 +274,31 @@
 
 <form class="w-85 text-center p-5">
 <br style="clear:both">
-                    <h3 style="margin-bottom: 25px; text-align: center;">Contact Form</h3>
+                    <h3 style="margin-bottom: 25px; text-align: center;">{{__('web.editar')}}</h3>
                     <div class="form-group">
-                        <label>TÍTOL</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="{{__('web.notaTitu')}}" required>
                     </div>
                     <div class="form-group">
-                        <label>ASSUMPTE</label>
-                        <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="{{__('web.notaAssu')}}" required>
                     </div>
                     <div class="form-group">
-                        <label>COS</label>
-                            <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7"></textarea>
-                        <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>                    
+                            <textarea class="form-control" type="textarea" id="message" placeholder="{{__('web.miss')}}" maxlength="500" rows="7"></textarea>
+                        <span class="help-block"><p id="characterLeft" class="help-block ">{{__('web.error')}}</p></span>                    
                     </div>
                     <div class="form-group">
-                        <input type="date" class="form-control" id="datetimepicker" name="date" placeholder="Mobile Number" required>
+                        <input type="date" class="form-control" id="datetimepicker" name="date" placeholder="{{__('web.fecha')}}" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" value="">
+                            <span class="form-check-sign">
+                            {{__('web.urgent')}}
+                                <span class="check"></span>
+                            </span>
+                        </label>
                     </div>
-            
-        <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
+                               
+        <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">{{__('web.editar')}}</button>
 </form>
       </div>
     </div>
