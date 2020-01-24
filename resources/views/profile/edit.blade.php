@@ -74,7 +74,7 @@
                         @csrf
                         @method('put')
 
-                        @include('alerts.success', ['key' => 'password_status'])
+                        @include('alerts.success')
 
                         <div class="form-group{{ $errors->has('avatar') ? ' has-danger' : '' }}">
                             <label>{{ __('web.ava-act') }}</label>
