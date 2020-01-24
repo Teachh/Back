@@ -140,14 +140,14 @@ var productosOrdeandos = classify(productosSueltos);
 
                                     <td >
                                       <a href="{{ url('/pedidos/'.$order->id)}}">
-                                        <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm">
+                                        <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title="{{ __('web.show-order') }}">
                                             <i class="tim-icons icon-zoom-split"></i>
                                         </button>
                                       </a>
-                                        <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
+                                        <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline" data-toggle="tooltip" data-placement="top" title="{{ __('web.delete-order') }}">
                                             <span class="tim-icons icon-trash-simple"></span>
                                         </button>
-                                        <button type="submit" class="btn btn-success btn-link btn-icon btn-sm" style="display:inline">
+                                        <button type="submit" class="btn btn-success btn-link btn-icon btn-sm" style="display:inline" data-toggle="tooltip" data-placement="top" title="{{ __('web.order-delivered') }}">
                                             <span class="tim-icons icon-check-2"></span>
                                         </button>
                                     </td>
@@ -155,11 +155,11 @@ var productosOrdeandos = classify(productosSueltos);
                                     @else
                                     <td>
                                       <a href="{{ url('/pedidos/'.$order->id)}}">
-                                        <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm">
+                                        <button type="button" rel="tooltip" class="btn btn-success btn-link btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title="{{ __('web.show-order') }}">
                                             <i class="tim-icons icon-zoom-split"></i>
                                         </button>
                                       </a>
-                                        <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline">
+                                        <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline" data-toggle="tooltip" data-placement="top" title="{{ __('web.delete-order') }}">
                                             <span class="tim-icons icon-trash-simple"></span>
                                         </button>
                                     </td>
@@ -315,7 +315,7 @@ var productosOrdeandos = classify(productosSueltos);
 
 
     <!-- Modal -->
-<div class="modal fade" id="{{ str_replace(' ', '', $nota->title) }}edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="{{ str_replace(' ', '', $nota->title) }}edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: -100px;">
     <div class="modal-dialog" role="document">
       <div class="modal-content text-center">
 
@@ -377,9 +377,10 @@ var productosOrdeandos = classify(productosSueltos);
 @endforeach
 
 <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog mt-0 pt-0" role="document">
         <div class="modal-content text-center">
             <form class="w-85 text-center p-5">
+                @csrf
                 <br style="clear:both">
                     <h3 style="margin-bottom: 25px; text-align: center; color:grey;">Crear Tasca</h3>
                     <div class="form-group">
@@ -392,7 +393,7 @@ var productosOrdeandos = classify(productosSueltos);
                     </div>
                     <div class="form-group">
                         <label>COS</label>
-                            <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" rows="7" style="color:grey;"></textarea>
+                            <textarea class="form-control" type="textarea" id="message" name="message" placeholder="Message" maxlength="140" rows="7" style="color:grey;"></textarea>
                         <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
                     </div>
                     <div class="form-group">
@@ -400,7 +401,7 @@ var productosOrdeandos = classify(productosSueltos);
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="">
+                            <input class="form-check-input" id="tipusUrgencia" name="tipusUrgencia" type="checkbox" value="">
                             <span class="form-check-sign">
                                 <span class="check">Urgent</span>
                             </span>

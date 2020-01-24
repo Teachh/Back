@@ -33,9 +33,9 @@
             <td>{{ $aler->name }}</td>
             <td class="td-actions text-right">
                 <a href="{{ url('/alergenos/edit/'. $aler->id ) }}">
-                  <button type="button" class="btn btn-success btn-link btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title="Editar Producte"><i class="tim-icons icon-settings"></i></button>
+                  <button type="button" class="btn btn-success btn-link btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title="{{ __('web.edit-allergen') }}"><i class="tim-icons icon-settings"></i></button>
                 </a>
-                    <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline" data-toggle="modal" data-placement="top" title="Eliminar Producte" data-target="#{{ str_replace(' ', '', $aler->name) }}">
+                    <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline" data-toggle="modal" data-placement="top" title="{{ __('web.delete-allergen') }}" data-target="#{{ str_replace(' ', '', $aler->name) }}">
                         <span class="tim-icons icon-simple-remove"></span>
                     </button>
             </td>
@@ -55,7 +55,7 @@
           </button>
         </div>
         <div class="modal-body">
-          {{__'web.sure}}
+          {{ __('web.sure') }}
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('web.atras')}}</button>

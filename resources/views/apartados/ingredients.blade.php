@@ -39,7 +39,7 @@
                   <button type="button" class="btn btn-success btn-link btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title="{{ __('web.edit-ingredient') }}"><i class="tim-icons icon-settings"></i></button>
                 </a>
 
-                    <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline" data-toggle="modal" data-placement="top" title="{{ __('web.delete-ingredient') }}" data-target="#{{ $ingr->name }}">
+                    <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline" data-toggle="modal" data-placement="top" title="{{ __('web.delete-ingredient') }}" data-target="#{{ str_replace(' ', '', $ingr->name) }}">
                         <span class="tim-icons icon-simple-remove"></span>
                     </button>
             </td>
@@ -50,7 +50,7 @@
 </table>
 @foreach ($ingredients as $ingr)
   <!-- Modal -->
-  <div class="modal fade" id="{{ $ingr->name }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="{{ str_replace(' ', '', $ingr->name) }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
