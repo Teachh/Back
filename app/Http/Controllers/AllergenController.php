@@ -104,7 +104,7 @@ class AllergenController extends Controller
         $alergeno = new Allergen();
         $alergeno->name = request('allergen');
         $alergeno->save();
-        return redirect('/alergenos')->withStatus(__('web.allergens-created'));
+        return redirect('/alergenos')->withStatus(__('web.allergen-created'));
     }
     public function getEditDash($id)
     {
@@ -125,7 +125,7 @@ class AllergenController extends Controller
 
         $o = Allergen::findOrFail($id);
 
-        return redirect('alergenos')->withStatus(__('web.allergens-updated'));
+        return redirect('alergenos')->withStatus(__('web.allergen-updated'));
     }
 
     public function deleteDash($id)
@@ -134,6 +134,6 @@ class AllergenController extends Controller
         $o = $p->findOrFail($id);
         $o->delete();
 
-        return redirect('/alergenos')->withStatus(__('web.allergens-deleted'));
+        return redirect('/alergenos')->withStatus(__('web.allergen-deleted'));
     }
 }
