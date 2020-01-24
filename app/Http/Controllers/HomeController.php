@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Order;
 use App\User;
 use App\Task;
+use App\Product;
+use App\Ingredient;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -38,6 +40,15 @@ class HomeController extends Controller
             $price=0;
         }
         $orders = Order::orderBy('date','asc')->orderBy('id')->limit(10)->get();
-        return view('dashboard',compact('orders','notes'));
+
+        $products = Product::all();
+        $ingredientes = array();
+        foreach ($products as $pr) {
+          foreach ($pr->ingredients as $ingrSuelto) {
+            array_push($ingredientes,$ingrSuelto->name);
+          }
+        }
+
+        return view('dashboard',compact('orders','notes','ingredientes'));
     }
 }

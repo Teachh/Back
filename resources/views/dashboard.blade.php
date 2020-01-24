@@ -78,6 +78,11 @@ var productosOrdeandos = classify(productosSueltos);
 
     return a < b ? -1 : (a > b ? 1 : 0);
 });
+var ingredientesSueltos = [];
+@foreach ($ingredientes as $ingr)
+  ingredientesSueltos.push('{{$ingr}}');
+@endforeach
+alert(ingredientesSueltos);
   </script>
     <div class="row">
         <div class="col-lg-12 col-md-12 order-1">
@@ -199,7 +204,6 @@ var productosOrdeandos = classify(productosSueltos);
             <div class="card card-chart">
                 <div class="card-header">
                     <h5 class="card-category">{{__('web.prod-est')}}</h5>
-                    <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> 3,500€</h3>
                 </div>
                 <div class="card-body">
                     <div class="chart-area">
