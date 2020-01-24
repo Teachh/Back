@@ -12,7 +12,7 @@ return [
     'opciones' => 'Opciones',
     'tabla-mensual' => 'Tabla de pedidos mensuales',
     'venta-sem' => 'Ventas semanales',
-    'prod-est' => 'Producto estrella',
+    'prod-est' => 'Productos estrella',
     'ing-usd' => 'Ingredientes mas usados',
     'notas' => 'Notas',
     //Perfil
