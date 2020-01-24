@@ -24,20 +24,60 @@
        var date = new Date(obj.date);
        var month = date.getMonth();
        if (months[month]) {
-           months[month].push(obj);  // already have a list- append to it
+           months[month].push(obj);
        }
        else {
-           months[month] = [obj]; // no list for this month yet - create a new one
+           months[month] = [obj];
        }
     }
     return months;
  }
  var ordersGroup = group_by_month(orders);
  // Productos mas pedidos
+ var productosSueltos = [];
+ function group_product(data) {
+     var products = {};
+     for (var i=0; i<data.length; i++) {
+        var obj = data[i];
+        var name = obj.name;
+        if (products[name]) {
+            products[name].push(obj); // añadirlo a una lista existente
+        }
+        else {
+            products[name] = [obj];  // crear una nueva
+        }
+     }
+     // meterlo en un array
+     for(var key in products)
+     {
+       productosSueltos.push(key);
+     }
+     return products;
+  }
+  var productos = [];
   @foreach ($orders as $ord)
-    console.log(@json($ord->products));
+    productos.push(group_product(@json($ord->products)));
   @endforeach
-  console.log(productos);
+  // ordenar
+  function classify(a){
+    var t = {};
+    a.forEach(function(f){
+        var txt = f.replace(/#/g,'').trim();
+        var txtnode = document.createTextNode(f);
+
+        t[txt] = (t[txt] || []).concat(txtnode);
+    })
+   return t;
+}
+
+var productosOrdeandos = classify(productosSueltos);
+// ordenar ascendente
+[].slice.call(productosOrdeandos).sort(function(a, b) {
+    a = a[1];
+    b = b[1];
+
+    return a < b ? -1 : (a > b ? 1 : 0);
+});
   </script>
     <div class="row">
         <div class="col-lg-12 col-md-12 order-1">
@@ -190,7 +230,7 @@
                     <!--<p class="card-category d-inline">today</p>-->
                     <div class="dropdown">
                         <!-- Aqui va la MODAL -->
-                        <button type="button" rel="tooltip" class="btn btn-link" data-toggle="modal" data-target="#create">
+                        <button type="button" rel="tooltip" class="btn btn-link dropdown-toggle btn-icon" data-toggle="modal" data-target="#create">
                             <i class="tim-icons icon-simple-add"></i>
                         </button>
                         <!-- Modal
@@ -290,7 +330,7 @@
                     </div>
                     <div class="form-group">
                             <textarea class="form-control" type="textarea" id="message" placeholder="{{__('web.miss')}}" maxlength="500" rows="7"></textarea>
-                        <span class="help-block"><p id="characterLeft" class="help-block ">{{__('web.error')}}</p></span>                    
+                        <span class="help-block"><p id="characterLeft" class="help-block ">{{__('web.error')}}</p></span>
                     </div>
                     <div class="form-group">
                         <input type="date" class="form-control" id="datetimepicker" name="date" placeholder="{{__('web.fecha')}}" required>
@@ -304,7 +344,7 @@
                             </span>
                         </label>
                     </div>
-                               
+
         <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">{{__('web.editar')}}</button>
 </form>
       </div>
@@ -327,8 +367,8 @@
                         <p> {{$nota->body}} </p>
                     </div>
                     <div class="form-group">
-                        <p> {{$nota->limitdate}} </p>                 
-                    </div>     
+                        <p> {{$nota->limitdate}} </p>
+                    </div>
         <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">{{__('web.acabado')}}</button>
 </form>
       </div>

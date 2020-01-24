@@ -134,8 +134,8 @@ demo = {
             zeroLineColor: "transparent",
           },
           ticks: {
-            suggestedMin: 60,
-            suggestedMax: 125,
+            suggestedMin: 10,
+            suggestedMax: 200,
             padding: 20,
             fontColor: "#2380f7"
           }
@@ -430,7 +430,12 @@ demo = {
     gradientStroke.addColorStop(1, 'rgba(29,140,248,0.2)');
     gradientStroke.addColorStop(0.4, 'rgba(29,140,248,0.0)');
     gradientStroke.addColorStop(0, 'rgba(29,140,248,0)'); //blue colors
-
+    // productos nombres
+    var productosOrdeandosNombre = []
+    for(var key in productosOrdeandos)
+    {
+      productosOrdeandosNombre.push(key);
+    }
 
     var myChart = new Chart(ctx, {
       type: 'bar',
@@ -439,9 +444,9 @@ demo = {
         display: false
       },
       data: {
-        labels: ['USA', 'GER', 'AUS', 'UK', 'RO', 'BR'],
+        labels: [productosOrdeandos[productosOrdeandosNombre[0]].length, productosOrdeandos[productosOrdeandosNombre[1]].length, productosOrdeandos[productosOrdeandosNombre[2]].length, productosOrdeandos[productosOrdeandosNombre[3]].length, productosOrdeandos[productosOrdeandosNombre[4]].length],
         datasets: [{
-          label: "Countries",
+          label: "Ingredients",
           fill: true,
           backgroundColor: gradientStroke,
           hoverBackgroundColor: gradientStroke,
@@ -449,7 +454,7 @@ demo = {
           borderWidth: 2,
           borderDash: [],
           borderDashOffset: 0.0,
-          data: [53, 20, 10, 80, 100, 45],
+          data: [productosOrdeandos[productosOrdeandosNombre[0]],productosOrdeandos[productosOrdeandosNombre[1]] ,productosOrdeandos[productosOrdeandosNombre[2]] ,productosOrdeandos[productosOrdeandosNombre[3]] ,productosOrdeandos[productosOrdeandosNombre[4]] ],
         }]
       },
       options: gradientBarChartConfiguration
