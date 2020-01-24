@@ -12,7 +12,7 @@
           @csrf
             <div class="form-group">
                 <label for="plato">{{__('web.nom-pla')}}</label>
-                <input name="plato" type="text" class="form-control @error('plato') is-invalid @enderror" aria-describedby="emailHelp">
+                <input name="plato" type="text" class="form-control @error('plato') is-invalid @enderror" aria-describedby="emailHelp" value="{{ old('plato') }}">
 
                 @error('plato')
                     <span class="invalid-feedback" role="alert">

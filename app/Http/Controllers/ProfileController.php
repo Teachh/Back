@@ -7,6 +7,7 @@ use App\Http\Requests\ProfileRequest;
 use App\Http\Requests\PasswordRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class ProfileController extends Controller
 {

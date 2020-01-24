@@ -91,8 +91,8 @@ class NoticiaController extends Controller
     public function searchDash(Request $request)
     {
         $q = $request->input('q');
-        $noticias = Noticia::where(function($query) use($q){
-          $query->where('title', 'LIKE', '%' . $q . '%')
+        $noticias = Noticia::where(function ($query) use ($q) {
+            $query->where('title', 'LIKE', '%' . $q . '%')
                 ->orWhere('content', 'LIKE', '%' . $q . '%');
         })->get();
 
@@ -118,7 +118,7 @@ class NoticiaController extends Controller
         $noticia->image = $filename;
         $noticia->save();
 
-        return redirect('/noticias')->withStatus(__('New successfully created.'));
+        return redirect('/noticias')->withStatus(__('web.article-created'));
     }
     public function deleteDash($id)
     {
@@ -133,7 +133,7 @@ class NoticiaController extends Controller
 
         $o->delete();
 
-        return redirect('/noticias')->withStatus(__('New successfully deleted.'));
+        return redirect('/noticias')->withStatus(__('web.article-deleted'));
     }
     public function getEditDash($id)
     {
@@ -164,6 +164,6 @@ class NoticiaController extends Controller
 
         $o = Noticia::findOrFail($id);
 
-        return redirect('/noticias')->withStatus(__('News successfully updated.'));
+        return redirect('/noticias')->withStatus(__('web.article-updated'));
     }
 }
