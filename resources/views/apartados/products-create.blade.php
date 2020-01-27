@@ -1,11 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-  <script type="text/javascript">
-  $(document).ready(function() {
-    $('.js-example-basic-multiple').select2();
-  });
-  </script>
 <div class="card">
     <div class="card-body">
         <form method="post" enctype="multipart/form-data">

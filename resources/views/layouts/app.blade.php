@@ -21,6 +21,8 @@
         <link href="{{ asset('black') }}/css/public.css" rel="stylesheet" />
         <link href="{{ asset('black') }}/css/theme.css" rel="stylesheet" />
         <link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
+        <link href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/ui-lightness/jquery-ui.css'
+          rel='stylesheet'> 
         <script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js" defer></script>
     </head>
     <body class="{{ $class ?? '' }}">
@@ -57,6 +59,7 @@
         <script src="{{ asset('black') }}/js/core/popper.min.js"></script>
         <script src="{{ asset('black') }}/js/core/bootstrap.min.js"></script>
         <script src="{{ asset('black') }}/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" defer></script>
         <!--  Google Maps Plugin    -->
         <!-- Place this tag in your head or just before your close body tag. -->
         {{-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> --}}
@@ -71,6 +74,13 @@
         @stack('js')
 
         <script>
+            window.onload = function() {
+                $('.js-example-basic-multiple').select2();
+                $(".datepicker").datepicker({
+                    dateFormat: 'dd-mm-yy',
+                    firstDay: 1
+                });
+            }
             $(document).ready(function() {
 
                 $('.js-example-basic-multiple').select2();
