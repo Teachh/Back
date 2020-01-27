@@ -1,11 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-  <script type="text/javascript">
-  $(document).ready(function() {
-    $('.js-example-basic-multiple').select2();
-  });
-  </script>
 <div class="card">
     <div class="card-body">
         <form method="POST" enctype="multipart/form-data">
@@ -34,7 +29,7 @@
             </div>
             <div class="form-group">
                 <label for="dateini">{{ __('web.start-date') }}</label>
-                <input name="dateini" type="date" class="form-control @error('descripcion') is-invalid @enderror" value="{{$producto->dateini}}">
+                <input name="dateini" type="text" class="datepicker form-control @error('dateini') is-invalid @enderror" value="{{$producto->dateini}}">
 
                 @error('dateini')
                     <span class="invalid-feedback" role="alert">
@@ -44,7 +39,7 @@
             </div>
             <div class="form-group">
                 <label for="dateend">{{ __('web.end-date') }}</label>
-                <input name="dateend" type="date" class="form-control @error('descripcion') is-invalid @enderror" value="{{$producto->dateend}}">
+                <input name="dateend" type="text" class="datepicker form-control @error('dateend') is-invalid @enderror" value="{{$producto->dateend}}">
 
                 @error('dateend')
                     <span class="invalid-feedback" role="alert">
