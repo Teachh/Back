@@ -29,7 +29,7 @@ class TaskController extends Controller
 
     public function createDash(Request $request)
     {
-       /* $this->validate($request, [
+        /* $this->validate($request, [
             'name' => ['required', 'string'],
             'email' => ['required','string'],
             'message' => ['required', 'string'],
@@ -43,14 +43,13 @@ class TaskController extends Controller
         $initdate = date('d-m-Y');
         $limitdate = request('date');
         $finish = 0;
-        $categoria= 0;
+        $categoria = 0;
         $user_id = auth()->user()->id;
 
-        if( $request->has('tipusUrgencia')){
-            $priority=1;
-        }
-        else{
-            $priority=0;
+        if ($request->has('tipusUrgencia')) {
+            $priority = 1;
+        } else {
+            $priority = 0;
         }
 
         $task->title = $title;
@@ -83,8 +82,7 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-      return Task::where('id', $id)->get();
-
+        return Task::where('id', $id)->get();
     }
 
     /**
@@ -149,5 +147,14 @@ class TaskController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function deleteDash($id)
+    {
+        $p = new Task;
+        $o = $p->findOrFail($id);
+        $o->delete();
+
+        return redirect('/home')->withStatus(__('web.nota-deleted'));
     }
 }

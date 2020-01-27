@@ -314,9 +314,9 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('web.atras')}}</button>
-          <form action="{{action('OrderController@deleteDash', $nota->id)}}" method="POST" style="display:inline">
-              {{ method_field('PUT') }}
+          <form  action="{{action('TaskController@deleteDash', $nota->id)}}" method="POST" style="display:inline">
               {{ csrf_field() }}
+              {{ method_field('PUT') }}
               <button type="submit" class="btn btn-primary">{{__('web.acabado')}}</button>
           </form>
         </div>
