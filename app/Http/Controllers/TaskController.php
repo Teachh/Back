@@ -98,6 +98,36 @@ class TaskController extends Controller
         //
     }
 
+    public function putEditDash(Request $request, $id)
+    {
+        /* $this->validate($request, [
+            'name' => ['required', 'string'],
+            'email' => ['required','string'],
+            'message' => ['required', 'string'],
+            'date' => ['required', 'date']
+        ]);*/
+
+        $t = new Task;
+        $o = $t->findOrFail($id);
+        $o->title = $request->input('title');
+        $o->subject = $request->input('subject');
+        $o->body =  $request->input('body');
+        $o->limitdate = $request->input('limitdate');
+        if( $request->has('tipusUrgencia')){
+            $o->priority=1;
+        }
+        else{
+            $o->priority=0;
+        }
+        $o->save();
+
+        $o = Product::findOrFail($id);
+
+        return redirect('/home')->withStatus(__('web.task-created'));
+    }
+
+
+
     /**
      * Update the specified resource in storage.
      *
