@@ -359,8 +359,15 @@ demo = {
     gradientStroke.addColorStop(0.4, 'rgba(66,134,121,0.0)'); //green colors
     gradientStroke.addColorStop(0, 'rgba(66,134,121,0)'); //green colors
 
+    // ingredientes nombres
+    var ingredientesOrdenadosNombre = []
+    for(var key in ingredientesOrdenados)
+    {
+      ingredientesOrdenadosNombre.push(key);
+    }
+
     var data = {
-      labels: ['JUL', 'AUG', 'SEP', 'OCT', 'NOV'],
+      labels: [ingredientesOrdenadosNombre[0], ingredientesOrdenadosNombre[1], ingredientesOrdenadosNombre[2], ingredientesOrdenadosNombre[3], ingredientesOrdenadosNombre[4]],
       datasets: [{
         label: "My First dataset",
         fill: true,
@@ -376,7 +383,7 @@ demo = {
         pointHoverRadius: 4,
         pointHoverBorderWidth: 15,
         pointRadius: 4,
-        data: [90, 27, 60, 12, 80],
+        data: [ingredientesOrdenados[ingredientesOrdenadosNombre[0]].length,ingredientesOrdenados[ingredientesOrdenadosNombre[1]].length,ingredientesOrdenados[ingredientesOrdenadosNombre[2]].length,ingredientesOrdenados[ingredientesOrdenadosNombre[3]].length,ingredientesOrdenados[ingredientesOrdenadosNombre[4]].length],
       }]
     };
 
