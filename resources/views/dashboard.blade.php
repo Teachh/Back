@@ -379,17 +379,17 @@ var productosOrdeandos = classify(productosSueltos);
 <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog mt-0 pt-0" role="document">
         <div class="modal-content text-center">
-            <form class="w-85 text-center p-5">
+            <form class="w-85 text-center p-5" action="{{ action('TaskController@createDash') }}">
                 @csrf
                 <br style="clear:both">
                     <h3 style="margin-bottom: 25px; text-align: center; color:grey;">Crear Tasca</h3>
                     <div class="form-group">
                         <label>TÍTOL</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="titol" required>
                     </div>
                     <div class="form-group">
                         <label>ASSUMPTE</label>
-                        <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="assumpte" required>
                     </div>
                     <div class="form-group">
                         <label>COS</label>
@@ -407,7 +407,7 @@ var productosOrdeandos = classify(productosSueltos);
                             </span>
                         </label>
                     </div>
-                <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
+                <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
             </form>
         </div>
     </div>

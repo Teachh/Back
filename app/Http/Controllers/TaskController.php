@@ -29,23 +29,33 @@ class TaskController extends Controller
 
     public function createDash(Request $request)
     {
-        $this->validate($request, [
+       /* $this->validate($request, [
             'name' => ['required', 'string'],
             'email' => ['required','string'],
             'message' => ['required', 'string'],
             'date' => ['required', 'date']
-        ]);
+        ]);*/
 
         $task = new Task();
-        $task->title = request('name');
-        $task->subject = request('email');
-        $task->body = request('message');
-        $task->initdate = request('date');
-        //$task->user_id = ;
+        $title = request('name');
+        $subject = request('email');
+        $body = request('message');
+        $initdate = ;
+        $limitdate = request('date');
+        $finish = 0;
+        $categoria= 0;
+        $user_id = ;
+        $priority = request('tipusUrgencia');;
+
+        $task->title = $title;
+        $task->subject = $subject;
+        $task->body =  $body;
+        $task->limitdate = $limitdate;
+        $task->user_id = ;
         //$task->tipusUrgencia = request('tipusUrgencia');
         $task->save();
 
-        return redirect('/home')->withStatus(__('#web.task-created#'));
+        return redirect('/home')->withStatus(__('web.task-created'));
     }
 
     /**
