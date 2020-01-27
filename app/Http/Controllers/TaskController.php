@@ -40,22 +40,28 @@ class TaskController extends Controller
         $title = request('name');
         $subject = request('email');
         $body = request('message');
-        $initdate = ;
+        $initdate = date('d-m-Y');
         $limitdate = request('date');
         $finish = 0;
         $categoria= 0;
-        $user_id = ;
-        $priority = request('tipusUrgencia');;
+        $user_id = auth()->user()->id;
+
+        if( $request->has('tipusUrgencia')){
+            $priority=1;
+        }
+        else{
+            $priority=0;
+        }
 
         $task->title = $title;
         $task->subject = $subject;
         $task->body =  $body;
         $task->limitdate = $limitdate;
-        $task->user_id = ;
-        //$task->tipusUrgencia = request('tipusUrgencia');
+        $task->user_id =  $user_id;
+        $task->priority = $priority;
         $task->save();
 
-        return redirect('/home')->withStatus(__('web.task-created'));
+        return redirect('/home#create')->withStatus(__('web.task-created'));
     }
 
     /**
