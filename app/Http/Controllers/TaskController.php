@@ -104,7 +104,6 @@ class TaskController extends Controller
             'message' => ['required', 'string'],
             'date' => ['required', 'date']
         ]);*/
-
         $t = new Task;
         $o = $t->findOrFail($id);
         $o->title = $request->input('title');
@@ -118,8 +117,6 @@ class TaskController extends Controller
             $o->priority=0;
         }
         $o->save();
-
-        $o = Product::findOrFail($id);
 
         return redirect('/home')->withStatus(__('web.task-created'));
     }

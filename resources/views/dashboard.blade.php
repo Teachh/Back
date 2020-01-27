@@ -330,21 +330,22 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
     <div class="modal-dialog" role="document">
       <div class="modal-content text-center">
 
-<form class="w-85 text-center p-5" method="post">
+<form class="w-85 text-center p-5"action="{{action('TaskController@putEditDash', $nota->id)}}"  method="post">
+@csrf
 <br style="clear:both">
                     <h3 style="margin-bottom: 25px; text-align: center;">{{__('web.editar')}}</h3>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="name" name="name" value="{{$nota->title}}" required>
+                        <input type="text" class="form-control" id="name" name="title" value="{{$nota->title}}" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="email" name="email" value="{{$nota->subject}}" required>
+                        <input type="text" class="form-control" id="email" name="subject" value="{{$nota->subject}}" required>
                     </div>
                     <div class="form-group">
-                            <textarea class="form-control" type="textarea" id="message" maxlength="500" rows="7">{{$nota->body}}</textarea>
+                            <textarea class="form-control" type="textarea" name="body" id="message" maxlength="500" rows="7">{{$nota->body}}</textarea>
                         <span class="help-block"><p id="characterLeft" class="help-block ">{{__('web.error')}}</p></span>
                     </div>
                     <div class="form-group">
-                        <input type="date" class="form-control" id="datetimepicker" name="date" value="{{$nota->limitdate}}" required>
+                        <input type="text" class="datepicker form-control" id="datetimepicker" name="limitdate" value="{{$nota->limitdate}}" required>
                     </div>
                     <div class="form-group">
                         <label class="form-check-label">
@@ -364,7 +365,7 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
                         </label>
                     </div>
 
-        <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">{{__('web.editar')}}</button>
+        <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">{{__('web.editar')}}</button>
 </form>
       </div>
     </div>
