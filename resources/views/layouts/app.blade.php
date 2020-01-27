@@ -77,7 +77,7 @@
             window.onload = function() {
                 $('.js-example-basic-multiple').select2();
                 $(".datepicker").datepicker({
-                    dateFormat: 'dd-mm-yy',
+                    dateFormat: 'yy-mm-dd',
                     firstDay: 1
                 });
             }

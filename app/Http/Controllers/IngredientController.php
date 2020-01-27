@@ -125,6 +125,7 @@ class IngredientController extends Controller
     {
         $p = new Ingredient;
         $o = $p->findOrFail($id);
+        $o->products()->detach();
         $o->delete();
 
         return redirect('/ingredientes')->withStatus(__('web.ingredient-deleted'));
