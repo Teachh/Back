@@ -390,7 +390,7 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
 <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog mt-0 pt-0" role="document">
         <div class="modal-content text-center">
-            <form class="w-85 text-center p-5" action="{{ action('TaskController@createDash') }}">
+            <form class="w-85 text-center p-5" method="post">
                 @csrf
                 <br style="clear:both">
                     <h3 style="margin-bottom: 25px; text-align: center; color:grey;">Crear Tasca</h3>
@@ -412,7 +412,7 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input class="form-check-input" id="tipusUrgencia" name="tipusUrgencia" type="checkbox" value="">
+                            <input class="form-check-input" id="tipusUrgencia" name="tipusUrgencia" type="checkbox" value="0">
                             <span class="form-check-sign">
                                 <span class="check">Urgent</span>
                             </span>
