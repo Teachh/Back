@@ -60,7 +60,7 @@ class TaskController extends Controller
         $task->priority = $priority;
         $task->save();
 
-        return redirect('/home#create')->withStatus(__('web.task-created'));
+        return redirect('/home#modalTask')->withStatus(__('web.task-created'));
     }
 
     /**
@@ -118,7 +118,7 @@ class TaskController extends Controller
         }
         $o->save();
 
-        return redirect('/home')->withStatus(__('web.task-created'));
+        return redirect('/home#modalTask')->withStatus(__('web.task-created'));
     }
 
 
@@ -152,6 +152,6 @@ class TaskController extends Controller
         $o = $p->findOrFail($id);
         $o->delete();
 
-        return redirect('/home')->withStatus(__('web.nota-deleted'));
+        return redirect('/home#modalTask')->withStatus(__('web.nota-deleted'));
     }
 }
