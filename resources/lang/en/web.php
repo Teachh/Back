@@ -15,6 +15,7 @@ return [
     'prod-est' => 'Best product',
     'ing-usd' => 'Most used ingredients',
     'notas' => 'Notes',
+    'dashboard' => 'Dashboard',
     //Perfil
     'profile' => 'Profile',
     'profile-photo' => 'Profile Photo',

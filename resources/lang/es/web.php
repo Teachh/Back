@@ -15,6 +15,7 @@ return [
     'prod-est' => 'Productos estrella',
     'ing-usd' => 'Ingredientes mas usados',
     'notas' => 'Notas',
+    'dashboard' => 'Panel de control',
     //Perfil
     'profile' => 'Perfil',
     'profile-photo' => 'Foto de perfil',

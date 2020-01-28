@@ -1,4 +1,4 @@
-@extends('layouts.app', ['pageSlug' => 'dashboard'])
+@extends('layouts.app', ['page' => __('web.dashboard'), 'pageSlug' => 'dashboard'])
 
 @section('content')
   <script type="text/javascript">
@@ -325,8 +325,9 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
 <form class="w-85 text-center p-5"action="{{action('TaskController@putEditDash', $nota->id)}}"  method="post">
 @csrf
 <br style="clear:both">
-                    <h3 style="margin-bottom: 25px; text-align: center;">{{__('web.editar')}}</h3>
+                    <h3 style="margin-bottom: 25px; text-align: center;">{{__('web.editar')}} </h3>
                     <div class="form-group">
+
                         <input type="text" class="form-control" id="name" name="title" value="{{$nota->title}}" required>
                     </div>
                     <div class="form-group">
@@ -388,7 +389,7 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
   </div>
 @endforeach
 
-<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: -100px;">
     <div class="modal-dialog mt-0 pt-0" role="document">
         <div class="modal-content text-center">
             <form class="w-85 text-center p-5" method="post">
