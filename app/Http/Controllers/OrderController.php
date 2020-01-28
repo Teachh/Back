@@ -117,6 +117,18 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
         $order->delete();
 
-        return view('dashboard', compact('orders'))->withStatus(__('web.order-deleted'));
+        return redirect('/pedidos')->withStatus(__('web.order-deleted'));
+    }
+
+    public function setEntregado($id){
+      $order = Order::find($id);
+      if($order->finished){
+        $order->finished = false;
+      }
+      else{
+        $order->finished = true;
+      }
+      $order->save();
+      return redirect('/pedidos');
     }
 }
