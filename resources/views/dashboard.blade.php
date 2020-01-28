@@ -291,6 +291,11 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
                                         <p class="title">
                                           {{$nota->title}} 
                                           [{{ $nota->user->name}}]
+                                          @if($nota->finish==1)
+                                          <span class="badge badge-pill badge-success">{{__('web.acabado')}}</span>
+                                          @else
+                                          <span class="badge badge-pill badge-warning">Pendiente</span>
+                                          @endif
                                           @if($nota->priority==1)
                                           <span class="badge badge-pill badge-danger">PRIORITARIO</span>
                                           @else
@@ -374,17 +379,23 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
                     <div class="form-group">
                         <label class="form-check-label">
                             @if($nota->priority==1)
-                            <input class="form-check-input" type="checkbox" value="1" checked>
-                            <span class="form-check-sign">
-                            {{__('web.urgent')}}
-                                <span class="check"></span>
-                            </span>
+                               <div class="form-check">
+                                  <label class="form-check-label">
+                                  <input class="form-check-input" type="checkbox" value="" checked>
+                              <span class="form-check-sign">
+                                  <span class="check">{{__('web.urgent')}}</span>
+                                  </span>
+                                  </label>
+                                </div>
                             @else
-                            <input class="form-check-input" type="checkbox" value="0">
-                            <span class="form-check-sign">
-                            {{__('web.urgent')}}
-                                <span class="check"></span>
-                            </span>
+                               <div class="form-check">
+                                <label class="form-check-label">
+                                  <input class="form-check-input" type="checkbox" value="">
+                                     <span class="form-check-sign">
+                                    <span class="check">{{__('web.urgent')}}</span>
+                                    </span>
+                                 </label>
+                               </div>
                             @endif
                         </label>
                     </div>
@@ -415,7 +426,31 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
                         <p> {{$nota->limitdate}} </p>
                     </div>
 
-        <button type="submit" id="submit2" name="submit" class="btn btn-primary pull-right w-100">¡{{__('web.acabado')}}!</button>
+                    <div class="form-group">
+                        <label class="form-check-label">
+                            @if($nota->finish==1)
+                               <div class="form-check">
+                                  <label class="form-check-label">
+                                  <input id="finishA" name="finishA" value="1" class="form-check-input" type="checkbox" checked>
+                              <span class="form-check-sign">
+                                  <span class="check">{{__('web.acabado')}}</span>
+                                  </span>
+                                  </label>
+                                </div>
+                            @else
+                               <div class="form-check">
+                                <label class="form-check-label">
+                                  <input id="finishA" name="finishA" value="0" class="form-check-input" type="checkbox" >
+                                     <span class="form-check-sign">
+                                    <span class="check">{{__('web.acabado')}}</span>
+                                    </span>
+                                 </label>
+                               </div>
+                            @endif
+                        </label>
+                    </div>
+
+        <button type="submit" id="submit2" name="submit" class="btn btn-primary pull-right w-100">Confirmar</button>
 </form>
       </div>
     </div>

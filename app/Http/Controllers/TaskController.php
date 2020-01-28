@@ -126,7 +126,7 @@ class TaskController extends Controller
         public function putFinishDash(Request $request, $id)
     {
         $t =Task::findOrFail($id);
-        $t->finish = 1;
+        $t->finish=$request->input('finishA');
         $t->save();
 
         return redirect('/home#modalTask')->withStatus(__('web.task-created'));
