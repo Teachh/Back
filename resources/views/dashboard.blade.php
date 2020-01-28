@@ -237,7 +237,7 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
         <div class="col-lg-12 col-md-12 order-4">
             <div class="card card-tasks">
                 <div class="card-header ">
-                    <h6 class="title d-inline">{{__('web.notas')}}</h6>
+                    <h6 id="modalTask" class="title d-inline">{{__('web.notas')}}</h6>
                     <!--<p class="card-category d-inline">today</p>-->
                     <div class="dropdown">
                         <!-- Aqui va la MODAL -->
