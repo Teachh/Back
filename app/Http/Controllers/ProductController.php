@@ -17,7 +17,18 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Product::all();
+        $products = Product::all();
+        $array = [];
+        foreach ($products as $product) {
+            $array[] = $product;
+            foreach ($product->ingredients as $ingredient) {
+                $array[] = $ingredient->name;
+            };
+            // foreach ($product->allergens as $allergen) {
+            //     $array[] = $allergen->name;
+            // };
+        }
+        return $array;
     }
 
     public function indexDash()
@@ -90,18 +101,18 @@ class ProductController extends Controller
         $ingrInternos = Product::findOrFail($id)->ingredients;
         $ingredientes = '';
         foreach ($ingrInternos as $key => $value) {
-          $ingredientes .= $value->name . ',';
+            $ingredientes .= $value->name . ',';
         }
         // alergenos
         $alergInternos = Product::findOrFail($id)->allergens;
         $alergenos = '';
         foreach ($alergInternos as $key => $value) {
-          $alergenos .= $value->name  . ',';
+            $alergenos .= $value->name  . ',';
         }
         // quitar coma
-        $ingredientes = substr_replace($ingredientes ,'',-1);
-        $alergenos = substr_replace($alergenos ,'',-1);
-        return [Product::where('id', $id)->get(),$ingredientes, $alergenos ];
+        $ingredientes = substr_replace($ingredientes, '', -1);
+        $alergenos = substr_replace($alergenos, '', -1);
+        return [Product::where('id', $id)->get(), $ingredientes, $alergenos];
     }
 
     public function searchDash(Request $request)
