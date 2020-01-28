@@ -15,6 +15,7 @@ return [
     'prod-est' => 'Producte estrella',
     'ing-usd' => 'Ingredients mes utilitzats',
     'notas' => 'Notes',
+    'dashboard' => 'Panell de control',
     //Perfil
     'profile' => 'Perfil',
     'profile-photo' => 'Foto de perfil',
@@ -141,4 +142,5 @@ return [
     'back' => 'Tornar',
     'notTitulo' => 'Títol de la noticia',
     'notContent' => 'Contingut de la notica',
+    'crear-task'=>'Crear nota'
 ];
