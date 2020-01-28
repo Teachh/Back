@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['page' => __('web.categories'), 'pageSlug' => 'categories'])
 
 @section('content')
   <script type="text/javascript">
