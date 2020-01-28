@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app', ['page' => __('web.ingredients'), 'pageSlug' => 'ingredients'])
 
 @section('content')
 <div class="mb-3">

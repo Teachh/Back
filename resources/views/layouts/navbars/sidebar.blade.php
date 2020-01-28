@@ -1,7 +1,8 @@
 <div class="sidebar">
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="{{ route('home') }}" class="simple-text logo-normal">{{ __('Escola d\'Hostaleria') }}</a>
+          <a href="{{ route('home') }}" class="simple-text logo-mini">{{ __('EH') }}</a>
+            <a href="{{ route('home') }}" class="simple-text logo-normal">{{ __('Escola d\'Hostalería') }}</a>
         </div>
         <ul class="nav">
           <li>
