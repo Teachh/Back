@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use File;
+use App\Allergen;
+use App\Ingredient;
 
 class ProductController extends Controller
 {
@@ -84,7 +86,22 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        return Product::where('id', $id)->get();
+        // ingredientes
+        $ingrInternos = Product::findOrFail($id)->ingredients;
+        $ingredientes = '';
+        foreach ($ingrInternos as $key => $value) {
+          $ingredientes .= $value->name . ',';
+        }
+        // alergenos
+        $alergInternos = Product::findOrFail($id)->allergens;
+        $alergenos = '';
+        foreach ($alergInternos as $key => $value) {
+          $alergenos .= $value->name  . ',';
+        }
+        // quitar coma
+        $ingredientes = substr_replace($ingredientes ,'',-1);
+        $alergenos = substr_replace($alergenos ,'',-1);
+        return [Product::where('id', $id)->get(),$ingredientes, $alergenos ];
     }
 
     public function searchDash(Request $request)
