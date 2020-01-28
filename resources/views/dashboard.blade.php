@@ -306,9 +306,9 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('web.atras')}}</button>
-          <form action="{{action('OrderController@deleteDash', $nota->id)}}" method="POST" style="display:inline">
-              {{ method_field('PUT') }}
+          <form  action="{{action('TaskController@deleteDash', $nota->id)}}" method="POST" style="display:inline">
               {{ csrf_field() }}
+              {{ method_field('PUT') }}
               <button type="submit" class="btn btn-primary">{{__('web.acabado')}}</button>
           </form>
         </div>
@@ -322,33 +322,42 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
     <div class="modal-dialog" role="document">
       <div class="modal-content text-center">
 
-<form class="w-85 text-center p-5">
+<form class="w-85 text-center p-5"action="{{action('TaskController@putEditDash', $nota->id)}}"  method="post">
+@csrf
 <br style="clear:both">
                     <h3 style="margin-bottom: 25px; text-align: center;">{{__('web.editar')}}</h3>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="{{__('web.notaTitu')}}" required>
+                        <input type="text" class="form-control" id="name" name="title" value="{{$nota->title}}" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="email" name="email" placeholder="{{__('web.notaAssu')}}" required>
+                        <input type="text" class="form-control" id="email" name="subject" value="{{$nota->subject}}" required>
                     </div>
                     <div class="form-group">
-                            <textarea class="form-control" type="textarea" id="message" placeholder="{{__('web.miss')}}" maxlength="500" rows="7"></textarea>
+                            <textarea class="form-control" type="textarea" name="body" id="message" maxlength="500" rows="7">{{$nota->body}}</textarea>
                         <span class="help-block"><p id="characterLeft" class="help-block ">{{__('web.error')}}</p></span>
                     </div>
                     <div class="form-group">
-                        <input type="date" class="form-control" id="datetimepicker" name="date" placeholder="{{__('web.fecha')}}" required>
+                        <input type="text" class="datepicker form-control" id="datetimepicker" name="limitdate" value="{{$nota->limitdate}}" required>
                     </div>
                     <div class="form-group">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="">
+                            @if($nota->priority==1)
+                            <input class="form-check-input" type="checkbox" value="1" checked>
                             <span class="form-check-sign">
                             {{__('web.urgent')}}
                                 <span class="check"></span>
                             </span>
+                            @else
+                            <input class="form-check-input" type="checkbox" value="0">
+                            <span class="form-check-sign">
+                            {{__('web.urgent')}}
+                                <span class="check"></span>
+                            </span>
+                            @endif
                         </label>
                     </div>
 
-        <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">{{__('web.editar')}}</button>
+        <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">{{__('web.editar')}}</button>
 </form>
       </div>
     </div>
