@@ -114,6 +114,20 @@
                     </span>
                 @enderror
             </div>
+            <div class="form-group">
+                <label for="allergens[]">{{__('web.allergens')}}</label>
+                <select class="js-example-basic-multiple form-control @error('allergens') is-invalid @enderror" name="allergens[]" multiple="multiple">
+                    @foreach (App\Allergen::all() as $allergen)
+                    <option value="{{$allergen->id}}" {{ in_array($allergen->id, $allergens_array) ? 'selected' : '' }}>{{$allergen->name}}</option>
+                    @endforeach
+                </select>
+
+                @error('allergens')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
             <button type="submit" class="btn btn-primary">{{__('web.editar')}}</button>
         </form>
     </div>

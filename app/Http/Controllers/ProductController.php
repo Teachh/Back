@@ -59,6 +59,9 @@ class ProductController extends Controller
         $producto->category_id = request('categoria');
         $producto->save();
         $producto->ingredients()->sync(request('ingredientes'));
+        if (request('allergens')) {
+            $producto->allergens()->sync(request('allergens'));
+        }
 
         return redirect('/productos')->withStatus(__('web.product-created'));
     }
@@ -111,7 +114,11 @@ class ProductController extends Controller
         foreach ($producto->ingredients as $ingredient) {
             $ingredients_array[] = $ingredient->id;
         }
-        return view('apartados.products-edit', compact('producto', 'ingredients_array'));
+        $allergens_array = [];
+        foreach ($producto->allergens as $allergen) {
+            $allergens_array[] = $allergen->id;
+        }
+        return view('apartados.products-edit', compact('producto', 'ingredients_array', 'allergens_array'));
     }
 
     public function putEditDash(Request $request, $id)
@@ -151,6 +158,11 @@ class ProductController extends Controller
         $o->category_id = request('categoria');
         $o->save();
         $o->ingredients()->sync(request('ingredientes'));
+        if (request('allergens')) {
+            $o->allergens()->sync(request('allergens'));
+        } else {
+            $o->allergens()->detach();
+        }
 
         $o = Product::findOrFail($id);
 
@@ -191,6 +203,7 @@ class ProductController extends Controller
         }
 
         $o->ingredients()->detach();
+        $o->allergens()->detach();
         $o->delete();
 
         return redirect('/productos')->withStatus(__('web.product-deleted'));
