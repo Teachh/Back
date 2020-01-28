@@ -107,4 +107,5 @@ Route::group(['middleware' => 'auth'], function () {
   Route::post('home', 'TaskController@createDash');
   Route::put('delete/{id}', 'TaskController@deleteDash');
   Route::post('edit/{id}', 'TaskController@putEditDash');
+  Route::post('view/{id}', 'TaskController@putFinishDash');
 });

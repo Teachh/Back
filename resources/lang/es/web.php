@@ -13,7 +13,7 @@ return [
     'tabla-mensual' => 'Tabla de pedidos mensuales',
     'venta-sem' => 'Ventas semanales',
     'prod-est' => 'Productos estrella',
-    'ing-usd' => 'Ingredientes mas usados',
+    'ing-usd' => 'Ingredientes más usados',
     'notas' => 'Notas',
     'dashboard' => 'Panel de control',
     //Perfil
@@ -142,4 +142,5 @@ return [
     'back' => 'Volver',
     'notTitulo' => 'Titulo de la noticia',
     'notContent' => 'Contenido de la noticia',
+    'crear-task'=>'Crear nota'
 ];

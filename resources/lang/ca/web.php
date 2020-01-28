@@ -142,4 +142,5 @@ return [
     'back' => 'Tornar',
     'notTitulo' => 'Títol de la noticia',
     'notContent' => 'Contingut de la notica',
+    'crear-task'=>'Crear nota'
 ];
