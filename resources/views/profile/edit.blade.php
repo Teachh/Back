@@ -1,4 +1,4 @@
-@extends('layouts.app', ['page' => __('User Profile'), 'pageSlug' => 'profile'])
+@extends('layouts.app', ['page' => __('web.profile'), 'pageSlug' => 'profile'])
 
 @section('content')
     <div class="row">
@@ -74,7 +74,7 @@
                         @csrf
                         @method('put')
 
-                        @include('alerts.success', ['key' => 'password_status'])
+                        @include('alerts.success')
 
                         <div class="form-group{{ $errors->has('avatar') ? ' has-danger' : '' }}">
                             <label>{{ __('web.ava-act') }}</label>

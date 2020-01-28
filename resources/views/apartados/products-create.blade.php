@@ -1,18 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-  <script type="text/javascript">
-  $(document).ready(function() {
-    $('.js-example-basic-multiple').select2();
-  });
-  </script>
 <div class="card">
     <div class="card-body">
         <form method="post" enctype="multipart/form-data">
           @csrf
             <div class="form-group">
                 <label for="plato">{{__('web.nom-pla')}}</label>
-                <input name="plato" type="text" class="form-control @error('plato') is-invalid @enderror" aria-describedby="emailHelp">
+                <input name="plato" type="text" class="form-control @error('plato') is-invalid @enderror" aria-describedby="emailHelp" value="{{ old('plato') }}">
 
                 @error('plato')
                     <span class="invalid-feedback" role="alert">

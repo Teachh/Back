@@ -103,4 +103,6 @@ Route::group(['middleware' => 'auth'], function () {
   })->name('noticias.create');
   //tascas
   Route::post('home', 'TaskController@createDash');
+  Route::put('delete/{id}', 'TaskController@deleteDash');
+  Route::post('edit/{id}', 'TaskController@putEditDash');
 });

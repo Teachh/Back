@@ -8,11 +8,11 @@
   <div class="row ">
     <div class="col-md-5 details mt-4 text-center align-self-center">
         <h1 class="mb-0">{{__('web.num-ped')}}{{ $order->id }}</h1><br>
-        <h1>ENTREGAT:
+        <h1>{{ strtoupper(__('web.entregado')) }}:
             @if(($order->finished==0))
                 No
             @else
-                Sí
+                {{ __('web.yes') }}
             @endif
         </h1>
 
@@ -61,7 +61,7 @@
             @if(($order->finished==0))
                 <button type="button" class="btn btn-primary">{{__('web.entre')}}</button>
             @else
-                <button type="button" class="btn btn-primary">{{__('web.cancel')}}</button>
+                <button type="button" class="btn btn-primary">{{__('web.atras')}}</button>
             @endif
     </div>
     <div class=" col-md-12 col-lg-2 details mt-4 text-center">

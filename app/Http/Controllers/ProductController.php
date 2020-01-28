@@ -190,6 +190,7 @@ class ProductController extends Controller
             File::delete($image);
         }
 
+        $o->ingredients()->detach();
         $o->delete();
 
         return redirect('/productos')->withStatus(__('web.product-deleted'));

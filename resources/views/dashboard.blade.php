@@ -24,20 +24,73 @@
        var date = new Date(obj.date);
        var month = date.getMonth();
        if (months[month]) {
-           months[month].push(obj);  // already have a list- append to it
+           months[month].push(obj);
        }
        else {
-           months[month] = [obj]; // no list for this month yet - create a new one
+           months[month] = [obj];
        }
     }
     return months;
  }
  var ordersGroup = group_by_month(orders);
  // Productos mas pedidos
+ var productosSueltos = [];
+ function group_product(data) {
+     var products = {};
+     for (var i=0; i<data.length; i++) {
+        var obj = data[i];
+        var name = obj.name;
+        if (products[name]) {
+            products[name].push(obj); // añadirlo a una lista existente
+        }
+        else {
+            products[name] = [obj];  // crear una nueva
+        }
+     }
+     // meterlo en un array
+     for(var key in products)
+     {
+       productosSueltos.push(key);
+     }
+     return products;
+  }
+  var productos = [];
   @foreach ($orders as $ord)
-    console.log(@json($ord->products));
+    productos.push(group_product(@json($ord->products)));
   @endforeach
-  console.log(productos);
+  // ordenar
+  function classify(a){
+    var t = {};
+    a.forEach(function(f){
+        var txt = f.replace(/#/g,'').trim();
+        var txtnode = document.createTextNode(f);
+
+        t[txt] = (t[txt] || []).concat(txtnode);
+    })
+   return t;
+}
+
+var productosOrdeandos = classify(productosSueltos);
+// ordenar ascendente
+[].slice.call(productosOrdeandos).sort(function(a, b) {
+    a = a[1];
+    b = b[1];
+
+    return a < b ? -1 : (a > b ? 1 : 0);
+});
+var ingredientesSueltos = [];
+@foreach ($ingredientes as $ingr)
+  ingredientesSueltos.push('{{$ingr}}');
+@endforeach
+
+var ingredientesOrdenados = classify(ingredientesSueltos);
+// ordeanr ascendente
+[].slice.call(ingredientesOrdenados).sort(function(a, b) {
+    a = a[1];
+    b = b[1];
+
+    return a < b ? -1 : (a > b ? 1 : 0);
+});
   </script>
     <div class="row">
         <div class="col-lg-12 col-md-12 order-1">
@@ -159,7 +212,6 @@
             <div class="card card-chart">
                 <div class="card-header">
                     <h5 class="card-category">{{__('web.prod-est')}}</h5>
-                    <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> 3,500€</h3>
                 </div>
                 <div class="card-body">
                     <div class="chart-area">
@@ -172,7 +224,6 @@
             <div class="card card-chart">
                 <div class="card-header">
                     <h5 class="card-category">{{__('web.ing-usd')}}</h5>
-                    <h3 class="card-title"><i class="tim-icons icon-send text-success"></i> 12,100K</h3>
                 </div>
                 <div class="card-body">
                     <div class="chart-area">
@@ -186,24 +237,16 @@
         <div class="col-lg-12 col-md-12 order-4">
             <div class="card card-tasks">
                 <div class="card-header ">
-                    <h6 class="title d-inline">{{__('web.notas')}}</h6>
+                    <h6 id="modalTask" class="title d-inline">{{__('web.notas')}}</h6>
                     <!--<p class="card-category d-inline">today</p>-->
                     <div class="dropdown">
                         <!-- Aqui va la MODAL -->
-                        <button type="button" rel="tooltip" class="btn btn-link" data-toggle="modal" data-target="#create">
+                        <button type="button" rel="tooltip" class="btn btn-link dropdown-toggle btn-icon" data-toggle="modal" data-target="#create">
                             <i class="tim-icons icon-simple-add"></i>
                         </button>
                         <!-- Modal
 
                         -->
-                        <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
-                            <i class="tim-icons icon-settings-gear-63"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="#pablo">Action</a>
-                            <a class="dropdown-item" href="#pablo">Another action</a>
-                            <a class="dropdown-item" href="#pablo">Something else</a>
-                        </div>
                     </div>
                 </div>
                 <div class="card-body ">
@@ -263,9 +306,9 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">{{__('web.atras')}}</button>
-          <form action="{{action('OrderController@deleteDash', $nota->id)}}" method="POST" style="display:inline">
-              {{ method_field('PUT') }}
+          <form  action="{{action('TaskController@deleteDash', $nota->id)}}" method="POST" style="display:inline">
               {{ csrf_field() }}
+              {{ method_field('PUT') }}
               <button type="submit" class="btn btn-primary">{{__('web.acabado')}}</button>
           </form>
         </div>
@@ -279,33 +322,43 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content text-center">
 
-<form class="w-85 text-center p-5">
+<form class="w-85 text-center p-5"action="{{action('TaskController@putEditDash', $nota->id)}}"  method="post">
+@csrf
 <br style="clear:both">
                     <h3 style="margin-bottom: 25px; text-align: center;">{{__('web.editar')}} </h3>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="{{$nota->title}}" required>
+
+                        <input type="text" class="form-control" id="name" name="title" value="{{$nota->title}}" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="email" name="email" placeholder="{{__('web.notaAssu')}}" required>
+                        <input type="text" class="form-control" id="email" name="subject" value="{{$nota->subject}}" required>
                     </div>
                     <div class="form-group">
-                            <textarea class="form-control" type="textarea" id="message" placeholder="{{__('web.miss')}}" maxlength="500" rows="7"></textarea>
-                        <span class="help-block"><p id="characterLeft" class="help-block ">{{__('web.error')}}</p></span>                    
+                            <textarea class="form-control" type="textarea" name="body" id="message" maxlength="500" rows="7">{{$nota->body}}</textarea>
+                        <span class="help-block"><p id="characterLeft" class="help-block ">{{__('web.error')}}</p></span>
                     </div>
                     <div class="form-group">
-                        <input type="date" class="form-control" id="datetimepicker" name="date" placeholder="{{__('web.fecha')}}" required>
+                        <input type="text" class="datepicker form-control" id="datetimepicker" name="limitdate" value="{{$nota->limitdate}}" required>
                     </div>
                     <div class="form-group">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="">
+                            @if($nota->priority==1)
+                            <input class="form-check-input" type="checkbox" value="1" checked>
                             <span class="form-check-sign">
                             {{__('web.urgent')}}
                                 <span class="check"></span>
                             </span>
+                            @else
+                            <input class="form-check-input" type="checkbox" value="0">
+                            <span class="form-check-sign">
+                            {{__('web.urgent')}}
+                                <span class="check"></span>
+                            </span>
+                            @endif
                         </label>
                     </div>
-                               
-        <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">{{__('web.editar')}}</button>
+
+        <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">{{__('web.editar')}}</button>
 </form>
       </div>
     </div>
@@ -327,8 +380,8 @@
                         <p> {{$nota->body}} </p>
                     </div>
                     <div class="form-group">
-                        <p> {{$nota->limitdate}} </p>                 
-                    </div>     
+                        <p> {{$nota->limitdate}} </p>
+                    </div>
         <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">{{__('web.acabado')}}</button>
 </form>
       </div>
@@ -339,17 +392,17 @@
 <div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: -100px;">
     <div class="modal-dialog mt-0 pt-0" role="document">
         <div class="modal-content text-center">
-            <form class="w-85 text-center p-5">
+            <form class="w-85 text-center p-5" method="post">
                 @csrf
                 <br style="clear:both">
                     <h3 style="margin-bottom: 25px; text-align: center; color:grey;">Crear Tasca</h3>
                     <div class="form-group">
                         <label>TÍTOL</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="titol" required>
                     </div>
                     <div class="form-group">
                         <label>ASSUMPTE</label>
-                        <input type="text" class="form-control" id="email" name="email" placeholder="Email" required>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="assumpte" required>
                     </div>
                     <div class="form-group">
                         <label>COS</label>
@@ -361,13 +414,13 @@
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input class="form-check-input" id="tipusUrgencia" name="tipusUrgencia" type="checkbox" value="">
+                            <input class="form-check-input" id="tipusUrgencia" name="tipusUrgencia" type="checkbox" value="0">
                             <span class="form-check-sign">
                                 <span class="check">Urgent</span>
                             </span>
                         </label>
                     </div>
-                <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
+                <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
             </form>
         </div>
     </div>
