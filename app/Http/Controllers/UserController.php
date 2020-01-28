@@ -40,12 +40,11 @@ class UserController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     // NO SE PUEDEN CREAR USUARIOS
-    // public function store(UserRequest $request, User $model)
-    // {
-    //     $model->create($request->merge(['password' => Hash::make($request->get('password'))])->all());
-    //
-    //     return redirect()->route('user.index')->withStatus(__('User successfully created.'));
-    // }
+    public function store(UserRequest $request)
+    {
+      $user = User::create($request->all());
+      return response()->json($user, 201);
+    }
 
     /**
      * Show the form for editing the specified user
