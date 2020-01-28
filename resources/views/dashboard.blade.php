@@ -237,7 +237,7 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
         <div class="col-lg-12 col-md-12 order-4">
             <div class="card card-tasks">
                 <div class="card-header ">
-                    <h6 class="title d-inline">{{__('web.notas')}}</h6>
+                    <h6 id="modalTask" class="title d-inline">{{__('web.notas')}}</h6>
                     <!--<p class="card-category d-inline">today</p>-->
                     <div class="dropdown">
                         <!-- Aqui va la MODAL -->
@@ -247,14 +247,6 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
                         <!-- Modal
 
                         -->
-                        <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
-                            <i class="tim-icons icon-settings-gear-63"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="#pablo">Action</a>
-                            <a class="dropdown-item" href="#pablo">Another action</a>
-                            <a class="dropdown-item" href="#pablo">Something else</a>
-                        </div>
                     </div>
                 </div>
                 <div class="card-body ">
@@ -333,8 +325,9 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
 <form class="w-85 text-center p-5"action="{{action('TaskController@putEditDash', $nota->id)}}"  method="post">
 @csrf
 <br style="clear:both">
-                    <h3 style="margin-bottom: 25px; text-align: center;">{{__('web.editar')}}</h3>
+                    <h3 style="margin-bottom: 25px; text-align: center;">{{__('web.editar')}} </h3>
                     <div class="form-group">
+
                         <input type="text" class="form-control" id="name" name="title" value="{{$nota->title}}" required>
                     </div>
                     <div class="form-group">
@@ -396,7 +389,7 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
   </div>
 @endforeach
 
-<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="create" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: -100px;">
     <div class="modal-dialog mt-0 pt-0" role="document">
         <div class="modal-content text-center">
             <form class="w-85 text-center p-5" method="post">

@@ -451,7 +451,7 @@ demo = {
         display: false
       },
       data: {
-        labels: [productosOrdeandos[productosOrdeandosNombre[0]].length, productosOrdeandos[productosOrdeandosNombre[1]].length, productosOrdeandos[productosOrdeandosNombre[2]].length, productosOrdeandos[productosOrdeandosNombre[3]].length, productosOrdeandos[productosOrdeandosNombre[4]].length],
+        labels: [productosOrdeandosNombre[0],productosOrdeandosNombre[1] ,productosOrdeandosNombre[2] ,productosOrdeandosNombre[3] ,productosOrdeandosNombre[4]],
         datasets: [{
           label: "Ingredients",
           fill: true,
@@ -461,7 +461,8 @@ demo = {
           borderWidth: 2,
           borderDash: [],
           borderDashOffset: 0.0,
-          data: [productosOrdeandos[productosOrdeandosNombre[0]],productosOrdeandos[productosOrdeandosNombre[1]] ,productosOrdeandos[productosOrdeandosNombre[2]] ,productosOrdeandos[productosOrdeandosNombre[3]] ,productosOrdeandos[productosOrdeandosNombre[4]] ],
+          data: [productosOrdeandos[productosOrdeandosNombre[0]].length, productosOrdeandos[productosOrdeandosNombre[1]].length, productosOrdeandos[productosOrdeandosNombre[2]].length, 4, 5],
+          //labels: [productosOrdeandos[productosOrdeandosNombre[0]].length, productosOrdeandos[productosOrdeandosNombre[1]].length, productosOrdeandos[productosOrdeandosNombre[2]].length, productosOrdeandos[productosOrdeandosNombre[3]].length, productosOrdeandos[productosOrdeandosNombre[4]].length],
         }]
       },
       options: gradientBarChartConfiguration
