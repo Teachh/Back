@@ -7,7 +7,7 @@ use App\Product;
 use File;
 use App\Allergen;
 use App\Ingredient;
-
+use DB;
 class ProductController extends Controller
 {
     /**
@@ -21,14 +21,13 @@ class ProductController extends Controller
         $array = [];
         foreach ($products as $product) {
             $array[] = $product;
-            foreach ($product->ingredients as $ingredient) {
-                $array[] = $ingredient->name;
-            };
-            // foreach ($product->allergens as $allergen) {
-            //     $array[] = $allergen->name;
-            // };
+            // añadir ingredientes
+            $array[] = DB::select(DB::raw('select ingredients.name from ingredient_product,ingredients where ingredient_product.product_id = '. $product->id . ' and ingredient_product.ingredient_id = ingredients.id;'));
+            // añadir alergenos
+            $array[] = DB::select(DB::raw('select allergens.name from allergen_product,allergens where allergen_product.product_id = '. $product->id . ' and allergen_product.allergen_id = allergens.id;'));
         }
         return $array;
+;
     }
 
     public function indexDash()
