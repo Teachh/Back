@@ -42,8 +42,8 @@ class UserController extends Controller
     // NO SE PUEDEN CREAR USUARIOS
     public function store(UserRequest $request)
     {
-      $message = Message::create($request->all());
-      return response()->json($message, 201);
+      $user = User::create($request->all());
+      return response()->json($user, 201);
     }
 
     /**
