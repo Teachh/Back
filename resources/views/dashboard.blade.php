@@ -247,14 +247,6 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
                         <!-- Modal
 
                         -->
-                        <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
-                            <i class="tim-icons icon-settings-gear-63"></i>
-                        </button>
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="#pablo">Action</a>
-                            <a class="dropdown-item" href="#pablo">Another action</a>
-                            <a class="dropdown-item" href="#pablo">Something else</a>
-                        </div>
                     </div>
                 </div>
                 <div class="card-body ">
