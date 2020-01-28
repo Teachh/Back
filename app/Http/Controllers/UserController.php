@@ -18,9 +18,9 @@ class UserController extends Controller
     {
         return view('users.index', ['users' => $model->paginate(15)]);
     }
-    public function show($id)
+    public function show($email)
     {
-        return User::where('id', $id)->get();
+        return User::where('email', $email)->get();
     }
     /**
      * Show the form for creating a new user

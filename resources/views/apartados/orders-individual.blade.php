@@ -58,11 +58,15 @@
   <div class="container mb-5 text-right">
   <div class="row ">
     <div class="col-md-12 col-lg-2 details mt-4 text-center mr-0 mr-xs-5" >
+      <form action="{{action('OrderController@setEntregado', $order->id)}}" method="POST" style="display:inline">
+          {{ method_field('PUT') }}
+          {{ csrf_field() }}
             @if(($order->finished==0))
-                <button type="button" class="btn btn-primary">{{__('web.entre')}}</button>
+                <button type="submit" class="btn btn-primary">{{__('web.entre')}}</button>
             @else
-                <button type="button" class="btn btn-primary">{{__('web.atras')}}</button>
+                <button type="submit" class="btn btn-primary">{{__('web.atras')}}</button>
             @endif
+      </form>
     </div>
     <div class=" col-md-12 col-lg-2 details mt-4 text-center">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">{{__('web.elim')}}</button>

@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use File;
-
+use App\Allergen;
+use App\Ingredient;
+use DB;
 class ProductController extends Controller
 {
     /**
@@ -15,7 +17,17 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Product::all();
+        $products = Product::all();
+        $array = [];
+        foreach ($products as $product) {
+            $array[] = $product;
+            // añadir ingredientes
+            $array[] = DB::select(DB::raw('select ingredients.name from ingredient_product,ingredients where ingredient_product.product_id = '. $product->id . ' and ingredient_product.ingredient_id = ingredients.id;'));
+            // añadir alergenos
+            $array[] = DB::select(DB::raw('select allergens.name from allergen_product,allergens where allergen_product.product_id = '. $product->id . ' and allergen_product.allergen_id = allergens.id;'));
+        }
+        return $array;
+;
     }
 
     public function indexDash()
@@ -59,6 +71,9 @@ class ProductController extends Controller
         $producto->category_id = request('categoria');
         $producto->save();
         $producto->ingredients()->sync(request('ingredientes'));
+        if (request('allergens')) {
+            $producto->allergens()->sync(request('allergens'));
+        }
 
         return redirect('/productos')->withStatus(__('web.product-created'));
     }
@@ -81,7 +96,22 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        return Product::where('id', $id)->get();
+        // ingredientes
+        $ingrInternos = Product::findOrFail($id)->ingredients;
+        $ingredientes = '';
+        foreach ($ingrInternos as $key => $value) {
+            $ingredientes .= $value->name . ',';
+        }
+        // alergenos
+        $alergInternos = Product::findOrFail($id)->allergens;
+        $alergenos = '';
+        foreach ($alergInternos as $key => $value) {
+            $alergenos .= $value->name  . ',';
+        }
+        // quitar coma
+        $ingredientes = substr_replace($ingredientes, '', -1);
+        $alergenos = substr_replace($alergenos, '', -1);
+        return [Product::where('id', $id)->get(), $ingredientes, $alergenos];
     }
 
     public function searchDash(Request $request)
@@ -111,7 +141,11 @@ class ProductController extends Controller
         foreach ($producto->ingredients as $ingredient) {
             $ingredients_array[] = $ingredient->id;
         }
-        return view('apartados.products-edit', compact('producto', 'ingredients_array'));
+        $allergens_array = [];
+        foreach ($producto->allergens as $allergen) {
+            $allergens_array[] = $allergen->id;
+        }
+        return view('apartados.products-edit', compact('producto', 'ingredients_array', 'allergens_array'));
     }
 
     public function putEditDash(Request $request, $id)
@@ -151,6 +185,11 @@ class ProductController extends Controller
         $o->category_id = request('categoria');
         $o->save();
         $o->ingredients()->sync(request('ingredientes'));
+        if (request('allergens')) {
+            $o->allergens()->sync(request('allergens'));
+        } else {
+            $o->allergens()->detach();
+        }
 
         $o = Product::findOrFail($id);
 
@@ -191,6 +230,7 @@ class ProductController extends Controller
         }
 
         $o->ingredients()->detach();
+        $o->allergens()->detach();
         $o->delete();
 
         return redirect('/productos')->withStatus(__('web.product-deleted'));

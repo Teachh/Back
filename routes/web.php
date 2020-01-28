@@ -65,6 +65,8 @@ Route::group(['middleware' => 'auth'], function () {
   Route::get('pedidos/search', 'OrderController@searchDash');
   Route::get('pedidos/{id}', 'OrderController@showDash');
   Route::put('pedidos/delete/{id}', 'OrderController@deleteDash');
+  Route::put('pedidos/edit/{id}', 'OrderController@setEntregado');
+  Route::get('pedidos', 'OrderController@indexDash')->name('apartados.orders');
   Route::get('pedidos', 'OrderController@indexDash')->name('apartados.orders');
   // Mensajes
   Route::get('mensajes', 'MessageController@indexDash')->name('apartados.messages');
