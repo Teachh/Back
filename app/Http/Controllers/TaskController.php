@@ -123,6 +123,17 @@ class TaskController extends Controller
 
 
 
+        public function putFinishDash(Request $request, $id)
+    {
+        $t =Task::findOrFail($id);
+        $t->finish = 1;
+        $t->save();
+
+        return redirect('/home#modalTask')->withStatus(__('web.task-created'));
+    }
+
+
+
     /**
      * Update the specified resource in storage.
      *

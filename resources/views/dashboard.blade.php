@@ -266,7 +266,16 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
                                         </div>
                                     </td>
                                     <td>
-                                        <p class="title">{{$nota->title}} [{{ $nota->user->name}}]</p>
+                                        <p class="title">
+                                          {{$nota->title}} 
+                                          [{{ $nota->user->name}}]
+                                          @if($nota->priority==1)
+                                          <span class="badge badge-pill badge-danger">PRIORITARIO</span>
+                                          @else
+
+                                          @endif
+
+                                        </p>
                                         <p class="text-muted">{{ $nota->subject}}</p>
                                     </td>
                                     <td class="td-actions text-right">
@@ -358,7 +367,7 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
                         </label>
                     </div>
 
-        <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">{{__('web.editar')}}</button>
+        <button type="submit" id="submit1" name="submit" class="btn btn-primary pull-right w-100">{{__('web.editar')}}</button>
 </form>
       </div>
     </div>
@@ -370,7 +379,8 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
     <div class="modal-dialog" role="document">
       <div class="modal-content text-center">
 
-<form class="w-85 text-center p-5">
+<form class="w-85 text-center p-5" action="{{action('TaskController@putFinishDash', $nota->id)}}" method="post">
+@csrf
 <br style="clear:both">
                     <h3 style="margin-bottom: 25px; text-align: center;"> {{$nota->title}} </h3>
                     <div class="form-group">
@@ -382,7 +392,8 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
                     <div class="form-group">
                         <p> {{$nota->limitdate}} </p>
                     </div>
-        <button type="button" id="submit" name="submit" class="btn btn-primary pull-right">{{__('web.acabado')}}</button>
+
+        <button type="submit" id="submit2" name="submit" class="btn btn-primary pull-right w-100">¡{{__('web.acabado')}}!</button>
 </form>
       </div>
     </div>
@@ -420,7 +431,7 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
                             </span>
                         </label>
                     </div>
-                <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">Submit Form</button>
+                <button type="submit" id="submit3" name="submit" class="btn btn-primary pull-right w-100">CREAR</button>
             </form>
         </div>
     </div>
