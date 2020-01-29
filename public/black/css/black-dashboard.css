@@ -18941,3 +18941,7 @@ Copyright (c) 2015 Daniel Eden
     object-fit: cover;
     border-radius: 5px;
 }
+
+.pagination{
+    margin-bottom: 0px;
+}

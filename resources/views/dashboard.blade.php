@@ -3,7 +3,7 @@
 @section('content')
   <script type="text/javascript">
   // Meses pedidos
-  var orders = @json($orders);
+  var orders = @json($orderss);
   function group_by_month(data) {
     var months = {
       '0':0,
@@ -19,6 +19,7 @@
       '10':0,
       '11':0
   }  ;
+
     for (var i=0; i<data.length; i++) {
        var obj = data[i];
        var date = new Date(obj.date);
@@ -179,6 +180,7 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="col-12 d-flex justify-content-center">{{ $orders->links() }}</div>
                     </div>
                 </div>
             </div>
@@ -257,7 +259,7 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
     </div>
     <div class="row">
         <div class="col-lg-12 col-md-12 order-4">
-            <div class="card card-tasks">
+            <div class="card card-tasks h-auto">
                 <div class="card-header ">
                     <h6 id="modalTask" class="title d-inline">{{__('web.notas')}}</h6>
                     <!--<p class="card-category d-inline">today</p>-->
@@ -289,7 +291,7 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
                                     </td>
                                     <td>
                                         <p class="title">
-                                          {{$nota->title}} 
+                                          {{$nota->title}}
                                           [{{ $nota->user->name}}]
                                           @if($nota->finish==1)
                                           <span class="badge badge-pill badge-success">{{__('web.acabado')}}</span>
@@ -319,8 +321,8 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
                                 </tr>
                                 @endforeach
                             </tbody>
-                            <div>{{ $notes->links() }}</div>
                         </table>
+                      <div class="col-12 d-flex justify-content-center">{{ $notes->links() }}</div>
                     </div>
                 </div>
             </div>

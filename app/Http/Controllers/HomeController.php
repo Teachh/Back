@@ -28,7 +28,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $notes = Task::orderBy('initdate','asc')->paginate(2, ['*'], 'notes');
+        $notes = Task::orderBy('initdate','asc')->paginate(5, ['*'], 'notes');
         $orders = Order::orderBy('date','asc')->orderBy('id')->get();
         $price=0;
         foreach ($orders as $pedido) {
@@ -39,7 +39,9 @@ class HomeController extends Controller
             $order->update(['price' => $price]);
             $price=0;
         }
-        $orders = Order::orderBy('date','asc')->orderBy('id')->paginate(2, ['*'], 'orders');
+        $orders = Order::orderBy('date','asc')->orderBy('id')->paginate(5, ['*'], 'orders');
+        $orderss = Order::all();
+
 
         $products = Product::all();
         $ingredientes = array();
@@ -49,6 +51,6 @@ class HomeController extends Controller
           }
         }
 
-        return view('dashboard',compact('orders','notes','ingredientes'));
+        return view('dashboard',compact('orders','orderss','notes','ingredientes'));
     }
 }
