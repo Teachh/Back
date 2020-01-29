@@ -110,11 +110,10 @@ class TaskController extends Controller
         $o->subject = $request->input('subject');
         $o->body =  $request->input('body');
         $o->limitdate = $request->input('limitdate');
-        if( $request->has('tipusUrgencia')){
-            $o->priority=1;
-        }
-        else{
-            $o->priority=0;
+        if ($request->has('tipusUrgencia')) {
+            $o->priority = 1;
+        } else {
+            $o->priority = 0;
         }
         $o->save();
 
@@ -123,14 +122,13 @@ class TaskController extends Controller
 
 
 
-        public function putFinishDash(Request $request, $id)
+    public function putFinishDash(Request $request, $id)
     {
-        $t =Task::findOrFail($id);
-        if( $request->has('finishA')){
-            $t->finish=1;
-        }
-        else{
-            $t->finish=0;
+        $t = Task::findOrFail($id);
+        if ($request->has('finishA')) {
+            $t->finish = 1;
+        } else {
+            $t->finish = 0;
         }
         $t->save();
 
@@ -170,5 +168,13 @@ class TaskController extends Controller
         $o->delete();
 
         return redirect('/home#modalTask')->withStatus(__('web.nota-deleted'));
+    }
+
+    function fetch_data(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = Task::paginate(5);
+            return view('dashboard', compact('data'))->render();
+        }
     }
 }

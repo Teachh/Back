@@ -369,7 +369,7 @@ demo = {
     var data = {
       labels: [ingredientesOrdenadosNombre[0], ingredientesOrdenadosNombre[1], ingredientesOrdenadosNombre[2], ingredientesOrdenadosNombre[3], ingredientesOrdenadosNombre[4]],
       datasets: [{
-        label: "My First dataset",
+        label: "Ingredients",
         fill: true,
         backgroundColor: gradientStroke,
         borderColor: '#00d6b4',
