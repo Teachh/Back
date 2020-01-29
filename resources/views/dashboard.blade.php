@@ -180,6 +180,7 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
                                 @endforeach
                             </tbody>
                         </table>
+                        <div class="text-center">{{ $orders->links() }}</div>
                     </div>
                 </div>
             </div>
