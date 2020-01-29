@@ -28,7 +28,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $notes = Task::orderBy('initdate','asc')->paginate(2);
+        $notes = Task::orderBy('initdate','asc')->paginate(2, ['*'], 'notes');
         $orders = Order::orderBy('date','asc')->orderBy('id')->get();
         $price=0;
         foreach ($orders as $pedido) {
@@ -39,7 +39,7 @@ class HomeController extends Controller
             $order->update(['price' => $price]);
             $price=0;
         }
-        $orders = Order::orderBy('date','asc')->orderBy('id')->paginate(2);
+        $orders = Order::orderBy('date','asc')->orderBy('id')->paginate(2, ['*'], 'orders');
 
         $products = Product::all();
         $ingredientes = array();
