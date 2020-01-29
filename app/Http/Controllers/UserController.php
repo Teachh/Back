@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Http\Requests\UserRequest;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Http\Request;
+use Auth;
 class UserController extends Controller
 {
     /**
@@ -40,10 +41,23 @@ class UserController extends Controller
      * @return \Illuminate\Http\RedirectResponse
      */
     // NO SE PUEDEN CREAR USUARIOS
-    public function store(UserRequest $request)
+    public function store(Request $request)
     {
-      $user = User::create($request->all());
-      return response()->json($user, 201);
+
+      //$user = User::where([['email' , $request->user],['password', Hash::make($request->password)]])->get();
+      //$user = User::whereEmail($request->user)->wherePassword(Hash::make($request->password))->first();
+      //$user = User::whereName($request->user)->wherePassword(Hash::make($request->password))->first();
+      $credentials = array(
+            'name' => $request->user,
+            'password' => $request->password
+        );
+      if (Auth::attempt($credentials))
+      {
+        return response()->json(Auth::attempt($credentials), 201);
+      }
+      else{
+        return response()->json(Auth::attempt($credentials), 400);
+      }
     }
 
     /**

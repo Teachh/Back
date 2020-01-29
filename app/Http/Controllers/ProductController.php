@@ -19,12 +19,26 @@ class ProductController extends Controller
     {
         $products = Product::all();
         $array = [];
+        $ingr = '';
+        $aler = '';
         foreach ($products as $product) {
-            $array[] = $product;
             // añadir ingredientes
-            $array[] = DB::select(DB::raw('select ingredients.name from ingredient_product,ingredients where ingredient_product.product_id = '. $product->id . ' and ingredient_product.ingredient_id = ingredients.id;'));
+            $ingredientes =  DB::select(DB::raw('select ingredients.name from ingredient_product,ingredients where ingredient_product.product_id = '. $product->id . ' and ingredient_product.ingredient_id = ingredients.id;'));
+            foreach ($ingredientes as $key) {
+              $ingr .= $key->name.', ';
+            }
+            $ingr = substr_replace($ingr, '', -2);
+            $product['ingredients'] = $ingr;
             // añadir alergenos
-            $array[] = DB::select(DB::raw('select allergens.name from allergen_product,allergens where allergen_product.product_id = '. $product->id . ' and allergen_product.allergen_id = allergens.id;'));
+            $alergenos =  DB::select(DB::raw('select allergens.name from allergen_product,allergens where allergen_product.product_id = '. $product->id . ' and allergen_product.allergen_id = allergens.id;'));
+            foreach ($alergenos as $key) {
+              $aler .= $key->name.', ';
+            }
+            $aler = substr_replace($aler, '', -2);
+            $product['allergens'] = $aler;
+            $array[] = $product;
+            $ingr = '';
+            $aler = '';
         }
         return $array;
 ;
