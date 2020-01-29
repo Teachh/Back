@@ -102,7 +102,7 @@
                             @if($nota->priority==1)
                                <div class="form-check">
                                   <label class="form-check-label">
-                                  <input class="form-check-input" type="checkbox" value="" checked>
+                                  <input class="form-check-input" type="checkbox" name="tipusUrg" value="" checked>
                               <span class="form-check-sign">
                                   <span class="check">{{__('web.urgent')}}</span>
                                   </span>
@@ -111,7 +111,7 @@
                             @else
                                <div class="form-check">
                                 <label class="form-check-label">
-                                  <input class="form-check-input" type="checkbox" value="">
+                                  <input class="form-check-input" type="checkbox" name="tipusUrg" value="">
                                      <span class="form-check-sign">
                                     <span class="check">{{__('web.urgent')}}</span>
                                     </span>
