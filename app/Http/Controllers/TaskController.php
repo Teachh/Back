@@ -110,7 +110,8 @@ class TaskController extends Controller
         $o->subject = $request->input('subject');
         $o->body =  $request->input('body');
         $o->limitdate = $request->input('limitdate');
-        if ($request->has('tipusUrgencia')) {
+        $priority = $request->input('tipusUrgencia');
+        if ($priority==1) {
             $o->priority = 1;
         } else {
             $o->priority = 0;
