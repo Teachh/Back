@@ -469,15 +469,15 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
                     <h3 style="margin-bottom: 25px; text-align: center; color:grey;">Crear Tasca</h3>
                     <div class="form-group">
                         <label>{{__('web.notaTitu')}}</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="titol" required>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="{{__('web.notaTitu')}}" required>
                     </div>
                     <div class="form-group">
                         <label>{{__('web.notaAssu')}}</label>
-                        <input type="text" class="form-control" id="email" name="email" placeholder="assumpte" required>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="{{__('web.notaAssu')}}" required>
                     </div>
                     <div class="form-group">
                         <label>{{__('web.cos')}}</label>
-                            <textarea class="form-control" type="textarea" id="message" name="message" placeholder="Message" maxlength="140" rows="7" style="color:grey;"></textarea>
+                            <textarea class="form-control" type="textarea" id="message" name="message" placeholder="{{__('web.mensaje')}}" maxlength="140" rows="7" style="color:grey;"></textarea>
                         <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>
                     </div>
                     <div class="form-group">
@@ -487,7 +487,7 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
                         <label class="form-check-label">
                             <input class="form-check-input" id="tipusUrgencia" name="tipusUrgencia" type="checkbox" value="0">
                             <span class="form-check-sign">
-                                <span class="check">Urgent</span>
+                                <span class="check">{{__('web.urgent')}}</span>
                             </span>
                         </label>
                     </div>
