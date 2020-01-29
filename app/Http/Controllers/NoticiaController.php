@@ -15,7 +15,12 @@ class NoticiaController extends Controller
      */
     public function index()
     {
-        return Noticia::all();
+        $noticias = Noticia::all();
+        foreach ($noticias as $not){
+            $not->content_long = $not->content;
+            $not->content = (strlen($not->content) > 24)? substr($not->content,0,24).'...': $not->content;
+        }
+        return $noticias;
     }
 
     public function indexDash()
