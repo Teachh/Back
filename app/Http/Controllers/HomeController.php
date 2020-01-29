@@ -28,8 +28,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $notes = Task::orderBy('initdate','asc')->limit(6)->get();
-        $orders = Order::orderBy('date','asc')->orderBy('id')->limit(10)->get();
+        $notes = Task::orderBy('initdate','asc')->paginate(2);
+        $orders = Order::orderBy('date','asc')->orderBy('id')->get();
         $price=0;
         foreach ($orders as $pedido) {
             $order = Order::findOrFail($pedido->id);
@@ -39,7 +39,7 @@ class HomeController extends Controller
             $order->update(['price' => $price]);
             $price=0;
         }
-        $orders = Order::orderBy('date','asc')->orderBy('id')->limit(10)->get();
+        $orders = Order::orderBy('date','asc')->orderBy('id')->paginate(2);
 
         $products = Product::all();
         $ingredientes = array();

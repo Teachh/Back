@@ -319,6 +319,7 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
                                 </tr>
                                 @endforeach
                             </tbody>
+                            <div>{{ $notes->links() }}</div>
                         </table>
                     </div>
                 </div>

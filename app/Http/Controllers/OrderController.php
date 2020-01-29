@@ -117,7 +117,7 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
         $order->delete();
 
-        return redirect('/pedidos')->withStatus(__('web.order-deleted'));
+        return redirect('/home')->withStatus(__('web.order-deleted'));
     }
 
     public function setEntregado($id){
@@ -129,6 +129,6 @@ class OrderController extends Controller
         $order->finished = true;
       }
       $order->save();
-      return redirect('/pedidos');
+      return redirect('/home');
     }
 }
