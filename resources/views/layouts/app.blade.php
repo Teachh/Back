@@ -70,20 +70,13 @@
 
         <script src="{{ asset('black') }}/js/black-dashboard.min.js?v=1.0.0"></script>
         <script src="{{ asset('black') }}/js/theme.js"></script>
+        <script src="{{ asset('black') }}/js/public.js"></script>
 
         @stack('js')
 
         <script>
-            window.onload = function() {
-                $('.js-example-basic-multiple').select2();
-                $(".datepicker").datepicker({
-                    dateFormat: 'yy-mm-dd',
-                    firstDay: 1
-                });
-            }
             $(document).ready(function() {
 
-                $('.js-example-basic-multiple').select2();
                 $().ready(function() {
                     $sidebar = $('.sidebar');
                     $navbar = $('.navbar');

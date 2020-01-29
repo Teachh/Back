@@ -108,4 +108,5 @@ Route::group(['middleware' => 'auth'], function () {
   Route::put('delete/{id}', 'TaskController@deleteDash');
   Route::post('edit/{id}', 'TaskController@putEditDash');
   Route::post('view/{id}', 'TaskController@putFinishDash');
+  Route::get('pagination/fetch_data', 'TaskController@fetch_data');
 });
