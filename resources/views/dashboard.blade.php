@@ -4,6 +4,7 @@
   <script type="text/javascript">
   // Meses pedidos
   var orders = @json($orders);
+  console.log(orders);
   function group_by_month(data) {
     var months = {
       '0':0,
@@ -19,8 +20,9 @@
       '10':0,
       '11':0
   }  ;
-    for (var i=0; i<data.length; i++) {
-       var obj = data[i];
+
+    for (var i=0; i<data.data.length; i++) {
+       var obj = data.data[i];
        var date = new Date(obj.date);
        var month = date.getMonth();
        if (months[month]) {
@@ -290,7 +292,7 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
                                     </td>
                                     <td>
                                         <p class="title">
-                                          {{$nota->title}} 
+                                          {{$nota->title}}
                                           [{{ $nota->user->name}}]
                                           @if($nota->finish==1)
                                           <span class="badge badge-pill badge-success">{{__('web.acabado')}}</span>

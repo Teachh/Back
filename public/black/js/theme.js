@@ -397,7 +397,6 @@ demo = {
     var chart_labels = ['GEN', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGT', 'SEP', 'OCT', 'NOV', 'DEC'];
     var chart_data = [ordersGroup[0].length, ordersGroup[1].length, ordersGroup[2].length, ordersGroup[3].length, ordersGroup[4].length, ordersGroup[5].length, ordersGroup[6].length, ordersGroup[7].length, ordersGroup[8].length, ordersGroup[9].length, ordersGroup[10].length, ordersGroup[11].length];
 
-
     var ctx = document.getElementById("chartBig1").getContext('2d');
 
     var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
@@ -461,7 +460,7 @@ demo = {
           borderWidth: 2,
           borderDash: [],
           borderDashOffset: 0.0,
-          data: [productosOrdeandos[productosOrdeandosNombre[0]].length, productosOrdeandos[productosOrdeandosNombre[1]].length, productosOrdeandos[productosOrdeandosNombre[2]].length, 4, 5],
+          data: [productosOrdeandos[productosOrdeandosNombre[0]].length, 10, 5, 4, 5],
           //labels: [productosOrdeandos[productosOrdeandosNombre[0]].length, productosOrdeandos[productosOrdeandosNombre[1]].length, productosOrdeandos[productosOrdeandosNombre[2]].length, productosOrdeandos[productosOrdeandosNombre[3]].length, productosOrdeandos[productosOrdeandosNombre[4]].length],
         }]
       },
