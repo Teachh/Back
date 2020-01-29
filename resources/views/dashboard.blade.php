@@ -3,8 +3,7 @@
 @section('content')
   <script type="text/javascript">
   // Meses pedidos
-  var orders = @json($orders);
-  console.log(orders);
+  var orders = @json($orderss);
   function group_by_month(data) {
     var months = {
       '0':0,
@@ -21,8 +20,8 @@
       '11':0
   }  ;
 
-    for (var i=0; i<data.data.length; i++) {
-       var obj = data.data[i];
+    for (var i=0; i<data.length; i++) {
+       var obj = data[i];
        var date = new Date(obj.date);
        var month = date.getMonth();
        if (months[month]) {

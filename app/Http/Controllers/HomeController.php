@@ -40,6 +40,8 @@ class HomeController extends Controller
             $price=0;
         }
         $orders = Order::orderBy('date','asc')->orderBy('id')->paginate(2, ['*'], 'orders');
+        $orderss = Order::all();
+
 
         $products = Product::all();
         $ingredientes = array();
@@ -49,6 +51,6 @@ class HomeController extends Controller
           }
         }
 
-        return view('dashboard',compact('orders','notes','ingredientes'));
+        return view('dashboard',compact('orders','orderss','notes','ingredientes'));
     }
 }
