@@ -56,7 +56,7 @@ class UserController extends Controller
         return response()->json(Auth::attempt($credentials), 201);
       }
       else{
-        return response()->json($credentials, 420);
+        return response()->json(Auth::attempt($credentials), 500);
       }
     }
 
