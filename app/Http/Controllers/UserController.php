@@ -82,7 +82,17 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(UserRequest $request, User  $user)
+    public function update(Request $request, $id)
+    {
+      
+        $user = User::find($id);
+        $user->update($request->all());
+
+        return response()->json($user, 200);
+      
+    }
+
+    public function updateDash(UserRequest $request, User  $user)
     {
         $hasPassword = $request->get('password');
         $user->update(
