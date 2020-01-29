@@ -48,15 +48,15 @@ class UserController extends Controller
       //$user = User::whereEmail($request->user)->wherePassword(Hash::make($request->password))->first();
       //$user = User::whereName($request->user)->wherePassword(Hash::make($request->password))->first();
       $credentials = array(
-            'name' => $request->user,
-            'password' => $request->password
+            'name' => $request->input('user'),
+            'password' => $request->input('password')
         );
       if (Auth::attempt($credentials))
       {
         return response()->json(Auth::attempt($credentials), 201);
       }
       else{
-        return response()->json($request->user, 420);
+        return response()->json($credentials, 420);
       }
     }
 
