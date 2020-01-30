@@ -460,8 +460,8 @@ demo = {
           borderWidth: 2,
           borderDash: [],
           borderDashOffset: 0.0,
-          data: [productosOrdeandos[productosOrdeandosNombre[0]].length, 10, 5, 4, 5],
-          //labels: [productosOrdeandos[productosOrdeandosNombre[0]].length, productosOrdeandos[productosOrdeandosNombre[1]].length, productosOrdeandos[productosOrdeandosNombre[2]].length, productosOrdeandos[productosOrdeandosNombre[3]].length, productosOrdeandos[productosOrdeandosNombre[4]].length],
+          //data: [productosOrdeandos[productosOrdeandosNombre[0]].length, 10, 5, 4, 5],
+          data: [productosOrdeandos[productosOrdeandosNombre[0]].length, productosOrdeandos[productosOrdeandosNombre[1]].length, productosOrdeandos[productosOrdeandosNombre[2]].length, productosOrdeandos[productosOrdeandosNombre[3]].length, productosOrdeandos[productosOrdeandosNombre[4]].length],
         }]
       },
       options: gradientBarChartConfiguration
