@@ -63,9 +63,7 @@
           <li>
               <a href="{{ route('apartados.orders') }}">
                   <i class="tim-icons icon-bag-16"></i>
-                  <p>{{ __('web.orders') }} <span style="
-  border-radius: 50%;padding: 0.3rem;padding-left: 0.5rem;padding-right: 0.5rem;text-align: center;
-  background: #27283d">{{App\Order::where('finished',1)->get()->count()}}</span></p>
+                  <p>{{ __('web.orders') }} <span style="border-radius: 50%;padding: 0.3rem;padding-left: 0.5rem;padding-right: 0.5rem;text-align: center; background: #27283d">{{App\Order::where('finished',0)->get()->count()}}</span></p>
               </a>
           </li>
 
