@@ -48,15 +48,15 @@ class UserController extends Controller
       //$user = User::whereEmail($request->user)->wherePassword(Hash::make($request->password))->first();
       //$user = User::whereName($request->user)->wherePassword(Hash::make($request->password))->first();
       $credentials = array(
-            'name' => $request->user,
-            'password' => $request->password
+            'name' => $request->input('user'),
+            'password' => $request->input('password')
         );
       if (Auth::attempt($credentials))
       {
         return response()->json(Auth::attempt($credentials), 201);
       }
       else{
-        return response()->json(Auth::attempt($credentials), 400);
+        return response()->json('No funciona', 201);
       }
     }
 
@@ -84,12 +84,12 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-      
+
         $user = User::find($id);
         $user->update($request->all());
 
         return response()->json($user, 200);
-      
+
     }
 
     public function updateDash(UserRequest $request, User  $user)

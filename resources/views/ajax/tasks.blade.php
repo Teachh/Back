@@ -17,12 +17,12 @@
                   {{$nota->title}}
                   [{{ $nota->user->name}}]
                   @if($nota->finish==1)
-                  <span class="badge badge-pill badge-success">{{__('web.acabado')}}</span>
+                    <span class="badge badge-pill badge-success">{{__('web.acabado')}}</span>
                   @else
-                  <span class="badge badge-pill badge-warning">Pendiente</span>
+                    <span class="badge badge-pill badge-warning">Pendiente</span>
                   @endif
                   @if($nota->priority==1)
-                  <span class="badge badge-pill badge-danger">PRIORITARIO</span>
+                    <span class="badge badge-pill badge-danger">PRIORITARIO</span>
                   @else
 
                   @endif
@@ -75,13 +75,13 @@
 
 
     <!-- Modal -->
-<div class="modal fade" id="{{ str_replace(' ', '', $nota->title) }}edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: -100px;">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content text-center">
+    <div class="modal fade" id="{{ str_replace(' ', '', $nota->title) }}edit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin-top: -100px;">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content text-center">
 
-<form class="w-85 text-center p-5"action="{{action('TaskController@putEditDash', $nota->id)}}"  method="post">
-@csrf
-<br style="clear:both">
+                <form class="w-85 text-center p-5"action="{{action('TaskController@putEditDash', $nota->id)}}"  method="post">
+                    @csrf
+                    <br style="clear:both">
                     <h3 style="margin-bottom: 25px; text-align: center;">{{__('web.editar')}} </h3>
                     <div class="form-group">
 
@@ -100,42 +100,42 @@
                     <div class="form-group">
                         <label class="form-check-label">
                             @if($nota->priority==1)
-                               <div class="form-check">
-                                  <label class="form-check-label">
-                                  <input class="form-check-input" type="checkbox" name="tipusUrg" value="" checked>
-                              <span class="form-check-sign">
-                                  <span class="check">{{__('web.urgent')}}</span>
-                                  </span>
-                                  </label>
-                                </div>
-                            @else
-                               <div class="form-check">
-                                <label class="form-check-label">
-                                  <input class="form-check-input" type="checkbox" name="tipusUrg" value="">
-                                     <span class="form-check-sign">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" name="tipusUrg" value="" checked>
+                                <span class="form-check-sign">
                                     <span class="check">{{__('web.urgent')}}</span>
                                     </span>
-                                 </label>
-                               </div>
+                                    </label>
+                                </div>
+                            @else
+                                <div class="form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" name="tipusUrg" value="">
+                                        <span class="form-check-sign">
+                                    <span class="check">{{__('web.urgent')}}</span>
+                                    </span>
+                                    </label>
+                                </div>
                             @endif
                         </label>
                     </div>
 
-        <button type="submit" id="submit1" name="submit" class="btn btn-primary pull-right w-100">{{__('web.editar')}}</button>
-</form>
-      </div>
+                    <button type="submit" id="submit1" name="submit" class="btn btn-primary pull-right w-100">{{__('web.editar')}}</button>
+                </form>
+            </div>
+        </div>
     </div>
-  </div>
 
 
-      <!-- Modal -->
-      <div class="modal fade" id="{{ str_replace(' ', '', $nota->title) }}view" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content text-center">
+    <!-- Modal -->
+    <div class="modal fade" id="{{ str_replace(' ', '', $nota->title) }}view" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content text-center">
 
-<form class="w-85 text-center p-5" action="{{action('TaskController@putFinishDash', $nota->id)}}" method="post">
-@csrf
-<br style="clear:both">
+                <form class="w-85 text-center p-5" action="{{action('TaskController@putFinishDash', $nota->id)}}" method="post">
+                    @csrf
+                    <br style="clear:both">
                     <h3 style="margin-bottom: 25px; text-align: center;"> {{$nota->title}} </h3>
                     <div class="form-group">
                         <h5> {{$nota->subject}} </h5>
@@ -171,9 +171,9 @@
                         </label>
                     </div>
 
-        <button type="submit" id="submit2" name="submit" class="btn btn-primary pull-right w-100">Confirmar</button>
-</form>
-      </div>
-    </div>
+                    <button type="submit" id="submit2" name="submit" class="btn btn-primary pull-right w-100">Confirmar</button>
+                </form>
+            </div>
+        </div>
   </div>
 @endforeach
