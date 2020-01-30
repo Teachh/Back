@@ -31,7 +31,7 @@ class HomeController extends Controller
     {
         // ajax requests for pagination enter here
         if ($request->ajax()) {
-            $orders = Order::orderBy('date', 'asc')->orderBy('id')->paginate(5, ['*'], 'orders');
+            $orders = Order::where('finished', 0)->orderBy('date', 'asc')->orderBy('id')->paginate(5, ['*'], 'orders');
             $notes = Task::orderBy('initdate', 'asc')->paginate(5, ['*'], 'notes');
             // return tasks table if table variable is received
             if ($request['table']) {
@@ -52,7 +52,7 @@ class HomeController extends Controller
             $order->update(['price' => $price]);
             $price = 0;
         }
-        $orders = Order::orderBy('date', 'asc')->orderBy('id')->paginate(5, ['*'], 'orders');
+        $orders = Order::where('finished', 0)->orderBy('date', 'asc')->paginate(5, ['*'], 'orders');
         $orderss = Order::all();
         $ordersRestantes = Order::where('finished', 1)->get();
         $ordersRestantes = $ordersRestantes->count();

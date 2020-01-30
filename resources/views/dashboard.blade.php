@@ -218,9 +218,6 @@ var ingredientesOrdenados = classify(ingredientesSueltos);
     </div>
 </div>
 
-<script type="text/javascript">
-    $('#datetimepicker').data("DateTimePicker").FUNCTION()
-</script>
 @endsection
 
 @push('js')
