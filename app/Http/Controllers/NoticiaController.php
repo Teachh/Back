@@ -155,20 +155,6 @@ class NoticiaController extends Controller
         return view('apartados.noticias-edit', compact('noticia'));
     }
 
-    public function eyeDash(Request $request, $id)
-    {
-        $p = new Noticia;
-        $o = $p->findOrFail($id);
-        if(request('actiu')=="on"){
-            $o->activo = 1;
-        } else {
-            $o->activo = 0;
-        }
-        $o->save();
-        $o = Noticia::findOrFail($id);
-        return redirect('/noticias')->withStatus(__('web.article-updated'));
-    }
-
     public function putEditDash(Request $request, $id)
     {
         $p = new Noticia;
