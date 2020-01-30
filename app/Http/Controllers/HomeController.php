@@ -51,7 +51,8 @@ class HomeController extends Controller
         }
         $orders = Order::orderBy('date', 'asc')->orderBy('id')->paginate(5, ['*'], 'orders');
         $orderss = Order::all();
-
+        $ordersRestantes = Order::where('finished',1)->get();
+        $ordersRestantes = $ordersRestantes->count();
 
         $products = Product::all();
         $ingredientes = array();
