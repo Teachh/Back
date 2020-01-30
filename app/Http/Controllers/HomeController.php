@@ -30,8 +30,13 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
+            $orders = Order::orderBy('date', 'asc')->orderBy('id')->paginate(5, ['*'], 'orders');
             $notes = Task::orderBy('initdate', 'asc')->paginate(5, ['*'], 'notes');
-            return view('ajax.tasks', compact('notes'))->render();
+            if ($request['table']) {
+                return view('ajax.tasks', compact('notes'))->render();
+            } else {
+                return view('ajax.orders', compact('orders'))->render();
+            }
         }
         $notes = Task::orderBy('initdate', 'asc')->paginate(5, ['*'], 'notes');
         $orders = Order::orderBy('date', 'asc')->orderBy('id')->get();

@@ -169,12 +169,4 @@ class TaskController extends Controller
 
         return redirect('/home#modalTask')->withStatus(__('web.nota-deleted'));
     }
-
-    function fetch_data(Request $request)
-    {
-        if ($request->ajax()) {
-            $data = Task::paginate(5);
-            return view('dashboard', compact('data'))->render();
-        }
-    }
 }
