@@ -41,6 +41,19 @@
                     </span>
                 @enderror
             </div>
+            <div class="form-group">
+                <label for="actiu">{{__('web.activo')}}</label>
+                @if($noticia->activo==1)
+                <input name="actiu" type="checkbox" class="form-control @error('activo') is-invalid @enderror" checked>
+                @else
+                <input name="actiu" type="checkbox" class="form-control @error('activo') is-invalid @enderror">
+                @endif
+                @error('activo')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
             <button type="submit" class="btn btn-primary">{{__('web.editar')}}</button>
         </form>
     </div>

@@ -142,5 +142,6 @@ return [
     'back' => 'Volver',
     'notTitulo' => 'Titulo de la noticia',
     'notContent' => 'Contenido de la noticia',
-    'crear-task'=>'Crear nota'
+    'crear-task'=>'Crear nota',
+    'activo'=>'Visible',
 ];

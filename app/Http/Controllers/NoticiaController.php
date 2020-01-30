@@ -109,7 +109,8 @@ class NoticiaController extends Controller
         $this->validate($request, [
             'noticia' => ['required', 'string'],
             'contenido' => ['required'],
-            'imagen' => ['required', 'image']
+            'imagen' => ['required', 'image'],
+            'activo' => ['boolean']
         ]);
 
         $image = $request->file('imagen');
@@ -121,6 +122,14 @@ class NoticiaController extends Controller
         $noticia->title = request('noticia');
         $noticia->content = request('contenido');
         $noticia->image = $filename;
+        if(request('actiu')=="on")
+        {
+            $noticia->activo = 1;
+        } 
+        else 
+        {
+            $noticia->activo = 0;
+        }
         $noticia->save();
 
         return redirect('/noticias')->withStatus(__('web.article-created'));
@@ -146,12 +155,31 @@ class NoticiaController extends Controller
         return view('apartados.noticias-edit', compact('noticia'));
     }
 
+    public function eyeDash(Request $request, $id)
+    {
+        $p = new Noticia;
+        $o = $p->findOrFail($id);
+        if(request('actiu')=="on"){
+            $o->activo = 1;
+        } else {
+            $o->activo = 0;
+        }
+        $o->save();
+        $o = Noticia::findOrFail($id);
+        return redirect('/noticias')->withStatus(__('web.article-updated'));
+    }
+
     public function putEditDash(Request $request, $id)
     {
         $p = new Noticia;
         $o = $p->findOrFail($id);
         $o->title = request('noticia');
         $o->content = request('contenido');
+        if(request('actiu')=="on"){
+            $o->activo = 1;
+        } else {
+            $o->activo = 0;
+        }
         if ($request->file('imagen')) {
             // delete product's image
             $image = public_path() . '/assets/img/plates/' . $o->image;

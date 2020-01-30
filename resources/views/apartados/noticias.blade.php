@@ -43,10 +43,19 @@
             <td class="td-actions text-right">
                 <a href="{{ url('noticias/edit/'. $not->id ) }}">
                   <button type="button" class="btn btn-success btn-link btn-icon btn-sm" data-toggle="tooltip" data-placement="top" title="{{ __('web.edit-article') }}"><i class="tim-icons icon-settings"></i></button>
-                </a>
-                    <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline" data-toggle="modal" data-placement="top" title="{{ __('web.delete-article') }}" data-target="#{{ str_replace(' ', '', $not->title) }}">
-                        <span class="tim-icons icon-simple-remove"></span>
-                    </button>
+                </a>    
+                <button type="submit" class="btn btn-danger btn-link btn-icon btn-sm" style="display:inline" data-toggle="modal" data-placement="top" title="{{ __('web.delete-article') }}" data-target="#{{ str_replace(' ', '', $not->title) }}">
+                  <span class="tim-icons icon-simple-remove"></span>
+                </button>
+                @if(($not->activo==1))
+                <button type="submit" class="btn btn-succes btn-link btn-icon btn-sm" style="display:inline" data-toggle="modal" data-placement="top" title="{{__('web.activo')}}">
+                  <i class="fas fa-eye"></i>
+                </button>
+                @else
+                <button type="submit" class="btn btn-succes btn-link btn-icon btn-sm" style="display:inline" data-toggle="modal" data-placement="top" title="{{__('web.activo')}}">
+                  <i class="fas fa-eye-slash"></i>
+                </button>
+                @endif
             </td>
         </tr>
       @endforeach
