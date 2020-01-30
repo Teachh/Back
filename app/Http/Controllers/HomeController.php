@@ -29,12 +29,15 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
+        // ajax requests for pagination enter here
         if ($request->ajax()) {
             $orders = Order::orderBy('date', 'asc')->orderBy('id')->paginate(5, ['*'], 'orders');
             $notes = Task::orderBy('initdate', 'asc')->paginate(5, ['*'], 'notes');
+            // return tasks table if table variable is received
             if ($request['table']) {
                 return view('ajax.tasks', compact('notes'))->render();
             } else {
+                // return orders table
                 return view('ajax.orders', compact('orders'))->render();
             }
         }
@@ -51,7 +54,7 @@ class HomeController extends Controller
         }
         $orders = Order::where('finished',0)->orderBy('date', 'asc')->paginate(5, ['*'], 'orders');
         $orderss = Order::all();
-        $ordersRestantes = Order::where('finished',1)->get();
+        $ordersRestantes = Order::where('finished', 1)->get();
         $ordersRestantes = $ordersRestantes->count();
 
         $products = Product::all();

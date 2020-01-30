@@ -130,4 +130,5 @@ return [
     'article-created' => 'Article created successfully!',
     'article-updated' => 'Article updated successfully!',
     'article-deleted' => 'Article deleted successfully!',
+    'activo'=>'Visible',
 ];

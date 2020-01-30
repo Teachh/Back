@@ -103,6 +103,7 @@ Route::group(['middleware' => 'auth'], function () {
   Route::get('noticias/crear', function () {
     return view('apartados.noticias-create');
   })->name('noticias.create');
+  //Route::put('noticias/eye/{id}','NoticiaController@eyeDash');
   //tascas
   Route::post('home', 'TaskController@createDash');
   Route::put('delete/{id}', 'TaskController@deleteDash');
