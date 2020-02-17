@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Order;
+use App\Product;
 
 class OrderController extends Controller
 {
@@ -40,6 +41,7 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $order = Order::create($request->all());
+        //$products = Product::all();
         return response()->json($order, 201);
     }
 

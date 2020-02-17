@@ -15,7 +15,6 @@
         <button type="submit" class="btn btn-primary mt-3 mt-sm-0">{{__('web.buscar')}}</button>
       </div>
     </div>
-
   </form>
 </div>
   <a href="{{ route('alergenos.create') }}">

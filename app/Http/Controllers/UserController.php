@@ -51,13 +51,19 @@ class UserController extends Controller
             'name' => $request->input('user'),
             'password' => $request->input('password')
         );
-      if (Auth::attempt($credentials))
-      {
-        return response()->json(Auth::attempt($credentials), 201);
-      }
-      else{
-        return response()->json('No funciona', 201);
-      }
+    $resultado = [];
+    $resultado['valido'] = Auth::attempt($credentials);
+    $resultado['id'] =User::where('name',$request->input('user'))->get()->id;
+    $resultado['email'] = User::where('email',$request->input('email'))->get()->id;
+    //   if (Auth::attempt($credentials))
+    //   {
+    //     return response()->json(Auth::attempt($credentials), 201);
+    //   }
+    //   else{
+    //     return response()->json('No funciona', 201);
+    //   }
+
+    return response()->json($resultado, 200);
     }
 
     /**
