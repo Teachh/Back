@@ -51,10 +51,11 @@ class UserController extends Controller
             'name' => $request->input('user'),
             'password' => $request->input('password')
         );
+        $user = User::where('name',$request->name)->get();
     $resultado = [];
     $resultado['valido'] = Auth::attempt($credentials);
-    $resultado['id'] =User::where('name',$request->input('user'))->get()->id;
-    $resultado['email'] = User::where('email',$request->input('email'))->get()->id;
+    $resultado['id'] = $user[0]->id;
+    $resultado['email'] = $user[0]->email;
     //   if (Auth::attempt($credentials))
     //   {
     //     return response()->json(Auth::attempt($credentials), 201);
